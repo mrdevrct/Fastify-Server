@@ -47,3 +47,73 @@
 ❗ [ERROR] 05/15/2025, 07:32:17 PM | Error uploading ticket file: File size is required and cannot be zero
 ❗ [ERROR] 05/15/2025, 07:32:32 PM | ❌ Error uploading ticket file: File size is required and cannot be zero
 ❗ [ERROR] 05/15/2025, 07:32:32 PM | Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:45:07 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:45:08 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:45:16 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:45:17 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:46:06 PM | Error sending message: Cannot read properties of undefined (reading 'ticketId')
+❗ [ERROR] 05/15/2025, 07:48:06 PM | Error: Server startup error: Cannot find module './routes/ticket.routes'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:12 PM | Error: Server startup error: Cannot find module '.'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:13 PM | Error: Server startup error: Cannot find module '../'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:18 PM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
+❗ [ERROR] 05/15/2025, 07:48:20 PM | Error: Server startup error: Cannot find module '../modules/ticket'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:24 PM | Error: Server startup error: Cannot find module '../modules/ticket'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:26 PM | Error: Server startup error: Cannot find module '../modules/ticket/'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:27 PM | Error: Server startup error: Cannot find module '../modules/ticket/routes/'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:28 PM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
+❗ [ERROR] 05/15/2025, 07:56:16 PM | خطا در ارسال پیام: reach files limit
+❗ [ERROR] 05/15/2025, 07:58:57 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/15/2025, 08:01:14 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/15/2025, 08:01:15 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {

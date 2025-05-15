@@ -1,7 +1,7 @@
 // ticket.route.js
 const validateMiddleware = require("../../../middlewares/validation/validate.middleware");
 const { ticketController } = require("../controller/ticket.controller");
-const { createTicketDto, sendMessageDto } = require("../dto/ticket.dto");
+const { createTicketDto } = require("../dto/ticket.dto");
 
 const ticketRoutes = async (fastify, options) => {
   // Create ticket
@@ -17,18 +17,9 @@ const ticketRoutes = async (fastify, options) => {
   fastify.post(
     "/message",
     {
-      preValidation: [fastify.auth, validateMiddleware(sendMessageDto)],
-    },
-    ticketController.sendMessage
-  );
-
-  // Upload ticket file
-  fastify.post(
-    "/file",
-    {
       preValidation: [fastify.auth],
     },
-    ticketController.uploadTicketFile
+    ticketController.sendMessage
   );
 };
 

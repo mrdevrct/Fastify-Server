@@ -1,4 +1,3 @@
-// uploader.helper.js
 const fs = require("fs").promises;
 const path = require("path");
 const { logger } = require("../logger/logger");
@@ -152,6 +151,29 @@ const fileUploader = {
       };
     } catch (error) {
       logger.error(`❌ Error uploading ticket file: ${error.message}`);
+      throw error;
+    }
+  },
+
+  uploadTicketFiles: async (files, user, ticketId) => {
+    try {
+      if (files.length > 3) {
+        throw new Error("Maximum 3 files can be uploaded");
+      }
+
+      const uploadedFiles = [];
+      for (const file of files) {
+        const uploadedFile = await fileUploader.uploadTicketFile(
+          file,
+          user,
+          ticketId
+        );
+        uploadedFiles.push(uploadedFile);
+      }
+
+      return uploadedFiles;
+    } catch (error) {
+      logger.error(`❌ Error uploading ticket files: ${error.message}`);
       throw error;
     }
   },

@@ -1,4 +1,3 @@
-// ticket.service.js
 const Ticket = require("../model/ticket.model");
 const { logger } = require("../../../utils/logger/logger");
 
@@ -44,34 +43,6 @@ const ticketService = {
       return ticket;
     } catch (error) {
       logger.error(`Error sending message: ${error.message}`);
-      throw error;
-    }
-  },
-
-  addFileToTicket: async (ticketId, fileData, user) => {
-    try {
-      const ticket = await Ticket.findById(ticketId);
-      if (!ticket) {
-        throw new Error("Ticket not found");
-      }
-
-      // Create a new message entry for the file upload
-      const newMessage = {
-        isSender: user.userType === "USER",
-        senderName: user.username,
-        messageText: "", // Empty messageText as specified
-        files: [fileData], // Add the uploaded file to the files array
-        isRead: false,
-        createdAt: new Date(),
-      };
-
-      ticket.messages.push(newMessage);
-      ticket.updatedAt = new Date();
-      await ticket.save();
-
-      return ticket;
-    } catch (error) {
-      logger.error(`Error adding file to ticket: ${error.message}`);
       throw error;
     }
   },

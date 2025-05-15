@@ -9,12 +9,8 @@ const { config } = require("./env");
 const setupPlugins = async (fastify) => {
   await fastify.register(multipart, {
     limits: {
-      fieldNameSize: 100,
-      fieldSize: 1000000,
-      fields: 10,
       fileSize: 20 * 1024 * 1024,
-      files: 1,
-      headerPairs: 2000,
+      files: 3,
     },
   });
 

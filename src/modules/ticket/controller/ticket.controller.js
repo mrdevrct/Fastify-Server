@@ -1,4 +1,3 @@
-// ticket.controller.js
 const { logger } = require("../../../utils/logger/logger");
 const { formatResponse } = require("../../../utils/response/formatResponse");
 const fileUploader = require("../../../utils/uploader/uploader");
@@ -14,7 +13,12 @@ const ticketController = {
         return reply
           .status(403)
           .send(
-            formatResponse({}, true, "SUPER_ADMIN cannot create tickets", 403)
+            formatResponse(
+              {},
+              true,
+              "SUPER_ADMIN is not allowed to create tickets",
+              403
+            )
           );
       }
 
@@ -33,68 +37,65 @@ const ticketController = {
 
   sendMessage: async (request, reply) => {
     try {
-      const { ticketId, messageText } = request.body;
       const user = request.user;
 
-      const ticket = await ticketService.sendMessage(
-        ticketId,
-        { messageText },
-        user
-      );
+      const parts = request.parts(); // Get all parts of the form-data
+      let ticketId = request.query.ticketId;
+      let messageText = "";
+      let filesData = [];
 
-      logger.info(`Message sent to ticket ${ticketId} by user: ${user.email}`);
-      return reply.status(200).send(formatResponse(ticket, false, null, 200));
-    } catch (error) {
-      logger.error(`Error sending message: ${error.message}`);
-      return reply
-        .status(400)
-        .send(formatResponse({}, true, error.message, 400));
-    }
-  },
-
-  uploadTicketFile: async (request, reply) => {
-    try {
-      const data = await request.file();
-      if (!data) {
-        return reply
-          .status(400)
-          .send(formatResponse({}, true, "No file uploaded", 400));
+      // Parse form fields and files
+      for await (const part of parts) {
+        if (part.type === "file" && part.fieldname === "files") {
+          const fileBuffer = await part.toBuffer();
+          const fileSize = fileBuffer.length;
+          if (!fileSize || fileSize === 0) {
+            return reply
+              .status(400)
+              .send(formatResponse({}, true, "Invalid file size", 400));
+          }
+          filesData.push({ ...part, size: fileSize, fileBuffer });
+        } else {
+          if (part.fieldname === "ticketId") ticketId = part.value;
+          if (part.fieldname === "messageText") messageText = part.value;
+        }
       }
 
-      // Ensure file size is available
-      const fileBuffer = await data.toBuffer();
-      const fileSize = fileBuffer.length; // Get size from buffer length
-      if (!fileSize || fileSize === 0) {
-        return reply
-          .status(400)
-          .send(formatResponse({}, true, "File size is invalid", 400));
-      }
-
-      const { ticketId } = request.query;
       if (!ticketId) {
         return reply
           .status(400)
           .send(formatResponse({}, true, "Ticket ID is required", 400));
       }
 
-      const user = request.user;
-      const fileData = await fileUploader.uploadTicketFile(
-        { ...data, size: fileSize, fileBuffer }, // Pass fileBuffer and size explicitly
-        user,
-        ticketId
-      );
-      const updatedTicket = await ticketService.addFileToTicket(
+      if (filesData.length > 3) {
+        return reply
+          .status(400)
+          .send(formatResponse({}, true, "You can upload up to 3 files", 400));
+      }
+
+      let uploadedFiles = [];
+      if (filesData.length > 0) {
+        uploadedFiles = await fileUploader.uploadTicketFiles(
+          filesData,
+          user,
+          ticketId
+        );
+      }
+
+      const ticket = await ticketService.sendMessage(
         ticketId,
-        fileData,
+        { messageText, files: uploadedFiles },
         user
       );
 
-      logger.info(`File uploaded to ticket ${ticketId} by user: ${user.email}`);
-      return reply
-        .status(200)
-        .send(formatResponse(updatedTicket, false, null, 200));
+      logger.info(
+        `Message sent to ticket ${ticketId} by user ${user.email}${
+          uploadedFiles.length > 0 ? " with attachments" : ""
+        }`
+      );
+      return reply.status(200).send(formatResponse(ticket, false, null, 200));
     } catch (error) {
-      logger.error(`Error uploading ticket file: ${error.message}`);
+      logger.error(`Error sending message: ${error.message}`);
       return reply
         .status(400)
         .send(formatResponse({}, true, error.message, 400));
