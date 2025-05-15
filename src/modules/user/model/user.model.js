@@ -1,8 +1,6 @@
-// user.model.js
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const defaultFeatures = require("../../../configs/defaultFeatures");
-
 
 const featureAccessSchema = new mongoose.Schema({
   id: { type: Number, required: true },
@@ -31,6 +29,8 @@ const userSchema = new mongoose.Schema(
     profilePath: { type: String, default: "" },
     verificationCode: { type: String },
     verificationCodeExpires: { type: Date },
+    resetPasswordCode: { type: String },
+    resetPasswordExpires: { type: Date },
     reportCount: { type: Number, default: 0 },
     isBanned: { type: Boolean, default: false },
   },
@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// هش کردن رمز عبور قبل از ذخیره
+// Hash the password before saving
 userSchema.pre("save", async function (next) {
   if (this.isModified("password") && this.password) {
     this.password = await bcrypt.hash(this.password, 10);
@@ -47,14 +47,14 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-// بررسی اولین کاربر به‌عنوان SUPER_ADMIN
+// Set the first user as SUPER_ADMIN
 userSchema.pre("save", async function (next) {
   if (this.isNew) {
     const userCount = await mongoose.model("User").countDocuments();
     if (userCount === 0) {
       this.userType = "ADMIN";
       this.adminStatus = "SUPER_ADMIN";
-      this.featureAccess = defaultFeatures; // دسترسی‌های پیش‌فرض برای سوپر ادمین
+      this.featureAccess = defaultFeatures; // Default feature access for super admin
       this.username = "superadmin";
     }
   }

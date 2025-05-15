@@ -37,8 +37,20 @@ const getFileCategoryDir = (mimeType) => {
 };
 
 const generateFileName = (user, fileExtension) => {
-  const date = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-  return `user-${user.username}-${user._id}-${date}.${fileExtension}`;
+  const now = new Date();
+
+  const pad = (num) => num.toString().padStart(2, "0");
+
+  const dateTimeString = [
+    now.getFullYear(),
+    pad(now.getMonth() + 1),
+    pad(now.getDate()),
+    pad(now.getHours()),
+    pad(now.getMinutes()),
+    pad(now.getSeconds()),
+  ].join("");
+
+  return `user-${user.username}-${user._id}-${dateTimeString}.${fileExtension}`;
 };
 
 const fileUploader = {
@@ -61,7 +73,7 @@ const fileUploader = {
       await fs.writeFile(filePath, await file.toBuffer());
       logger.info(`Profile image uploaded for user ${user.email}: ${fileName}`);
 
-      return `/Uploads/images/user/${fileName}`;
+      return `/uploads/images/user/${fileName}`;
     } catch (error) {
       logger.error(`Error uploading profile image: ${error.message}`);
       throw error;

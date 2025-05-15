@@ -2,21 +2,26 @@ const { logger } = require("../utils/logger/logger");
 
 const setupWebsocket = async (fastify) => {
   fastify.get("/ws", { websocket: true }, (connection, req) => {
-    fastify.log.info("WebSocket connection established");
+    const clientIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+    logger.info(`🔌 WebSocket connection established from ${clientIP}`);
+
     connection.socket.on("message", (message) => {
       const msg = message.toString();
+      logger.info(`📨 WebSocket message received: ${msg}`);
       connection.socket.send(`Echo: ${msg}`);
-      fastify.log.info(`WebSocket message received: ${msg}`);
     });
+
     connection.socket.on("close", () => {
-      fastify.log.info("WebSocket connection closed");
+      logger.info(`❌ WebSocket connection closed from ${clientIP}`);
     });
+
     connection.socket.on("error", (err) => {
-      fastify.log.error("WebSocket error:", err);
+      logger.error(`⚠️ WebSocket error from ${clientIP}: ${err.message}`);
     });
   });
 
-  logger.info("WebSocket configured");
+  logger.info("✅ WebSocket endpoint configured at ws://localhost:8080/ws");
 };
 
 module.exports = setupWebsocket;

@@ -2,17 +2,12 @@ const { logger } = require("../../../utils/logger/logger");
 const { paginate } = require("../../../utils/pagination/paginate");
 const { formatResponse } = require("../../../utils/response/formatResponse");
 const fileUploader = require("../../../utils/uploader/uploader");
+const { generateToken } = require("../../../utils/user/userGenerators");
 const { userService } = require("../service/user.service");
 const jwt = require("jsonwebtoken");
 
-const generateToken = (user) => {
-  return jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, {
-    expiresIn: "1d",
-  });
-};
-
 const userController = {
-  // ثبت‌نام یا ورود با ایمیل
+  // Sign up or login with email
   auth: async (request, reply) => {
     try {
       const user = await userService.auth(request.body);
@@ -29,7 +24,7 @@ const userController = {
     }
   },
 
-  // تأیید کد
+  // Verify code
   verifyCode: async (request, reply) => {
     try {
       const { user, refreshToken, refreshTokenExpires } =
@@ -53,7 +48,7 @@ const userController = {
     }
   },
 
-  // ورود با رمز عبور
+  // Login with password
   loginWithPassword: async (request, reply) => {
     try {
       const { user, refreshToken, refreshTokenExpires } =
@@ -77,7 +72,41 @@ const userController = {
     }
   },
 
-  // به‌روزرسانی پروفایل
+  // Forgot password
+  forgotPassword: async (request, reply) => {
+    try {
+      await userService.forgotPassword(request.body);
+      logger.info(`Password reset code sent for: ${request.body.email}`);
+      return formatResponse(
+        { message: "Password reset code sent to your email" },
+        false,
+        null,
+        200
+      );
+    } catch (error) {
+      logger.error(`Error in forgot password: ${error.message}`);
+      return formatResponse({}, true, error.message, 400);
+    }
+  },
+
+  // Reset password
+  resetPassword: async (request, reply) => {
+    try {
+      const user = await userService.resetPassword(request.body);
+      logger.info(`Password reset successfully for: ${user.email}`);
+      return formatResponse(
+        { message: "Password reset successfully" },
+        false,
+        null,
+        200
+      );
+    } catch (error) {
+      logger.error(`Error resetting password: ${error.message}`);
+      return formatResponse({}, true, error.message, 400);
+    }
+  },
+
+  // Update profile
   updateProfile: async (request, reply) => {
     try {
       const user = await userService.updateProfile(
@@ -107,7 +136,7 @@ const userController = {
     }
   },
 
-  // آپلود تصویر پروفایل
+  // Upload profile image
   uploadProfileImage: async (request, reply) => {
     try {
       const data = await request.file();
@@ -138,7 +167,7 @@ const userController = {
     }
   },
 
-  // دریافت پروفایل
+  // Get profile
   getProfile: async (request, reply) => {
     try {
       const user = await userService.getProfile(request.user.id);
@@ -162,7 +191,7 @@ const userController = {
     }
   },
 
-  // به‌روزرسانی دسترسی‌های فیچر
+  // Update feature access
   updateFeatureAccess: async (request, reply) => {
     try {
       const user = await userService.updateFeatureAccess(
@@ -182,7 +211,7 @@ const userController = {
     }
   },
 
-  // دریافت اطلاعات کاربر لاگین‌شده
+  // Get currently logged-in user
   getCurrentUser: async (request, reply) => {
     try {
       const user = await userService.getCurrentUser(request.user.id);
@@ -206,7 +235,7 @@ const userController = {
     }
   },
 
-  // دریافت لیست کاربران
+  // Get list of users
   getUsers: async (request, reply) => {
     try {
       const page = Math.max(parseInt(request.query.page) || 1, 1);
@@ -228,7 +257,7 @@ const userController = {
     }
   },
 
-  // رفرش توکن
+  // Refresh token
   refreshToken: async (request, reply) => {
     try {
       const { user, accessToken, refreshToken, refreshTokenExpires } =

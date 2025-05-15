@@ -20,7 +20,14 @@ module.exports = async function setupSecurityMiddlewares(fastify) {
 
   fastify.addHook("onRequest", async (request, reply) => {
     const contentType = request.headers["content-type"] || "";
-    if (["POST", "PUT", "PATCH"].includes(request.method)) {
+
+    const hasBody =
+      request.method === "POST" ||
+      request.method === "PUT" ||
+      request.method === "PATCH";
+
+    // Only check content-type if there *is* a body
+    if (hasBody && request.raw.headers["content-length"] > 0) {
       const isJson = contentType.includes("application/json");
       const isForm = contentType.includes("multipart/form-data");
 

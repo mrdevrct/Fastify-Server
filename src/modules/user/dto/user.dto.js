@@ -18,7 +18,6 @@ const updateProfileDto = z.object({
   lastName: z.string().min(1).optional(),
   firstName: z.string().min(1).optional(),
   password: z.string().min(6).optional(),
-  profilePath: z.string().optional(),
 });
 
 const updateFeatureAccessDto = z.array(
@@ -33,6 +32,16 @@ const refreshTokenDto = z.object({
   refreshToken: z.string().nonempty(),
 });
 
+const forgotPasswordDto = z.object({
+  email: z.string().email().nonempty(),
+});
+
+const resetPasswordDto = z.object({
+  email: z.string().email().nonempty(),
+  code: z.string().length(6),
+  password: z.string().min(6).nonempty(),
+});
+
 module.exports = {
   authDto,
   verifyCodeDto,
@@ -40,4 +49,6 @@ module.exports = {
   updateProfileDto,
   updateFeatureAccessDto,
   refreshTokenDto,
+  forgotPasswordDto,
+  resetPasswordDto,
 };
