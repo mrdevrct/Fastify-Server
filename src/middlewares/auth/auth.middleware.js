@@ -33,6 +33,7 @@ const authMiddleware = async (request, reply) => {
       username: user.username,
       userType: user.userType,
       adminStatus: user.adminStatus,
+      featureAccess: user.featureAccess
     };
   } catch (error) {
     logger.error(`Auth error: ${error.message}`);

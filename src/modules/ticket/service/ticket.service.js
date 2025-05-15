@@ -46,6 +46,36 @@ const ticketService = {
       throw error;
     }
   },
+
+  getMyTickets: async (user) => {
+    try {
+      const filter = {
+        $or: [
+          { userId: user.id }, // Tickets created by the user
+          { email: user.email }, // Tickets associated with the user's email
+        ],
+      };
+
+      // Apply query filters (e.g., pagination, sorting)
+      const tickets = await Ticket.find(filter).sort({ updatedAt: -1 });
+
+      return tickets;
+    } catch (error) {
+      logger.error(`Error fetching my tickets: ${error.message}`);
+      throw error;
+    }
+  },
+
+  getAllTickets: async () => {
+    try {
+      const tickets = await Ticket.find({}).sort({ updatedAt: -1 });
+
+      return tickets;
+    } catch (error) {
+      logger.error(`Error fetching all tickets: ${error.message}`);
+      throw error;
+    }
+  },
 };
 
 module.exports = { ticketService };

@@ -117,3 +117,6 @@ Require stack:
     "message": "Required"
   }
 ] | Location: {
+❗ [ERROR] 05/15/2025, 08:17:19 PM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/15/2025, 08:25:28 PM | Error: Validation error: Cannot read properties of undefined (reading 'parseAsync') | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
+❗ [ERROR] 05/15/2025, 08:26:23 PM | Error: Validation error: Cannot read properties of undefined (reading 'parseAsync') | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)

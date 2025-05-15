@@ -101,6 +101,86 @@ const ticketController = {
         .send(formatResponse({}, true, error.message, 400));
     }
   },
+
+  getMyTickets: async (request, reply) => {
+    try {
+      const user = request.user;
+
+      // Check feature access
+      const myTicketsAccess = user.featureAccess.find(
+        (f) => f.feature === "MY_TICKETS"
+      );
+      if (!myTicketsAccess || myTicketsAccess.access !== "FULL_ACCESS") {
+        return reply
+          .status(403)
+          .send(
+            formatResponse(
+              {},
+              true,
+              "You do not have access to your tickets",
+              403
+            )
+          );
+      }
+
+      const tickets = await ticketService.getMyTickets(user);
+      // Replace messages with empty array
+      const sanitizedTickets = tickets.map((ticket) => ({
+        ...ticket.toObject(),
+        messages: [],
+      }));
+
+      logger.info(`Tickets retrieved for user ${user.email}`);
+      return reply
+        .status(200)
+        .send(formatResponse(sanitizedTickets, false, null, 200));
+    } catch (error) {
+      logger.error(`Error retrieving user tickets: ${error.message}`);
+      return reply
+        .status(400)
+        .send(formatResponse({}, true, error.message, 400));
+    }
+  },
+
+  getAllTickets: async (request, reply) => {
+    try {
+      const user = request.user;
+
+      // Check feature access
+      const allTicketsAccess = user.featureAccess.find(
+        (f) => f.feature === "ALL_TICKETS"
+      );
+      if (!allTicketsAccess || allTicketsAccess.access !== "FULL_ACCESS") {
+        return reply
+          .status(403)
+          .send(
+            formatResponse(
+              {},
+              true,
+              "You do not have access to all tickets",
+              403
+            )
+          );
+      }
+
+      const tickets = await ticketService.getAllTickets();
+      // Replace messages with empty array
+      const sanitizedTickets = tickets.map((ticket) => ({
+        ...ticket.toObject(),
+        messages: [],
+      }));
+
+      logger.info(`All tickets retrieved by user ${user.email}`);
+      return reply
+        .status(200)
+        .send(formatResponse(sanitizedTickets, false, null, 200));
+    } catch (error) {
+      logger.error(`Error retrieving all tickets: ${error.message}`);
+      return reply
+        .status(400)
+        .send(formatResponse({}, true, error.message, 400));
+    }
+  },
 };
 
 module.exports = { ticketController };
