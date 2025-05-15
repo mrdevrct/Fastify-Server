@@ -149,7 +149,7 @@ const userController = {
         return formatResponse({}, true, "User not found", 404);
       }
 
-      const profilePath = await fileUploader.uploadProfileImage(data, user);
+      const profilePath = await fileUploader.uploadProfileImage(data, user, "user");
       const updatedUser = await userService.updateProfile(request.user.id, {
         profilePath,
       });

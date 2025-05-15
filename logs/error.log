@@ -1,141 +1,49 @@
-❗ [ERROR] 05/14/2025, 03:16:57 AM | Error: Server startup error: Plugin must be a function or a promise. Received: 'undefined' | Location: at validatePlugin (/Users/devrct/Developer/server/node_modules/avvio/lib/validate-plugin.js:19:13)
-❗ [ERROR] 05/14/2025, 03:17:19 AM | Error: Server startup error: requestLogger is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:10:26)
-❗ [ERROR] 05/14/2025, 03:17:27 AM | Error: Server startup error: ogger is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:10:26)
-❗ [ERROR] 05/14/2025, 03:17:28 AM | Error: Server startup error: logger is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:10:26)
-❗ [ERROR] 05/14/2025, 03:17:32 AM | Error: Server startup error: Plugin must be a function or a promise. Received: 'object' | Location: at validatePlugin (/Users/devrct/Developer/server/node_modules/avvio/lib/validate-plugin.js:19:13)
-❗ [ERROR] 05/14/2025, 03:20:55 AM | Error: Server startup error: logger is not defined | Location: at setupMiddlewares (/Users/devrct/Developer/server/src/middlewares/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:15 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:15 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:17 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:5)
-❗ [ERROR] 05/14/2025, 03:21:21 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:25 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:26 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:27 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:33 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:39 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:40 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:41 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:44 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:22:20 AM | Error: Server startup error: loo is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:22:21 AM | Error: Server startup error: lo is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:22:22 AM | Error: Server startup error: logger is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:22:24 AM | Error: Server startup error: logger is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:37:22 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:23 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:52 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:55 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:56 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:00 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:07 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:13 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:22 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:58:06 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 03:58:29 AM | Error: Server startup error: aw is not defined | Location: at setupMiddlewares (/Users/devrct/Developer/server/src/middlewares/index.js:7:3)
-❗ [ERROR] 05/14/2025, 03:59:41 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:00:08 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:00:09 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:00:11 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:01:30 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:01:53 AM | Error: Server startup error: authMiddleware is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:17:28)
-❗ [ERROR] 05/14/2025, 04:01:55 AM | Error: Server startup error: authMiddleware is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:16:28)
-❗ [ERROR] 05/14/2025, 04:01:56 AM | Error: Server startup error: authMiddleware is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:28)
-❗ [ERROR] 05/14/2025, 04:02:00 AM | Error: Server startup error: Async function has too many arguments. Async hooks should not use the 'done' argument. | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:295:25)
-❗ [ERROR] 05/14/2025, 04:02:37 AM | Error: Server startup error: Async function has too many arguments. Async hooks should not use the 'done' argument. | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:295:25)
-❗ [ERROR] 05/14/2025, 04:08:50 AM | Error: Server startup error: validateMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:22)
-❗ [ERROR] 05/14/2025, 04:08:51 AM | Error: Server startup error: validateMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:28:22)
-❗ [ERROR] 05/14/2025, 04:08:55 AM | Error: Server startup error: Async function has too many arguments. Async hooks should not use the 'done' argument. | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:295:25)
-❗ [ERROR] 05/14/2025, 01:47:50 PM | Error refreshing token: Invalid or expired refresh token
-❗ [ERROR] 05/14/2025, 01:47:57 PM | Error refreshing token: Invalid or expired refresh token
-❗ [ERROR] 05/14/2025, 01:48:07 PM | Error refreshing token: Invalid or expired refresh token
-❗ [ERROR] 05/14/2025, 01:48:47 PM | Error verifying code: Invalid or expired verification code
-❗ [ERROR] 05/14/2025, 09:01:41 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:05 PM | Error: Server startup error: Missing handler function for "POST:/upload-profile-image" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/14/2025, 09:02:08 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:30 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:31 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:35 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:17 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:17 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:18 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:19 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:26 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:27 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:28 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:30 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:31 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:40 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:41 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 10:01:14 PM | Error: Server startup error: multipart is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:11:26)
-❗ [ERROR] 05/14/2025, 10:01:30 PM | Error updating profile: Cannot read properties of undefined (reading 'profileImage')
-❗ [ERROR] 05/14/2025, 10:03:32 PM | Error: Server startup error: authdto is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:42)
-❗ [ERROR] 05/14/2025, 10:03:33 PM | Error: Server startup error: authdto is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:42)
-❗ [ERROR] 05/14/2025, 10:03:47 PM | Error: Server startup error: authdto is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:42)
-❗ [ERROR] 05/14/2025, 10:05:34 PM | Error uploading file: fileStream.pipe is not a function
-❗ [ERROR] 05/14/2025, 10:05:34 PM | Error updating profile: fileStream.pipe is not a function
-❗ [ERROR] 05/14/2025, 10:22:00 PM | Error: Server startup error: Missing handler function for "POST:/profile/image" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/14/2025, 10:22:01 PM | Error: Server startup error: Missing handler function for "POST:/profile/image" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/14/2025, 10:29:22 PM | Error: Server startup error: static is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:18:26)
-❗ [ERROR] 05/14/2025, 10:29:23 PM | Error: Server startup error: static is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:18:26)
-❗ [ERROR] 05/14/2025, 10:29:33 PM | Error: Server startup error: static is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:19:26)
-❗ [ERROR] 05/14/2025, 10:29:44 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:20:11)
-❗ [ERROR] 05/14/2025, 10:29:45 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:21:11)
-❗ [ERROR] 05/14/2025, 10:30:19 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:21:11)
-❗ [ERROR] 05/15/2025, 03:17:53 AM | Error: Server startup error: Missing handler function for "POST:/forgot-password" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/15/2025, 03:17:54 AM | Error: Server startup error: Missing handler function for "POST:/forgot-password" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/15/2025, 03:40:35 AM | Error: Server startup error: bannerRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:7:20)
-❗ [ERROR] 05/15/2025, 03:40:36 AM | Error: Server startup error: bannerRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:7:20)
-❗ [ERROR] 05/15/2025, 03:40:51 AM | Error: Server startup error: bannerRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:7:20)
-❗ [ERROR] 05/15/2025, 03:42:21 AM | Error: Server startup error: validateMiddleware is not defined | Location: at reportRoutes (/Users/devrct/Developer/server/src/modules/report/routes/report.routes.js:8:31)
-❗ [ERROR] 05/15/2025, 03:53:03 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:5:28)
-❗ [ERROR] 05/15/2025, 03:53:05 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:4:26)
-❗ [ERROR] 05/15/2025, 03:53:23 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:4:26)
-❗ [ERROR] 05/15/2025, 03:53:41 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:53:59 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:02 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:08 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:11 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:22 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:26 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:44 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:46 AM | Error: Server startup error: شصsetupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:47 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:48 AM | Error: Server startup error: awsetupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:48 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:50 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 03:54:52 AM | Error: Server startup error: setupPlugins is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:13:3)
-❗ [ERROR] 05/15/2025, 04:05:47 AM | Error: Server startup error: UPLOAD_MAX_FILE_SIZE_MB is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:49 AM | Error: Server startup error: pr is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:50 AM | Error: Server startup error: pro is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:51 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:53 AM | Error: Server startup error: pros is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:55 AM | Error: Server startup error: prose is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:56 AM | Error: Server startup error: prosec is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:57 AM | Error: Server startup error: pro is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:05:58 AM | Error: Server startup error: p is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:00 AM | Error: Server startup error: pr is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:01 AM | Error: Server startup error: pro is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:02 AM | Error: Server startup error: proc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:03 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:17 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:17 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:25 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:30 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:35 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:35 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:37 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:38 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:39 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:42 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:46 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:47 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:54 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:56 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:57 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:58 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:06:59 AM | Error: Server startup error: procc is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:07:14 AM | Error: Server startup error: con is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:07:14 AM | Error: Server startup error: conf is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:12:18)
-❗ [ERROR] 05/15/2025, 04:08:15 AM | Error uploading profile image: Limit files is not a valid number
-❗ [ERROR] 05/15/2025, 04:08:43 AM | Error uploading profile image: Limit files is not a valid number
-❗ [ERROR] 05/15/2025, 04:08:53 AM | Error uploading profile image: Limit files is not a valid number
-❗ [ERROR] 05/15/2025, 04:22:15 AM | Error uploading profile image: Limit files is not a valid number
+❗ [ERROR] 05/15/2025, 04:47:19 PM | Error sending message: logger.error is not a function
+❗ [ERROR] 05/15/2025, 04:47:53 PM | Error sending message: Ticket validation failed: messages.0.senderName: Path `senderName` is required.
+❗ [ERROR] 05/15/2025, 04:47:53 PM | Error sending message: Error sending message
+❗ [ERROR] 05/15/2025, 05:15:51 PM | Error sending message: Ticket validation failed: messages.1.files.0.id: Path `id` is required., messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 05:21:28 PM | Error sending message: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 05:21:35 PM | Error sending message: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 05:27:54 PM | Error: Server startup error: Missing handler function for "POST:/message" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:28:05 PM | Error: Server startup error: Missing handler function for "POST:/message" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:33:02 PM | Error: Server startup error: fastify.multipart is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:21:27)
+❗ [ERROR] 05/15/2025, 05:33:12 PM | Error: Server startup error: fastify.multipart is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:20:27)
+❗ [ERROR] 05/15/2025, 05:33:28 PM | Error sending message: Cannot destructure property 'ticketId' of 'request.body' as it is undefined.
+❗ [ERROR] 05/15/2025, 05:33:34 PM | Error sending message: Cannot destructure property 'ticketId' of 'request.body' as it is undefined.
+❗ [ERROR] 05/15/2025, 05:35:48 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:35:58 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:37:15 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:37:18 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:38:52 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:38:54 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:39:00 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:39:00 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:39:06 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:12:22 PM | ❌ Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:12:22 PM | Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:03 PM | ❌ Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:03 PM | Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:15 PM | ❌ Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:15 PM | Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:23:28 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:23:28 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:19 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:19 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:35 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:35 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:00 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:00 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:30 PM | ❌ Error uploading ticket file: Logger.info is not a function
+❗ [ERROR] 05/15/2025, 07:26:30 PM | Error uploading ticket file: Logger.info is not a function
+❗ [ERROR] 05/15/2025, 07:26:40 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:40 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:46 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:46 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:12 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:12 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:33 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:33 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:32:17 PM | ❌ Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:32:17 PM | Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:32:32 PM | ❌ Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:32:32 PM | Error uploading ticket file: File size is required and cannot be zero

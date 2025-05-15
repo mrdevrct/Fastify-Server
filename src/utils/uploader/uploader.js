@@ -1,46 +1,61 @@
+// uploader.helper.js
 const fs = require("fs").promises;
 const path = require("path");
 const { logger } = require("../logger/logger");
 
-const uploadDir = path.join(__dirname, "../../uploads");
-const imageDir = path.join(uploadDir, "images/user");
-const audioDir = path.join(uploadDir, "audios");
-const videoDir = path.join(uploadDir, "videos");
-const otherDir = path.join(uploadDir, "other");
+const uploadRoot = path.join(__dirname, "../../Uploads");
+const userRoot = path.join(uploadRoot, "user");
+const userImageDir = path.join(userRoot, "images");
+const ticketRoot = path.join(uploadRoot, "ticket");
+const ticketImageDir = path.join(ticketRoot, "images");
+const ticketVideoDir = path.join(ticketRoot, "videos");
+const ticketAudioDir = path.join(ticketRoot, "audios");
+const ticketOtherDir = path.join(ticketRoot, "others");
 
 const allowedImageTypes = ["image/jpeg", "image/png", "image/gif"];
-const maxFileSize = 5 * 1024 * 1024; // 5MB
+const allowedAudioTypes = ["audio/mpeg", "audio/wav"];
+const allowedVideoTypes = ["video/mp4", "video/mpeg"];
+const allowedTicketFileTypes = [
+  ...allowedImageTypes,
+  ...allowedAudioTypes,
+  ...allowedVideoTypes,
+  "application/pdf",
+  "text/plain",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+const maxFileSize = 20 * 1024 * 1024; // 20MB
 
 const initDirectories = async () => {
   try {
-    await fs.mkdir(uploadDir, { recursive: true });
-    await fs.mkdir(imageDir, { recursive: true });
-    await fs.mkdir(audioDir, { recursive: true });
-    await fs.mkdir(videoDir, { recursive: true });
-    await fs.mkdir(otherDir, { recursive: true });
-    logger.info("Upload directories initialized successfully");
+    // Create root directories
+    await fs.mkdir(uploadRoot, { recursive: true });
+    await fs.mkdir(userRoot, { recursive: true });
+    await fs.mkdir(ticketRoot, { recursive: true });
+
+    // Create subdirectories
+    await fs.mkdir(userImageDir, { recursive: true });
+    await fs.mkdir(ticketImageDir, { recursive: true });
+    await fs.mkdir(ticketVideoDir, { recursive: true });
+    await fs.mkdir(ticketAudioDir, { recursive: true });
+    await fs.mkdir(ticketOtherDir, { recursive: true });
+
+    return {
+      userImageDir,
+      ticketImageDir,
+      ticketVideoDir,
+      ticketAudioDir,
+      ticketOtherDir,
+    };
   } catch (error) {
     logger.error(`Error initializing directories: ${error.message}`);
     throw error;
   }
 };
 
-const getFileCategoryDir = (mimeType) => {
-  if (allowedImageTypes.includes(mimeType)) {
-    return imageDir;
-  } else if (mimeType.startsWith("audio/")) {
-    return audioDir;
-  } else if (mimeType.startsWith("video/")) {
-    return videoDir;
-  }
-  return otherDir;
-};
-
-const generateFileName = (user, fileExtension) => {
+const generateFileName = (prefix, username, refId, fileExtension) => {
   const now = new Date();
-
-  const pad = (num) => num.toString().padStart(2, "0");
-
+  const pad = (n) => n.toString().padStart(2, "0");
   const dateTimeString = [
     now.getFullYear(),
     pad(now.getMonth() + 1),
@@ -50,32 +65,93 @@ const generateFileName = (user, fileExtension) => {
     pad(now.getSeconds()),
   ].join("");
 
-  return `user-${user.username}-${user._id}-${dateTimeString}.${fileExtension}`;
+  return `${prefix}-${username}-${refId}-${dateTimeString}.${fileExtension}`;
+};
+
+const getTicketFileDir = (mimetype) => {
+  if (allowedImageTypes.includes(mimetype)) {
+    return { dir: ticketImageDir, subPath: "images" };
+  } else if (allowedAudioTypes.includes(mimetype)) {
+    return { dir: ticketAudioDir, subPath: "audios" };
+  } else if (allowedVideoTypes.includes(mimetype)) {
+    return { dir: ticketVideoDir, subPath: "videos" };
+  } else {
+    return { dir: ticketOtherDir, subPath: "others" };
+  }
 };
 
 const fileUploader = {
   uploadProfileImage: async (file, user) => {
     try {
-      await initDirectories();
-
       if (!allowedImageTypes.includes(file.mimetype)) {
         throw new Error("Only JPEG, PNG, and GIF images are allowed");
       }
 
-      if (file.size > maxFileSize) {
-        throw new Error("File size exceeds 5MB limit");
+      if (!file.size || file.size > maxFileSize) {
+        throw new Error(
+          file.size
+            ? "File size exceeds 20MB limit"
+            : "File size is required and cannot be zero"
+        );
       }
 
+      await initDirectories();
       const fileExtension = file.mimetype.split("/")[1];
-      const fileName = generateFileName(user, fileExtension);
-      const filePath = path.join(imageDir, fileName);
+      const fileName = generateFileName(
+        "user",
+        user.username,
+        user._id,
+        fileExtension
+      );
+      const fullPath = path.join(userImageDir, fileName);
 
-      await fs.writeFile(filePath, await file.toBuffer());
-      logger.info(`Profile image uploaded for user ${user.email}: ${fileName}`);
+      await fs.writeFile(fullPath, file.fileBuffer);
+      logger.info(`✅ Profile image uploaded for ${user.email} => ${fileName}`);
 
-      return `/uploads/images/user/${fileName}`;
+      return `/uploads/user/images/${fileName}`;
     } catch (error) {
-      logger.error(`Error uploading profile image: ${error.message}`);
+      logger.error(`❌ Error uploading profile image: ${error.message}`);
+      throw error;
+    }
+  },
+
+  uploadTicketFile: async (file, user, ticketId) => {
+    try {
+      if (!allowedTicketFileTypes.includes(file.mimetype)) {
+        throw new Error("Unsupported file type");
+      }
+
+      if (!file.size || file.size > maxFileSize) {
+        throw new Error(
+          file.size
+            ? "File size exceeds 20MB limit"
+            : "File size is required and cannot be zero"
+        );
+      }
+
+      await initDirectories();
+      const { dir: targetDir, subPath } = getTicketFileDir(file.mimetype);
+      const fileExtension =
+        file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
+      const fileName = generateFileName(
+        "ticket",
+        user.username,
+        ticketId,
+        fileExtension
+      );
+      const fullPath = path.join(targetDir, fileName);
+
+      await fs.writeFile(fullPath, file.fileBuffer);
+      logger.info(`✅ Ticket file uploaded for ${user.email} => ${fileName}`);
+
+      return {
+        name: file.filename,
+        size: file.size,
+        format: file.mimetype,
+        path: `/uploads/ticket/${subPath}/${fileName}`,
+      };
+    } catch (error) {
+      logger.error(`❌ Error uploading ticket file: ${error.message}`);
       throw error;
     }
   },
