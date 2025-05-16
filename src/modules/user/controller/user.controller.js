@@ -1,10 +1,9 @@
 const { logger } = require("../../../utils/logger/logger");
 const { paginate } = require("../../../utils/pagination/paginate");
 const { formatResponse } = require("../../../utils/response/formatResponse");
-const fileUploader = require("../../../utils/uploader/uploader");
+const fileUploader = require("../../../utils/uploader/fileUploader");
 const { generateToken } = require("../../../utils/user/userGenerators");
 const { userService } = require("../service/user.service");
-const jwt = require("jsonwebtoken");
 
 const userController = {
   // Sign up or login with email

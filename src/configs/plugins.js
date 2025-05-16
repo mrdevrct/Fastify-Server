@@ -4,7 +4,6 @@ const websocket = require("@fastify/websocket");
 const staticPlugin = require("@fastify/static");
 const { requestLogger, logger } = require("../utils/logger/logger");
 const authMiddleware = require("../middlewares/auth/auth.middleware");
-const { config } = require("./env");
 
 const setupPlugins = async (fastify) => {
   await fastify.register(multipart, {
@@ -19,13 +18,6 @@ const setupPlugins = async (fastify) => {
     root: path.join(__dirname, "..", "uploads"),
     prefix: "/uploads/",
     decorateReply: false,
-  });
-
-  // Log served static files
-  fastify.addHook("onSend", async (request, reply, payload) => {
-    if (request.raw.url.startsWith("/uploads/") && reply.statusCode === 200) {
-      logger.info(`🧾 Static file served: ${request.raw.url}`);
-    }
   });
 
   // WebSocket support

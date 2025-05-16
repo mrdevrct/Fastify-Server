@@ -1,6 +1,6 @@
 const { logger } = require("../../../utils/logger/logger");
 const { formatResponse } = require("../../../utils/response/formatResponse");
-const fileUploader = require("../../../utils/uploader/uploader");
+const fileUploader = require("../../../utils/uploader/fileUploader");
 const { ticketService } = require("../service/ticket.service");
 
 const ticketController = {

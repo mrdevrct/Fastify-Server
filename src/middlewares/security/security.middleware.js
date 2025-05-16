@@ -4,7 +4,15 @@ const fastifyCors = require("@fastify/cors");
 const { logger } = require("../../utils/logger/logger");
 
 module.exports = async function setupSecurityMiddlewares(fastify) {
-  await fastify.register(fastifyHelmet);
+  await fastify.register(fastifyHelmet, {
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        objectSrc: ["'none'"],
+      },
+    },
+  });
   logger.info("Helmet security headers enabled");
 
   await fastify.register(fastifyRateLimit, {

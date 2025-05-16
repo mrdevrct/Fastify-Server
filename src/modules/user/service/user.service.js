@@ -2,7 +2,6 @@ const User = require("../model/user.model");
 const RefreshToken = require("../model/refreshToken.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
 const { logger } = require("../../../utils/logger/logger");
 const { sendVerificationCode } = require("../../../utils/sendEmail/email");
 const defaultFeatures = require("../../../configs/defaultFeatures");
