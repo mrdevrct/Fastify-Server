@@ -16,6 +16,7 @@ const messageSchema = new mongoose.Schema({
   files: { type: [fileDTOSchema], default: [] },
   isRead: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
+  replyTo: { type: mongoose.Schema.Types.ObjectId, default: null },
 });
 
 const ticketSchema = new mongoose.Schema(
@@ -28,6 +29,7 @@ const ticketSchema = new mongoose.Schema(
     email: { type: String, required: false },
     username: { type: String, required: false },
     title: { type: String, required: true },
+    status: { type: String, enum: ["OPEN", "CLOSED"], default: "OPEN" },
     priority: {
       type: String,
       enum: ["LOW", "MEDIUM", "HIGH"],

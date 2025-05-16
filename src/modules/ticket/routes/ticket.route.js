@@ -1,8 +1,6 @@
 const validateMiddleware = require("../../../middlewares/validation/validate.middleware");
 const { ticketController } = require("../controller/ticket.controller");
-const {
-  createTicketDto,
-} = require("../dto/ticket.dto");
+const { createTicketDto } = require("../dto/ticket.dto");
 
 const ticketRoutes = async (fastify, options) => {
   // Create ticket
@@ -12,15 +10,6 @@ const ticketRoutes = async (fastify, options) => {
       preValidation: [fastify.auth, validateMiddleware(createTicketDto)],
     },
     ticketController.createTicket
-  );
-
-  // Send message
-  fastify.post(
-    "/message",
-    {
-      preValidation: [fastify.auth],
-    },
-    ticketController.sendMessage
   );
 
   // Get my tickets
@@ -39,6 +28,51 @@ const ticketRoutes = async (fastify, options) => {
       preValidation: [fastify.auth],
     },
     ticketController.getAllTickets
+  );
+
+  // Get ticket messages
+  fastify.get(
+    "/:ticketId",
+    {
+      preValidation: [fastify.auth],
+    },
+    ticketController.getTicketMessages
+  );
+
+  // Update ticket
+  fastify.put(
+    "/:ticketId",
+    {
+      preValidation: [fastify.auth],
+    },
+    ticketController.updateTicket
+  );
+
+  // Send message
+  fastify.post(
+    "/message",
+    {
+      preValidation: [fastify.auth],
+    },
+    ticketController.sendMessage
+  );
+
+  // Reply to ticket
+  fastify.post(
+    "/reply",
+    {
+      preValidation: [fastify.auth],
+    },
+    ticketController.replyToTicket
+  );
+
+  // Mark messages as read
+  fastify.put(
+    "/:ticketId/messages/read",
+    {
+      preValidation: [fastify.auth],
+    },
+    ticketController.markMessagesAsRead
   );
 };
 

@@ -120,3 +120,57 @@ Require stack:
 ❗ [ERROR] 05/15/2025, 08:17:19 PM | Error verifying code: Invalid or expired verification code
 ❗ [ERROR] 05/15/2025, 08:25:28 PM | Error: Validation error: Cannot read properties of undefined (reading 'parseAsync') | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
 ❗ [ERROR] 05/15/2025, 08:26:23 PM | Error: Validation error: Cannot read properties of undefined (reading 'parseAsync') | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
+❗ [ERROR] 05/15/2025, 10:39:11 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:12 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:22 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:23 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:24 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:25 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:27 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:28 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:32 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:33 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:10 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:11 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:12 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:15 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:16 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:17 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:19 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:20 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:21 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:01 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:02 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:10 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:12 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:13 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:14 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:15 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:17 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:17 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:18 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:19 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:47:16 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:44 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:45 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:46 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:57 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:51:01 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:51:03 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:54:26 PM | Error: Server startup error: fastify.pu is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:69:11)
+❗ [ERROR] 05/15/2025, 10:54:28 PM | Error: Server startup error: fastify.puy is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:69:11)
+❗ [ERROR] 05/15/2025, 10:56:25 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/15/2025, 10:56:37 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/15/2025, 10:57:22 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/15/2025, 11:01:46 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/16/2025, 02:54:05 AM | Error marking messages as read: ticketService.markMessagesAsRead is not a function
+❗ [ERROR] 05/16/2025, 02:57:02 AM | Error marking messages as read: You do not have permission to update this ticket
+❗ [ERROR] 05/16/2025, 02:57:02 AM | Error marking messages as read: You do not have permission to update this ticket
+❗ [ERROR] 05/16/2025, 03:25:34 AM | Error sending message: Ticket not found
+❗ [ERROR] 05/16/2025, 03:25:34 AM | Error sending message: Ticket not found
+❗ [ERROR] 05/16/2025, 03:25:57 AM | Error marking messages as read: Ticket not found
+❗ [ERROR] 05/16/2025, 03:25:57 AM | Error marking messages as read: Ticket not found
+❗ [ERROR] 05/16/2025, 03:26:59 AM | Error getting ticket messages: Ticket not found
+❗ [ERROR] 05/16/2025, 03:26:59 AM | Error fetching messages: Ticket not found
+❗ [ERROR] 05/16/2025, 03:29:33 AM | Error getting ticket messages: You do not have permission to view this ticket
+❗ [ERROR] 05/16/2025, 03:29:33 AM | Error fetching messages: You do not have permission to view this ticket

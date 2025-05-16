@@ -35,16 +35,132 @@ const ticketController = {
     }
   },
 
-  sendMessage: async (request, reply) => {
+  getMyTickets: async (request, reply) => {
     try {
       const user = request.user;
 
-      const parts = request.parts(); // Get all parts of the form-data
+      const myTicketsAccess = user.featureAccess.find(
+        (f) => f.feature === "MY_TICKETS"
+      );
+      if (!myTicketsAccess || myTicketsAccess.access !== "FULL_ACCESS") {
+        return reply
+          .status(403)
+          .send(
+            formatResponse(
+              {},
+              true,
+              "You do not have access to your tickets",
+              403
+            )
+          );
+      }
+
+      const tickets = await ticketService.getMyTickets(user);
+      const sanitizedTickets = tickets.map((ticket) => ({
+        ...ticket.toObject(),
+        messages: [],
+      }));
+
+      logger.info(`Tickets retrieved for user ${user.email}`);
+      return reply
+        .status(200)
+        .send(formatResponse(sanitizedTickets, false, null, 200));
+    } catch (error) {
+      logger.error(`Error retrieving user tickets: ${error.message}`);
+      return reply
+        .status(400)
+        .send(formatResponse({}, true, error.message, 400));
+    }
+  },
+
+  getAllTickets: async (request, reply) => {
+    try {
+      const user = request.user;
+
+      const allTicketsAccess = user.featureAccess.find(
+        (f) => f.feature === "ALL_TICKETS"
+      );
+      if (!allTicketsAccess || allTicketsAccess.access !== "FULL_ACCESS") {
+        return reply
+          .status(403)
+          .send(
+            formatResponse(
+              {},
+              true,
+              "You do not have access to all tickets",
+              403
+            )
+          );
+      }
+
+      const tickets = await ticketService.getAllTickets();
+      const sanitizedTickets = tickets.map((ticket) => ({
+        ...ticket.toObject(),
+        messages: [],
+      }));
+
+      logger.info(`All tickets retrieved by user ${user.email}`);
+      return reply
+        .status(200)
+        .send(formatResponse(sanitizedTickets, false, null, 200));
+    } catch (error) {
+      logger.error(`Error retrieving all tickets: ${error.message}`);
+      return reply
+        .status(400)
+        .send(formatResponse({}, true, error.message, 400));
+    }
+  },
+
+  getTicketMessages: async (request, reply) => {
+    try {
+      const user = request.user;
+      const { ticketId } = request.params;
+
+      const messages = await ticketService.getTicketMessages(ticketId, user);
+
+      await ticketService.markMessagesAsRead(ticketId, user);
+
+      logger.info(`Messages fetched for ticket ${ticketId} by ${user.email}`);
+      return reply.status(200).send(formatResponse(messages, false, null, 200));
+    } catch (error) {
+      logger.error(`Error fetching messages: ${error.message}`);
+      return reply
+        .status(400)
+        .send(formatResponse({}, true, error.message, 400));
+    }
+  },
+
+  updateTicket: async (request, reply) => {
+    try {
+      const user = request.user;
+      const { ticketId } = request.params;
+      const updateFields = request.body;
+
+      const ticket = await ticketService.updateTicket(
+        ticketId,
+        updateFields,
+        user
+      );
+
+      logger.info(`Ticket ${ticketId} updated by user ${user.email}`);
+      return reply.status(200).send(formatResponse(ticket, false, null, 200));
+    } catch (error) {
+      logger.error(`Error updating ticket: ${error.message}`);
+      return reply
+        .status(400)
+        .send(formatResponse({}, true, error.message, 400));
+    }
+  },
+
+  sendMessage: async (request, reply) => {
+    try {
+      const user = request.user;
+      const parts = request.parts();
       let ticketId = request.query.ticketId;
       let messageText = "";
       let filesData = [];
+      let replyTo = null;
 
-      // Parse form fields and files
       for await (const part of parts) {
         if (part.type === "file" && part.fieldname === "files") {
           const fileBuffer = await part.toBuffer();
@@ -58,6 +174,7 @@ const ticketController = {
         } else {
           if (part.fieldname === "ticketId") ticketId = part.value;
           if (part.fieldname === "messageText") messageText = part.value;
+          if (part.fieldname === "replyTo") replyTo = part.value;
         }
       }
 
@@ -84,7 +201,7 @@ const ticketController = {
 
       const ticket = await ticketService.sendMessage(
         ticketId,
-        { messageText, files: uploadedFiles },
+        { messageText, files: uploadedFiles, replyTo },
         user
       );
 
@@ -102,80 +219,54 @@ const ticketController = {
     }
   },
 
-  getMyTickets: async (request, reply) => {
+  replyToTicket: async (request, reply) => {
     try {
       const user = request.user;
+      const { ticketId, messageText, replyTo } = request.body;
 
-      // Check feature access
-      const myTicketsAccess = user.featureAccess.find(
-        (f) => f.feature === "MY_TICKETS"
-      );
-      if (!myTicketsAccess || myTicketsAccess.access !== "FULL_ACCESS") {
+      if (!ticketId || !messageText) {
         return reply
-          .status(403)
+          .status(400)
           .send(
             formatResponse(
               {},
               true,
-              "You do not have access to your tickets",
-              403
+              "ticketId and messageText are required",
+              400
             )
           );
       }
 
-      const tickets = await ticketService.getMyTickets(user);
-      // Replace messages with empty array
-      const sanitizedTickets = tickets.map((ticket) => ({
-        ...ticket.toObject(),
-        messages: [],
-      }));
+      const ticket = await ticketService.replyToTicket(
+        ticketId,
+        messageText,
+        user,
+        replyTo
+      );
 
-      logger.info(`Tickets retrieved for user ${user.email}`);
-      return reply
-        .status(200)
-        .send(formatResponse(sanitizedTickets, false, null, 200));
+      logger.info(`Reply sent to ticket ${ticketId} by user ${user.email}`);
+      return reply.status(200).send(formatResponse(ticket, false, null, 200));
     } catch (error) {
-      logger.error(`Error retrieving user tickets: ${error.message}`);
+      logger.error(`Error replying to ticket: ${error.message}`);
       return reply
         .status(400)
         .send(formatResponse({}, true, error.message, 400));
     }
   },
 
-  getAllTickets: async (request, reply) => {
+  markMessagesAsRead: async (request, reply) => {
     try {
       const user = request.user;
+      const { ticketId } = request.params;
 
-      // Check feature access
-      const allTicketsAccess = user.featureAccess.find(
-        (f) => f.feature === "ALL_TICKETS"
+      await ticketService.markMessagesAsRead(ticketId, user);
+
+      logger.info(
+        `Messages marked as read for ticket ${ticketId} by ${user.email}`
       );
-      if (!allTicketsAccess || allTicketsAccess.access !== "FULL_ACCESS") {
-        return reply
-          .status(403)
-          .send(
-            formatResponse(
-              {},
-              true,
-              "You do not have access to all tickets",
-              403
-            )
-          );
-      }
-
-      const tickets = await ticketService.getAllTickets();
-      // Replace messages with empty array
-      const sanitizedTickets = tickets.map((ticket) => ({
-        ...ticket.toObject(),
-        messages: [],
-      }));
-
-      logger.info(`All tickets retrieved by user ${user.email}`);
-      return reply
-        .status(200)
-        .send(formatResponse(sanitizedTickets, false, null, 200));
+      return reply.status(200).send(formatResponse({}, false, null, 200));
     } catch (error) {
-      logger.error(`Error retrieving all tickets: ${error.message}`);
+      logger.error(`Error marking messages as read: ${error.message}`);
       return reply
         .status(400)
         .send(formatResponse({}, true, error.message, 400));
