@@ -191,3 +191,140 @@ Require stack:
 ❗ [ERROR] 05/16/2025, 04:20:30 PM | Error uploading profile image: File size is required and cannot be zero
 ❗ [ERROR] 05/16/2025, 04:21:14 PM | ❌ Error uploading profile image: File size is required and cannot be zero
 ❗ [ERROR] 05/16/2025, 04:21:14 PM | Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:46:13 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:46:20 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:46:26 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:46:27 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:50:11 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:11 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:13 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:14 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:14 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:15 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:15 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:16 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:16 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:17 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:17 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:18 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:18 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:19 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:19 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:20 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:27 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:28 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:28 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:29 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:29 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:30 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:30 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:30 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:31 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:31 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:32 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:32 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:33 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:33 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:34 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:34 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:34 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:35 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:35 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:35 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:36 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:37 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:37 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:38 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:55:44 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:55:45 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:55:46 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:56:39 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:56:40 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:56:51 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:53 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:54 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:54 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:55 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:55 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:56 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:56 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:56 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:57 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:58 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:58 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:57:44 PM | Error: Server startup error: Plugin must be a function or a promise. Received: 'object' | Location: at validatePlugin (/Users/devrct/Developer/server/node_modules/avvio/lib/validate-plugin.js:19:13)
+❗ [ERROR] 05/16/2025, 05:00:09 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:10 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:10 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:11 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:13 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:04:02 PM | Error: Server startup error: fastify.setTrustProxy is not a function | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:16:11)
+❗ [ERROR] 05/16/2025, 05:05:36 PM | Error: Server startup error: fastify.setTrustProxy is not a function | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:16:11)
+❗ [ERROR] 05/16/2025, 05:05:47 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:47 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:48 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:48 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:49 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:49 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:50 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:51 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:51 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:52 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:52 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:53 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:42 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:42 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:43 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:43 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:43 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 08:20:28 PM | Error creating article: E11000 duplicate key error collection: shop-server.articles index: slug_1 dup key: { slug: "introduction-to-ai" }
+❗ [ERROR] 05/16/2025, 08:20:28 PM | Error creating article: E11000 duplicate key error collection: shop-server.articles index: slug_1 dup key: { slug: "introduction-to-ai" }
+❗ [ERROR] 05/16/2025, 08:51:14 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/16/2025, 08:53:24 PM | Error: Server startup error: Method 'POST' already declared for route '/api/articles' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 08:53:38 PM | Error: Server startup error: productRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:15:20)
+❗ [ERROR] 05/16/2025, 08:53:44 PM | Error: Validation error: schema.parseAsync is not a function | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
+❗ [ERROR] 05/16/2025, 08:54:12 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/16/2025, 08:54:12 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/16/2025, 09:16:10 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:16:14 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:16:20 PM | Error: Server startup error: caRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:18:20)
+❗ [ERROR] 05/16/2025, 09:16:21 PM | Error: Server startup error: cartRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:18:20)
+❗ [ERROR] 05/16/2025, 09:17:06 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:17:24 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:17:34 PM | Error: Server startup error: paymentsoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:20:20)
+❗ [ERROR] 05/16/2025, 09:17:36 PM | Error: Server startup error: paymentoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:20:20)
+❗ [ERROR] 05/16/2025, 09:17:37 PM | Error: Server startup error: paymentRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:20:20)
+❗ [ERROR] 05/16/2025, 09:21:21 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:21:36 PM | Error: Server startup error: festivalRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:24:20)
+❗ [ERROR] 05/17/2025, 04:01:56 AM | Auth error: jwt expired
+❗ [ERROR] 05/17/2025, 04:02:28 AM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/17/2025, 04:02:51 AM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/17/2025, 04:03:21 AM | Error creating order: Cart is empty
+❗ [ERROR] 05/17/2025, 04:03:21 AM | Error creating order: Cart is empty
+❗ [ERROR] 05/17/2025, 04:05:04 AM | Auth error: jwt malformed
+❗ [ERROR] 05/17/2025, 04:05:55 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 04:05:55 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 04:06:34 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 04:06:34 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 11:40:14 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:40:14 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:40:30 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:40:30 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:41:12 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:41:12 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:45:31 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:45:31 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:46:04 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:46:04 AM | Error creating payment: Order not found

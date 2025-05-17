@@ -5,4 +5,21 @@ const createReportDto = z.object({
   reason: z.string().min(5).nonempty(),
 });
 
-module.exports = { createReportDto };
+const clearReportsOfUserParamsDto = z.object({
+  id: z.string().nonempty(),
+});
+
+const deleteSingleReportParamsDto = z.object({
+  reportId: z.string().nonempty(),
+});
+
+const banUnbanUserParamsDto = z.object({
+  id: z.string().nonempty(),
+});
+
+module.exports = {
+  createReportDto,
+  clearReportsOfUserParamsDto,
+  deleteSingleReportParamsDto,
+  banUnbanUserParamsDto,
+};

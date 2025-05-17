@@ -39,8 +39,28 @@ const getArticleFileDir = (mimetype, config) => {
   }
 };
 
+const getProductFileDir = (mimetype, config) => {
+  if (config.allowedImageTypes.includes(mimetype)) {
+    return { dir: config.productImageDir, subPath: "images" };
+  } else if (config.allowedVideoTypes.includes(mimetype)) {
+    return { dir: config.productVideoDir, subPath: "videos" };
+  } else {
+    return { dir: config.productOtherDir, subPath: "others" };
+  }
+};
+
+const getFestivalFileDir = (mimetype, config) => {
+  if (config.allowedImageTypes.includes(mimetype)) {
+    return { dir: config.festivalImageDir, subPath: "images" };
+  } else {
+    return { dir: config.festivalOtherDir, subPath: "others" };
+  }
+};
+
 module.exports = {
   generateFileName,
   getTicketFileDir,
   getArticleFileDir,
+  getProductFileDir,
+  getFestivalFileDir,
 };

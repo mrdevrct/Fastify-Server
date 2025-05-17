@@ -90,6 +90,62 @@ const reportService = {
     );
     return user;
   },
+
+  // گرفتن لیست کاربران ریپورت شده
+  getReportedUsers: async () => {
+    const users = await User.find({ reportCount: { $gt: 0 } }).select(
+      "-password"
+    );
+    return users;
+  },
+
+  // گرفتن لیست کاربران بن شده
+  getBannedUsers: async () => {
+    const users = await User.find({ isBanned: true }).select("-password");
+    return users;
+  },
+
+  clearReportsOfUser: async (userId) => {
+    // حذف همه ریپورت‌هایی که علیه این کاربر ثبت شده
+    await Report.deleteMany({ reportedUser: userId });
+
+    // مقدار reportCount کاربر را صفر کن
+    const user = await User.findById(userId);
+    if (user) {
+      user.reportCount = 0;
+      await user.save();
+    }
+    return user;
+  },
+
+  // حذف همه ریپورت‌ها (تمام جدول Report)
+  clearAllReports: async () => {
+    await Report.deleteMany({});
+    // مقدار reportCount همه کاربران را صفر کن
+    await User.updateMany(
+      { reportCount: { $gt: 0 } },
+      { $set: { reportCount: 0 } }
+    );
+    return true;
+  },
+
+  // حذف یک ریپورت خاص با آیدی ریپورت
+  deleteSingleReport: async (reportId) => {
+    const report = await Report.findById(reportId);
+    if (!report) {
+      throw new Error("Report not found");
+    }
+
+    // کاهش reportCount کاربر مربوطه
+    const reportedUser = await User.findById(report.reportedUser);
+    if (reportedUser && reportedUser.reportCount > 0) {
+      reportedUser.reportCount -= 1;
+      await reportedUser.save();
+    }
+
+    await report.deleteOne();
+    return true;
+  },
 };
 
 module.exports = { reportService };

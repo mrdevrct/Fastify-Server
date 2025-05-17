@@ -11,27 +11,28 @@ const {
   resetPasswordDto,
 } = require("../dto/user.dto");
 const adminOnlyMiddleware = require("../../../middlewares/auth/adminOnly.middleware");
+const ipBlockMiddleware = require("../../../middlewares/security/ipBlock.middleware");
 
 const userRoutes = async (fastify, options) => {
   // Sign up or log in with email
   fastify.post(
     "/auth",
     { preValidation: [validateMiddleware(authDto)] },
-    userController.auth
+    ipBlockMiddleware(userController.auth)
   );
 
   // Verify code
   fastify.post(
     "/verify",
     { preValidation: [validateMiddleware(verifyCodeDto)] },
-    userController.verifyCode
+    ipBlockMiddleware(userController.verifyCode)
   );
 
   // Log in with password
   fastify.post(
     "/login",
     { preValidation: [validateMiddleware(loginWithPasswordDto)] },
-    userController.loginWithPassword
+    ipBlockMiddleware(userController.loginWithPassword)
   );
 
   // Forgot password

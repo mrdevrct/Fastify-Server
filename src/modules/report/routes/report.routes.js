@@ -19,9 +19,42 @@ const reportRoutes = async (fastify, options) => {
 
   // آن بن کردن دستی
   fastify.put(
-    '/users/:id/unban',
+    "/users/:id/unban",
     { preValidation: [fastify.auth] },
     reportController.unbanUser
+  );
+
+  // گرفتن لیست کاربران ریپورت شده
+  fastify.get(
+    "/reported-users",
+    { preValidation: [fastify.auth] },
+    reportController.getReportedUsers
+  );
+
+  // گرفتن لیست کاربران بن شده
+  fastify.get(
+    "/banned-users",
+    { preValidation: [fastify.auth] },
+    reportController.getBannedUsers
+  );
+
+  fastify.delete(
+    "/users/:id/reports",
+    { preValidation: [fastify.auth] },
+    reportController.clearReportsOfUser
+  );
+
+  // حذف تمام ریپورت‌ها
+  fastify.delete(
+    "/all-reports",
+    { preValidation: [fastify.auth] },
+    reportController.clearAllReports
+  );
+
+  fastify.delete(
+    "/removed-report/:reportId",
+    { preValidation: [fastify.auth] },
+    reportController.deleteSingleReport
   );
 };
 
