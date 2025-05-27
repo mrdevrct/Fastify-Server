@@ -81,7 +81,6 @@ const ProductSchema = new Schema({
   slug: {
     type: String,
     unique: true,
-    required: true,
     trim: true,
   },
   description: {
@@ -185,15 +184,26 @@ const ProductSchema = new Schema({
 });
 
 // Middleware برای به‌روزرسانی و سئو
-ProductSchema.pre("save", function (next) {
+ProductSchema.pre("save", async function (next) {
   this.updatedAt = Date.now();
 
-  if (!this.slug) {
-    this.slug = this.name
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
+  // تولید اسلاگ با حفظ حروف فارسی
+  let baseSlug = this.name
+    .replace(/\s+/g, "-") // جایگزینی فاصله‌ها با خط تیره
+    .replace(/[^\u0600-\u06FF\w-]/g, "") // حذف کاراکترهای غیرمجاز به جز حروف فارسی
+    .toLowerCase();
+
+  // بررسی منحصربه‌فرد بودن اسلاگ
+  const existingProduct = await mongoose
+    .model("Product")
+    .findOne({ slug: baseSlug });
+  if (
+    existingProduct &&
+    existingProduct._id.toString() !== this._id.toString()
+  ) {
+    baseSlug = `${baseSlug}-${this._id}`;
   }
+  this.slug = baseSlug;
 
   if (!this.metaTitle) {
     this.metaTitle = this.name.substring(0, 70);

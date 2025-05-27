@@ -13627,3 +13627,231 @@
 ℹ️ [INFO] 05/27/2025, 09:02:59 PM | Server running on port 8080
 ℹ️ [INFO] 05/27/2025, 09:03:03 PM | Public WebSocket client connected: ::1
 ℹ️ [INFO] 05/27/2025, 09:03:03 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 09:20:09 PM | Public WebSocket client disconnected: ::1, Code: 1001, Reason: 
+ℹ️ [INFO] 05/27/2025, 09:20:10 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 09:20:10 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 09:22:15 PM | Server running on port 8080
+❗ [ERROR] 05/27/2025, 09:22:17 PM | Error fetching products: Cannot read properties of undefined (reading 'id')
+ℹ️ [INFO] 05/27/2025, 09:22:20 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 09:22:20 PM | Welcome message sent to client: ::1
+❗ [ERROR] 05/27/2025, 09:22:42 PM | Error fetching products: Cannot read properties of undefined (reading 'id')
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 09:25:33 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 09:25:39 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 09:25:39 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 09:25:50 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 09:25:54 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 09:25:54 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 09:26:11 PM | Product list retrieved by unauthenticated user
+❗ [ERROR] 05/27/2025, 09:33:04 PM | Error updating product: the request is not multipart
+ℹ️ [INFO] 05/27/2025, 09:33:48 PM | Notification saved: UPDATE_PRODUCT_SPEC, ID: 6835fe84b4afbc0ec467c579
+ℹ️ [INFO] 05/27/2025, 09:33:48 PM | Notification sent via WebSocket: UPDATE_PRODUCT_SPEC
+ℹ️ [INFO] 05/27/2025, 09:33:48 PM | Product 6835b00d5e303cd8e7cbdc40 updated by user superadmin@gmail.com
+ℹ️ [INFO] 05/27/2025, 09:34:12 PM | Product list retrieved by unauthenticated user
+ℹ️ [INFO] 05/27/2025, 10:10:12 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:10:28 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:10:30 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:10:32 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:10:32 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:11:40 PM | Public WebSocket client disconnected: ::1, Code: 1001, Reason: 
+ℹ️ [INFO] 05/27/2025, 10:11:41 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:11:41 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:13:49 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:13:49 PM | ✅ Product main image uploaded for superadmin@gmail.com => product-main-superadmin-68261c189793af40ff160090-20250527221349.png
+ℹ️ [INFO] 05/27/2025, 10:13:49 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:13:49 PM | ✅ Product media uploaded for superadmin@gmail.com => product-superadmin-68261c189793af40ff160090-20250527221349.png
+❗ [ERROR] 05/27/2025, 10:13:49 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:13:49 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:14:51 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:14:55 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:14:56 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:15:01 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:15:01 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:15:02 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:15:02 PM | ✅ Product main image uploaded for superadmin@gmail.com => product-main-superadmin-68261c189793af40ff160090-20250527221502.png
+ℹ️ [INFO] 05/27/2025, 10:15:02 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:15:02 PM | ✅ Product media uploaded for superadmin@gmail.com => product-superadmin-68261c189793af40ff160090-20250527221502.png
+❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:16:46 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:16:47 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:16:48 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:16:51 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:16:51 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:18:58 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:19:01 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | ✅ Product main image uploaded for superadmin@gmail.com => product-main-superadmin-68261c189793af40ff160090-20250527221905.png
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | ✅ Product media uploaded for superadmin@gmail.com => product-superadmin-68261c189793af40ff160090-20250527221905.png
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | Notification saved: ADD_PRODUCT, ID: 68360921e2ccf15a1aef7b8a
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | Notification sent via WebSocket: ADD_PRODUCT
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | Product created by user: superadmin@gmail.com
+ℹ️ [INFO] 05/27/2025, 10:19:05 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:19:06 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:19:28 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:19:28 PM | ✅ Product main image uploaded for superadmin@gmail.com => product-main-superadmin-68261c189793af40ff160090-20250527221928.png
+ℹ️ [INFO] 05/27/2025, 10:19:28 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:19:28 PM | ✅ Product media uploaded for superadmin@gmail.com => product-superadmin-68261c189793af40ff160090-20250527221928.png
+ℹ️ [INFO] 05/27/2025, 10:19:28 PM | Notification saved: ADD_PRODUCT, ID: 68360938e2ccf15a1aef7b9d
+ℹ️ [INFO] 05/27/2025, 10:19:28 PM | Notification sent via WebSocket: ADD_PRODUCT
+ℹ️ [INFO] 05/27/2025, 10:19:28 PM | Product created by user: superadmin@gmail.com
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:24:02 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:24:04 PM | MongoDB connected
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | Middlewares configured
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | Helmet security headers enabled
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | CORS enabled
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | Security middlewares fully configured
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | Interceptors configured
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | Routes configured
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | WebSocket server initialized
+ℹ️ [INFO] 05/27/2025, 10:24:05 PM | Server running on port 8080
+ℹ️ [INFO] 05/27/2025, 10:24:07 PM | Public WebSocket client connected: ::1
+ℹ️ [INFO] 05/27/2025, 10:24:07 PM | Welcome message sent to client: ::1
+ℹ️ [INFO] 05/27/2025, 10:24:30 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:24:30 PM | ✅ Product main image uploaded for superadmin@gmail.com => product-main-superadmin-68261c189793af40ff160090-20250527222430.png
+ℹ️ [INFO] 05/27/2025, 10:24:30 PM | Upload directories initialized successfully
+ℹ️ [INFO] 05/27/2025, 10:24:30 PM | ✅ Product media uploaded for superadmin@gmail.com => product-superadmin-68261c189793af40ff160090-20250527222430.png
+ℹ️ [INFO] 05/27/2025, 10:24:30 PM | Notification saved: ADD_PRODUCT, ID: 68360a66979bc759d3d4b228
+ℹ️ [INFO] 05/27/2025, 10:24:30 PM | Notification sent via WebSocket: ADD_PRODUCT
+ℹ️ [INFO] 05/27/2025, 10:24:30 PM | Product created by user: superadmin@gmail.com

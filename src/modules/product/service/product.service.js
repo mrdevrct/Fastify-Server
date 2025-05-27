@@ -9,7 +9,6 @@ const productService = {
     try {
       const newProduct = new Product({
         name: productData.name,
-        slug: productData.slug,
         description: productData.description,
         mainImage: {
           ...productData.mainImage,
@@ -92,7 +91,7 @@ const productService = {
           .skip(skip)
           .limit(perPage)
           .populate("categoryId")
-          .lean() // استفاده از lean برای بهبود عملکرد
+          .lean()
           .exec(),
         Product.countDocuments(query),
       ]);
@@ -238,13 +237,40 @@ const productService = {
     }
   },
 
+  getSimilarProducts: async (productId, limit = 4) => {
+    try {
+      const product = await Product.findById(productId).lean();
+      if (!product) {
+        throw new Error("Product not found");
+      }
+
+      const query = {
+        status: "PUBLISHED",
+        _id: { $ne: productId }, // محصول خودش رو حذف کن
+        $or: [
+          { categoryId: product.categoryId }, // محصولات با دسته‌بندی یکسان
+          { tags: { $in: product.tags } }, // محصولات با تگ‌های مشابه
+        ],
+      };
+
+      return await Product.find(query)
+        .sort({ views: -1, averageRating: -1 })
+        .limit(limit)
+        .populate("categoryId")
+        .lean()
+        .exec();
+    } catch (error) {
+      logger.error(`Error fetching similar products: ${error.message}`);
+      throw error;
+    }
+  },
+
   updateProduct: async (productId, updateData, user) => {
     try {
       const product = await Product.findById(productId);
       if (!product) throw new Error("Product not found");
 
       if (updateData.name) product.name = updateData.name;
-      if (updateData.slug) product.slug = updateData.slug;
       if (updateData.description) product.description = updateData.description;
       if (updateData.mainImage)
         product.mainImage = { ...updateData.mainImage, uploadedBy: user.id };

@@ -174,7 +174,13 @@ const productController = {
         perPage: perPageNum,
       });
 
-      logger.info(`Product list retrieved by user: ${request.user.id}`);
+      // Log user ID only if user is authenticated
+      if (request.user) {
+        logger.info(`Product list retrieved by user: ${request.user.id}`);
+      } else {
+        logger.info(`Product list retrieved by unauthenticated user`);
+      }
+
       return reply
         .status(200)
         .send(formatResponse(products, false, null, 200, pagination));
@@ -256,6 +262,19 @@ const productController = {
       return reply.status(200).send(formatResponse(product, false, null, 200));
     } catch (error) {
       logger.error(`Error fetching product: ${error.message}`);
+      return reply
+        .status(400)
+        .send(formatResponse({}, true, error.message, 400));
+    }
+  },
+
+  getSimilarProducts: async (request, reply) => {
+    try {
+      const { identifier } = request.params;
+      const products = await productService.getSimilarProducts(identifier);
+      return reply.status(200).send(formatResponse(products, false, null, 200));
+    } catch (error) {
+      logger.error(`Error fetching similar products: ${error.message}`);
       return reply
         .status(400)
         .send(formatResponse({}, true, error.message, 400));
@@ -364,7 +383,7 @@ const productController = {
     try {
       const user = request.user;
       const { productId } = request.params;
-      const product = await productService.getProduct(productId, user); // برای گرفتن اطلاعات محصول قبل از حذف
+      const product = await productService.getProduct(productId, user);
       await productService.deleteProduct(productId, user);
 
       // نوتیفیکیشن برای حذف محصول

@@ -756,3 +756,11 @@ Require stack:
 ❗ [ERROR] 05/27/2025, 03:51:36 PM | Error sending test notification: mongoose is not defined
 ❗ [ERROR] 05/27/2025, 03:51:37 PM | Error in createAndSendNotification: mongoose is not defined
 ❗ [ERROR] 05/27/2025, 03:51:37 PM | Error sending test notification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 09:22:17 PM | Error fetching products: Cannot read properties of undefined (reading 'id')
+❗ [ERROR] 05/27/2025, 09:22:42 PM | Error fetching products: Cannot read properties of undefined (reading 'id')
+❗ [ERROR] 05/27/2025, 09:33:04 PM | Error updating product: the request is not multipart
+❗ [ERROR] 05/27/2025, 10:10:12 PM | Error: Server startup error: Missing handler function for "GET:/:identifier/similar" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/27/2025, 10:13:49 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:13:49 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
