@@ -1,6 +1,5 @@
 const path = require("path");
 const multipart = require("@fastify/multipart");
-const websocket = require("@fastify/websocket");
 const staticPlugin = require("@fastify/static");
 const { requestLogger, logger } = require("../utils/logger/logger");
 const authMiddleware = require("../middlewares/auth/auth.middleware");
@@ -20,8 +19,7 @@ const setupPlugins = async (fastify) => {
     decorateReply: false,
   });
 
-  // WebSocket support
-  await fastify.register(websocket);
+
 
   // Custom request logger
   await fastify.register(requestLogger);

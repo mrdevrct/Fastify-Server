@@ -57,10 +57,19 @@ const getFestivalFileDir = (mimetype, config) => {
   }
 };
 
+const getCategoryFileDir = (mimetype, config) => {
+  if (config.allowedImageTypes.includes(mimetype)) {
+    return { dir: config.categoryImageDir, subPath: "images" };
+  } else {
+    return { dir: config.categoryOtherDir, subPath: "others" };
+  }
+};
+
 module.exports = {
   generateFileName,
   getTicketFileDir,
   getArticleFileDir,
   getProductFileDir,
   getFestivalFileDir,
+  getCategoryFileDir,
 };

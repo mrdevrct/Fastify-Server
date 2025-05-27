@@ -1,68 +1,43 @@
-const validateMiddleware = require("../../../middlewares/validation/validate.middleware");
 const { productController } = require("../controller/product.controller");
-const { createProductDto, updateProductDto } = require("../dto/product.dto");
 
 const productRoutes = async (fastify, options) => {
-  // Create product
   fastify.post(
     "/",
-    {
-      preValidation: [fastify.auth],
-    },
+    { preValidation: [fastify.auth] },
     productController.createProduct
   );
-
-  // Get my products
   fastify.get(
     "/my-products",
-    {
-      preValidation: [fastify.auth],
-    },
-    productController.getMyProducts
+    { preValidation: [fastify.auth] },
+    productController.getProducts
   );
-
-  // Get all products
   fastify.get(
     "/all-products",
-    {
-      preValidation: [fastify.auth],
-    },
-    productController.getAllProducts
+    { preValidation: [fastify.auth] },
+    productController.getProducts
   );
-
-  // Get product by ID or slug
+  fastify.get("/new", productController.getNewProducts);
+  fastify.get("/popular", productController.getPopularProducts);
+  fastify.get("/top-selling", productController.getTopSellingProducts);
+  fastify.get("/most-discounted", productController.getMostDiscountedProducts);
   fastify.get(
     "/:identifier",
-    {
-      preValidation: [fastify.auth],
-    },
+    { preValidation: [fastify.auth] },
     productController.getProduct
   );
-
-  // Update product
   fastify.put(
     "/:productId",
-    {
-      preValidation: [fastify.auth],
-    },
+    { preValidation: [fastify.auth] },
     productController.updateProduct
   );
-
-  // Delete product
   fastify.delete(
     "/:productId",
-    {
-      preValidation: [fastify.auth],
-    },
+    { preValidation: [fastify.auth] },
     productController.deleteProduct
   );
-
-  // Add review
   fastify.post(
     "/:productId/review",
-    {
-      preValidation: [fastify.auth],
-    },
+    { preValidation: [fastify.auth] },
     productController.addReview
   );
 };

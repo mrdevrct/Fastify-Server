@@ -2,6 +2,7 @@ const { logger } = require("../utils/logger/logger");
 const articleRoutes = require("./articles/routes/article.routes");
 const bannerRoutes = require("./banner/routes/banner.routes");
 const cartRoutes = require("./cart/routes/cart.routes");
+const categoryRoutes = require("./category/routes/category.route");
 const festivalRoutes = require("./festival/routes/festival.routes");
 const orderRoutes = require("./order/routes/order.routes");
 const paymentRoutes = require("./payment/routes/payment.routes");
@@ -23,6 +24,7 @@ const setupRoutes = async (fastify) => {
   fastify.register(paymentRoutes, { prefix: "/api/payments" });
   fastify.register(orderRoutes, { prefix: "/api/orders" });
   fastify.register(festivalRoutes, { prefix: "/api/festivals" });
+  fastify.register(categoryRoutes, { prefix: "/api/categories" });
 
 };
 

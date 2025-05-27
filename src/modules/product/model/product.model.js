@@ -103,21 +103,32 @@ const ProductSchema = new Schema({
     min: 0,
     default: null,
   },
+  discountPercentage: {
+    type: Number,
+    min: 0,
+    max: 100,
+    default: 0,
+  },
   stock: {
     type: Number,
     required: true,
     min: 0,
     default: 0,
   },
-  category: {
-    type: String,
-    enum: ["ELECTRONICS", "FASHION", "HOME", "SPORTS", "BOOKS", "OTHER"],
-    default: "OTHER",
+  categoryId: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
   },
   brand: {
     type: String,
     trim: true,
     default: "",
+  },
+  attributes: {
+    type: Map,
+    of: String,
+    default: {},
   },
   tags: [
     {
@@ -197,6 +208,14 @@ ProductSchema.pre("save", function (next) {
     this.publishedAt = Date.now();
   }
 
+  // محاسبه درصد تخفیف
+  if (this.discountPrice && this.price > 0) {
+    this.discountPercentage =
+      ((this.price - this.discountPrice) / this.price) * 100;
+  } else {
+    this.discountPercentage = 0;
+  }
+
   // محاسبه میانگین امتیاز
   if (this.reviews.length > 0) {
     const totalRating = this.reviews.reduce(
@@ -224,12 +243,15 @@ ProductSchema.index({
   name: "text",
   metaTitle: "text",
   metaDescription: "text",
-}); // جستجوی متنی
-ProductSchema.index({ slug: 1 }); // دسترسی سریع به slug
-ProductSchema.index({ tags: 1 }); // فیلتر بر اساس تگ‌ها
-ProductSchema.index({ keywords: 1 }); // فیلتر بر اساس کلمات کلیدی
-ProductSchema.index({ category: 1, publishedAt: -1 }); // فیلتر محصولات منتشرشده
-ProductSchema.index({ price: 1, discountPrice: 1 }); // مرتب‌سازی بر اساس قیمت
+});
+ProductSchema.index({ slug: 1 });
+ProductSchema.index({ tags: 1 });
+ProductSchema.index({ keywords: 1 });
+ProductSchema.index({ categoryId: 1, publishedAt: -1 });
+ProductSchema.index({ price: 1, discountPrice: 1, discountPercentage: -1 });
+ProductSchema.index({ views: -1 });
+ProductSchema.index({ averageRating: -1 });
+ProductSchema.index({ createdAt: -1 });
 
 // متد برای افزایش بازدید
 ProductSchema.methods.incrementViews = async function () {

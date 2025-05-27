@@ -20,24 +20,72 @@ const ticketService = {
     return newTicket;
   },
 
-  getMyTickets: async (user) => {
+  getMyTickets: async (user, page = 1, perPage = 20) => {
     try {
       const filter = {
         $or: [{ userId: user.id }, { email: user.email }],
       };
 
-      const tickets = await Ticket.find(filter).sort({ updatedAt: -1 });
-      return tickets;
+      const skip = (page - 1) * perPage;
+
+      const [tickets, total] = await Promise.all([
+        Ticket.find(filter)
+          .sort({ updatedAt: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean()
+          .exec(),
+        Ticket.countDocuments(filter),
+      ]);
+
+      const formattedTickets = tickets.map((ticket) => ({
+        id: ticket._id,
+        title: ticket.title,
+        priority: ticket.priority,
+        category: ticket.category,
+        userId: ticket.userId,
+        email: ticket.email,
+        username: ticket.username,
+        status: ticket.status,
+        createdAt: ticket.createdAt,
+        updatedAt: ticket.updatedAt,
+      }));
+
+      return { tickets: formattedTickets, total };
     } catch (error) {
       logger.error(`Error fetching my tickets: ${error.message}`);
       throw error;
     }
   },
 
-  getAllTickets: async () => {
+  getAllTickets: async (page = 1, perPage = 20) => {
     try {
-      const tickets = await Ticket.find({}).sort({ updatedAt: -1 });
-      return tickets;
+      const skip = (page - 1) * perPage;
+
+      const [tickets, total] = await Promise.all([
+        Ticket.find({})
+          .sort({ updatedAt: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean()
+          .exec(),
+        Ticket.countDocuments({}),
+      ]);
+
+      const formattedTickets = tickets.map((ticket) => ({
+        id: ticket._id,
+        title: ticket.title,
+        priority: ticket.priority,
+        category: ticket.category,
+        userId: ticket.userId,
+        email: ticket.email,
+        username: ticket.username,
+        status: ticket.status,
+        createdAt: ticket.createdAt,
+        updatedAt: ticket.updatedAt,
+      }));
+
+      return { tickets: formattedTickets, total };
     } catch (error) {
       logger.error(`Error fetching all tickets: ${error.message}`);
       throw error;
@@ -46,7 +94,7 @@ const ticketService = {
 
   getTicketMessages: async (ticketId, user) => {
     try {
-      const ticket = await Ticket.findById(ticketId);
+      const ticket = await Ticket.findById(ticketId).lean().exec();
       if (!ticket) {
         throw new Error("Ticket not found");
       }
@@ -159,6 +207,33 @@ const ticketService = {
       return ticket;
     } catch (error) {
       logger.error(`Error in replyToTicket: ${error.message}`);
+      throw error;
+    }
+  },
+
+  deleteTicket: async (ticketId, user) => {
+    try {
+      const allowedAdmins = ["ADMIN", "SUPER_ADMIN"];
+
+      if (!allowedAdmins.includes(user.adminStatus)) {
+        throw new Error("You are not authorized to delete tickets");
+      }
+
+      const hasFullAccess = user.featureAccess?.some(
+        (f) => f.feature === "EDIT_TICKET" && f.access === "FULL_ACCESS"
+      );
+
+      if (!hasFullAccess) {
+        throw new Error("You do not have access to delete tickets");
+      }
+
+      const ticket = await Ticket.findById(ticketId);
+      if (!ticket) throw new Error("Ticket not found");
+
+      await ticket.remove();
+      return ticket;
+    } catch (error) {
+      logger.error(`Error deleting ticket: ${error.message}`);
       throw error;
     }
   },

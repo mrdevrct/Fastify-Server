@@ -9,6 +9,7 @@ const {
   getArticleFileDir,
   getProductFileDir,
   getFestivalFileDir,
+  getCategoryFileDir,
 } = require("./fileUtils");
 
 const fileUploader = {
@@ -32,7 +33,7 @@ const fileUploader = {
       const fileName = generateFileName(
         "user",
         user.username,
-        user._id,
+        user.id,
         fileExtension
       );
 
@@ -160,7 +161,7 @@ const fileUploader = {
       const fileName = generateFileName(
         "article-cover",
         user.username,
-        user._id,
+        user.id,
         fileExtension
       );
       const fullPath = path.join(config.articleImageDir, fileName);
@@ -188,7 +189,7 @@ const fileUploader = {
         size: fileSize,
         caption: file.caption || "",
         altText: file.altText || "",
-        uploadedBy: user._id,
+        uploadedBy: user.id,
       };
     } catch (error) {
       logger.error(`❌ Error uploading article cover image: ${error.message}`);
@@ -227,7 +228,7 @@ const fileUploader = {
         const fileName = generateFileName(
           "article",
           user.username,
-          articleId || user._id,
+          articleId || user.id,
           fileExtension
         );
         const fullPath = path.join(targetDir, fileName);
@@ -261,7 +262,7 @@ const fileUploader = {
           size: fileSize,
           caption: file.caption || "",
           altText: file.altText || "",
-          uploadedBy: user._id,
+          uploadedBy: user.id,
         });
       }
 
@@ -292,7 +293,7 @@ const fileUploader = {
       const fileName = generateFileName(
         "product-main",
         user.username,
-        user._id,
+        user.id,
         fileExtension
       );
       const fullPath = path.join(config.productImageDir, fileName);
@@ -319,7 +320,7 @@ const fileUploader = {
         size: fileSize,
         caption: file.caption || "",
         altText: file.altText || "",
-        uploadedBy: user._id,
+        uploadedBy: user.id,
       };
     } catch (error) {
       logger.error(`❌ Error uploading product main image: ${error.message}`);
@@ -355,7 +356,7 @@ const fileUploader = {
         const fileName = generateFileName(
           "product",
           user.username,
-          productId || user._id,
+          productId || user.id,
           fileExtension
         );
         const fullPath = path.join(targetDir, fileName);
@@ -386,7 +387,7 @@ const fileUploader = {
           size: fileSize,
           caption: file.caption || "",
           altText: file.altText || "",
-          uploadedBy: user._id,
+          uploadedBy: user.id,
         });
       }
       return uploadedFiles;
@@ -418,7 +419,7 @@ const fileUploader = {
       const fileName = generateFileName(
         "festival-banner",
         user.username,
-        user._id,
+        user.id,
         fileExtension
       );
       const fullPath = path.join(config.festivalImageDir, fileName);
@@ -446,7 +447,7 @@ const fileUploader = {
         size: fileSize,
         caption: file.caption || "",
         altText: file.altText || "",
-        uploadedBy: user._id,
+        uploadedBy: user.id,
       };
     } catch (error) {
       logger.error(
@@ -489,7 +490,7 @@ const fileUploader = {
         const fileName = generateFileName(
           "festival",
           user.username,
-          festivalId || user._id,
+          festivalId || user.id,
           fileExtension
         );
         const fullPath = path.join(targetDir, fileName);
@@ -517,13 +518,71 @@ const fileUploader = {
           size: fileSize,
           caption: file.caption || "",
           altText: file.altText || "",
-          uploadedBy: user._id,
+          uploadedBy: user.id,
         });
       }
 
       return uploadedFiles;
     } catch (error) {
       logger.error(`❌ Error uploading festival media: ${error.message}`);
+      throw error;
+    }
+  },
+
+  uploadCategoryImage: async (file, user) => {
+    try {
+      if (!config.allowedCategoryFileTypes.includes(file.mimetype)) {
+        throw new Error(
+          "Only JPEG, PNG, and GIF images are allowed for category image"
+        );
+      }
+
+      const fileSize = file.size || file.file?.bytesRead || 0;
+      if (!fileSize || fileSize > config.maxFileSize) {
+        throw new Error(
+          fileSize
+            ? "File size exceeds 20MB limit"
+            : "File size is required and cannot be zero"
+        );
+      }
+
+      await initDirectories();
+      const fileExtension = file.mimetype.split("/")[1];
+      const fileName = generateFileName(
+        "category",
+        user.username,
+        user.id,
+        fileExtension
+      );
+      const fullPath = path.join(config.categoryImageDir, fileName);
+
+      let fileBuffer;
+      if (file.toBuffer) {
+        fileBuffer = await file.toBuffer();
+      } else if (file.buffer) {
+        fileBuffer = file.buffer;
+      } else if (file.fileBuffer) {
+        fileBuffer = file.fileBuffer;
+      } else {
+        throw new Error("File buffer is missing!");
+      }
+
+      await fs.writeFile(fullPath, fileBuffer);
+      logger.info(
+        `✅ Category image uploaded for ${user.email} => ${fileName}`
+      );
+
+      return {
+        type: "IMAGE",
+        url: `/uploads/category/images/${fileName}`,
+        mimeType: file.mimetype,
+        size: fileSize,
+        caption: file.caption || "",
+        altText: file.altText || "",
+        uploadedBy: user.id,
+      };
+    } catch (error) {
+      logger.error(`❌ Error uploading category image: ${error.message}`);
       throw error;
     }
   },

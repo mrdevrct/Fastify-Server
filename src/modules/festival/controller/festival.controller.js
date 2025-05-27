@@ -2,6 +2,12 @@ const { logger } = require("../../../utils/logger/logger");
 const { formatResponse } = require("../../../utils/response/formatResponse");
 const fileUploader = require("../../../utils/uploader/fileUploader");
 const { festivalService } = require("../service/festival.service");
+const {
+  notificationService,
+} = require("../../notification/service/notification.service");
+const {
+  NOTIFICATION_TYPES,
+} = require("../../../utils/notification/notification.enums");
 
 const festivalController = {
   createFestival: async (request, reply) => {
@@ -71,6 +77,22 @@ const festivalController = {
       const newFestival = await festivalService.createFestival(
         { ...festivalData, bannerImage },
         user
+      );
+
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.ADD_FESTIVAL,
+        `New festival created: ${newFestival.title}`,
+        {
+          festivalId: newFestival._id.toString(),
+          title: newFestival.title,
+          slug: newFestival.slug,
+          discountPercentage: newFestival.discountPercentage,
+          startDate: newFestival.startDate,
+          endDate: newFestival.endDate,
+          timestamp: new Date().toISOString(),
+        }
       );
 
       logger.info(`Festival created by user: ${user.email}`);
@@ -164,6 +186,22 @@ const festivalController = {
         user
       );
 
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.UPDATE_FESTIVAL,
+        `Festival updated: ${festival.title}`,
+        {
+          festivalId: festival._id.toString(),
+          title: festival.title,
+          slug: festival.slug,
+          discountPercentage: festival.discountPercentage,
+          startDate: festival.startDate,
+          endDate: festival.endDate,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`Festival ${festivalId} updated by user ${user.email}`);
       return reply.status(200).send(formatResponse(festival, false, null, 200));
     } catch (error) {
@@ -178,7 +216,22 @@ const festivalController = {
     try {
       const user = request.user;
       const { festivalId } = request.params;
+      const festival = await festivalService.getFestival(festivalId);
       await festivalService.deleteFestival(festivalId, user);
+
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.REMOVE_FESTIVAL,
+        `Festival deleted: ${festival.title}`,
+        {
+          festivalId: festival._id.toString(),
+          title: festival.title,
+          slug: festival.slug,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`Festival ${festivalId} deleted by user ${user.email}`);
       return reply.status(200).send(formatResponse({}, false, null, 200));
     } catch (error) {

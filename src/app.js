@@ -1,4 +1,4 @@
-const fastify = require("fastify")({ logger: false , trustProxy: true,  });
+const fastify = require("fastify")({ logger: false, trustProxy: true });
 const setupMiddlewares = require("./middlewares");
 const setupInterceptors = require("./interceptors");
 const setupRoutes = require("./modules");

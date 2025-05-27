@@ -92,17 +92,69 @@ const reportService = {
   },
 
   // گرفتن لیست کاربران ریپورت شده
-  getReportedUsers: async () => {
-    const users = await User.find({ reportCount: { $gt: 0 } }).select(
-      "-password"
-    );
-    return users;
+  getReportedUsers: async (page = 1, perPage = 20) => {
+    try {
+      const skip = (page - 1) * perPage;
+
+      const [users, total] = await Promise.all([
+        User.find({ reportCount: { $gt: 0 } })
+          .select("-password")
+          .sort({ reportCount: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean()
+          .exec(),
+        User.countDocuments({ reportCount: { $gt: 0 } }),
+      ]);
+
+      const formattedUsers = users.map((user) => ({
+        id: user._id,
+        email: user.email,
+        username: user.username,
+        reportCount: user.reportCount,
+        isBanned: user.isBanned,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      }));
+
+      return { users: formattedUsers, total };
+    } catch (error) {
+      logger.error(`Error fetching reported users: ${error.message}`);
+      throw error;
+    }
   },
 
   // گرفتن لیست کاربران بن شده
-  getBannedUsers: async () => {
-    const users = await User.find({ isBanned: true }).select("-password");
-    return users;
+  getBannedUsers: async (page = 1, perPage = 20) => {
+    try {
+      const skip = (page - 1) * perPage;
+
+      const [users, total] = await Promise.all([
+        User.find({ isBanned: true })
+          .select("-password")
+          .sort({ updatedAt: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean()
+          .exec(),
+        User.countDocuments({ isBanned: true }),
+      ]);
+
+      const formattedUsers = users.map((user) => ({
+        id: user._id,
+        email: user.email,
+        username: user.username,
+        reportCount: user.reportCount,
+        isBanned: user.isBanned,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      }));
+
+      return { users: formattedUsers, total };
+    } catch (error) {
+      logger.error(`Error fetching banned users: ${error.message}`);
+      throw error;
+    }
   },
 
   clearReportsOfUser: async (userId) => {
@@ -145,6 +197,15 @@ const reportService = {
 
     await report.deleteOne();
     return true;
+  },
+
+  // دریافت ریپورت با آیدی
+  getReportById: async (reportId) => {
+    const report = await Report.findById(reportId);
+    if (!report) {
+      throw new Error("Report not found");
+    }
+    return report;
   },
 };
 

@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const Order = require("../model/order.model");
-const OrderStatusHistory = require("../model/OrderStatusHistory.model");
+const OrderStatusHistory = require("../model/orderStatusHistory.model");
 const Cart = require("../../cart/model/cart.model");
 const Product = require("../../product/model/product.model");
 const Festival = require("../../festival/model/festival.model");
 const { cartService } = require("../../cart/service/cart.service");
+const { productService } = require("../../product/service/product.service");
 const { logger } = require("../../../utils/logger/logger");
 
 const orderService = {
@@ -99,11 +100,13 @@ const orderService = {
       });
       await statusHistory.save();
 
+      // به‌روزرسانی آمار فروش
+      await productService.updateSalesCount(order);
+
       logger.info(`Order ${order._id} created for user: ${user.email}`);
       return order;
     } catch (error) {
       logger.error(`Error creating order: ${error.message}`);
-      // در صورت خطا، موجودی محصولات را به حالت اولیه برگردانید
       try {
         for (const item of cart?.items || []) {
           await Product.findByIdAndUpdate(item.productId, {

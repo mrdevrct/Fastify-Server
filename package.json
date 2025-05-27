@@ -21,6 +21,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.5.0",
     "fastify": "^5.3.3",
+    "fastify-websocket": "^4.2.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.14.3",
     "node-emoji": "^2.2.0",

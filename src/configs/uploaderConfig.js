@@ -25,6 +25,10 @@ const productOtherDir = path.join(productRoot, "others");
 const festivalRoot = path.join(uploadRoot, "festival");
 const festivalImageDir = path.join(festivalRoot, "images");
 const festivalOtherDir = path.join(festivalRoot, "others");
+// Categories
+const categoryRoot = path.join(uploadRoot, "category");
+const categoryImageDir = path.join(categoryRoot, "images");
+const categoryOtherDir = path.join(categoryRoot, "others");
 
 const allowedImageTypes = ["image/jpeg", "image/png", "image/gif"];
 const allowedAudioTypes = ["audio/mpeg", "audio/wav"];
@@ -42,7 +46,8 @@ const allowedArticleFileTypes = [
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ];
 const allowedProductFileTypes = [...allowedImageTypes, ...allowedVideoTypes];
-const allowedFestivalFileTypes = [...allowedImageTypes]; // فقط تصاویر برای جشنواره
+const allowedFestivalFileTypes = [...allowedImageTypes];
+const allowedCategoryFileTypes = [...allowedImageTypes]; // فقط تصاویر برای دسته‌بندی
 
 const maxFileSize = 20 * 1024 * 1024; // 20MB
 
@@ -74,5 +79,9 @@ module.exports = {
   festivalImageDir,
   festivalOtherDir,
   allowedFestivalFileTypes,
+  categoryRoot,
+  categoryImageDir,
+  categoryOtherDir,
+  allowedCategoryFileTypes,
   maxFileSize,
 };

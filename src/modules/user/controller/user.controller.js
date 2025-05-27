@@ -4,9 +4,14 @@ const { formatResponse } = require("../../../utils/response/formatResponse");
 const fileUploader = require("../../../utils/uploader/fileUploader");
 const { generateToken } = require("../../../utils/user/userGenerators");
 const { userService } = require("../service/user.service");
+const {
+  notificationService,
+} = require("../../notification/service/notification.service");
+const {
+  NOTIFICATION_TYPES,
+} = require("../../../utils/notification/notification.enums");
 
 const userController = {
-  // Sign up or login with email
   auth: async (request, reply) => {
     try {
       const user = await userService.auth(request.body);
@@ -23,7 +28,6 @@ const userController = {
     }
   },
 
-  // Verify code
   verifyCode: async (request, reply) => {
     try {
       const { user, refreshToken, refreshTokenExpires } =
@@ -47,7 +51,6 @@ const userController = {
     }
   },
 
-  // Login with password
   loginWithPassword: async (request, reply) => {
     try {
       const { user, refreshToken, refreshTokenExpires } =
@@ -71,7 +74,6 @@ const userController = {
     }
   },
 
-  // Forgot password
   forgotPassword: async (request, reply) => {
     try {
       await userService.forgotPassword(request.body);
@@ -88,7 +90,6 @@ const userController = {
     }
   },
 
-  // Reset password
   resetPassword: async (request, reply) => {
     try {
       const user = await userService.resetPassword(request.body);
@@ -105,7 +106,6 @@ const userController = {
     }
   },
 
-  // Update profile
   updateProfile: async (request, reply) => {
     try {
       const user = await userService.updateProfile(
@@ -115,6 +115,21 @@ const userController = {
       if (!user) {
         return formatResponse({}, true, "User not found", 404);
       }
+
+      // نوتیفیکیشن برای به‌روزرسانی پروفایل
+      await notificationService.createAndSendNotification(
+        request.server,
+        user._id.toString(),
+        NOTIFICATION_TYPES.UPDATE_USER_PROFILE,
+        `User profile updated: ${user.email}`,
+        {
+          userId: user._id.toString(),
+          username: user.username,
+          email: user.email,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`User profile updated: ${user.email}`);
       return formatResponse({
         id: user._id,
@@ -135,7 +150,6 @@ const userController = {
     }
   },
 
-  // Upload profile image
   uploadProfileImage: async (request, reply) => {
     try {
       const data = await request.file();
@@ -148,10 +162,29 @@ const userController = {
         return formatResponse({}, true, "User not found", 404);
       }
 
-      const profilePath = await fileUploader.uploadProfileImage(data, user, "user");
+      const profilePath = await fileUploader.uploadProfileImage(
+        data,
+        user,
+        "user"
+      );
       const updatedUser = await userService.updateProfile(request.user.id, {
         profilePath,
       });
+
+      // نوتیفیکیشن برای به‌روزرسانی تصویر پروفایل
+      await notificationService.createAndSendNotification(
+        request.server,
+        updatedUser._id.toString(),
+        NOTIFICATION_TYPES.UPDATE_USER_PROFILE,
+        `Profile image updated for: ${updatedUser.email}`,
+        {
+          userId: updatedUser._id.toString(),
+          username: updatedUser.username,
+          email: updatedUser.email,
+          profilePath: updatedUser.profilePath,
+          timestamp: new Date().toISOString(),
+        }
+      );
 
       logger.info(`Profile image updated for user: ${user.email}`);
       return formatResponse({
@@ -166,7 +199,6 @@ const userController = {
     }
   },
 
-  // Get profile
   getProfile: async (request, reply) => {
     try {
       const user = await userService.getProfile(request.user.id);
@@ -190,13 +222,28 @@ const userController = {
     }
   },
 
-  // Update feature access
   updateFeatureAccess: async (request, reply) => {
     try {
       const user = await userService.updateFeatureAccess(
         request.user.id,
         request.body
       );
+
+      // نوتیفیکیشن برای به‌روزرسانی دسترسی‌ها
+      await notificationService.createAndSendNotification(
+        request.server,
+        user._id.toString(),
+        NOTIFICATION_TYPES.UPDATE_USER_PROFILE,
+        `Feature access updated for: ${user.email}`,
+        {
+          userId: user._id.toString(),
+          username: user.username,
+          email: user.email,
+          featureAccess: user.featureAccess,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`Feature access updated for user: ${user.email}`);
       return formatResponse({
         id: user._id,
@@ -210,7 +257,6 @@ const userController = {
     }
   },
 
-  // Get currently logged-in user
   getCurrentUser: async (request, reply) => {
     try {
       const user = await userService.getCurrentUser(request.user.id);
@@ -234,7 +280,6 @@ const userController = {
     }
   },
 
-  // Get list of users
   getUsers: async (request, reply) => {
     try {
       const page = Math.max(parseInt(request.query.page) || 1, 1);
@@ -256,7 +301,6 @@ const userController = {
     }
   },
 
-  // Refresh token
   refreshToken: async (request, reply) => {
     try {
       const { user, accessToken, refreshToken, refreshTokenExpires } =
@@ -275,6 +319,50 @@ const userController = {
       });
     } catch (error) {
       logger.error(`Error refreshing token: ${error.message}`);
+      return formatResponse({}, true, error.message, 400);
+    }
+  },
+
+  banUser: async (request, reply) => {
+    try {
+      const admin = request.user;
+      const { userId, reason } = request.body;
+
+      const user = await userService.findById(userId);
+      if (!user) {
+        return formatResponse({}, true, "User not found", 404);
+      }
+
+      // بن کردن کاربر
+      const bannedUser = await userService.banUser(userId, reason);
+
+      // ابطال توکن‌ها
+      await userService.invalidateTokens(userId);
+
+      // نوتیفیکیشن برای بن شدن
+      await notificationService.createAndSendNotification(
+        request.server,
+        userId,
+        NOTIFICATION_TYPES.SUSPEND_USER,
+        `Your account has been suspended: ${reason || "No reason provided"}`,
+        {
+          userId: userId,
+          username: bannedUser.username,
+          email: bannedUser.email,
+          reason: reason || "No reason provided",
+          timestamp: new Date().toISOString(),
+        }
+      );
+
+      logger.info(`User ${userId} banned by admin ${admin.email}`);
+      return formatResponse(
+        { message: `User ${bannedUser.email} banned successfully` },
+        false,
+        null,
+        200
+      );
+    } catch (error) {
+      logger.error(`Error banning user: ${error.message}`);
       return formatResponse({}, true, error.message, 400);
     }
   },

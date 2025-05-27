@@ -10,6 +10,7 @@ const initDirectories = async () => {
     await fs.mkdir(config.articleRoot, { recursive: true });
     await fs.mkdir(config.productRoot, { recursive: true });
     await fs.mkdir(config.festivalRoot, { recursive: true });
+    await fs.mkdir(config.categoryRoot, { recursive: true });
 
     await fs.mkdir(config.userImageDir, { recursive: true });
     await fs.mkdir(config.ticketImageDir, { recursive: true });
@@ -25,6 +26,8 @@ const initDirectories = async () => {
     await fs.mkdir(config.productOtherDir, { recursive: true });
     await fs.mkdir(config.festivalImageDir, { recursive: true });
     await fs.mkdir(config.festivalOtherDir, { recursive: true });
+    await fs.mkdir(config.categoryImageDir, { recursive: true });
+    await fs.mkdir(config.categoryOtherDir, { recursive: true });
 
     logger.info("Upload directories initialized successfully");
     return config;

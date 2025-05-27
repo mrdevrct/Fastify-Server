@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Article = require("../model/article.model");
 const { logger } = require("../../../utils/logger/logger");
 
@@ -35,24 +36,92 @@ const articleService = {
     }
   },
 
-  getMyArticles: async (user) => {
+  getMyArticles: async (user, page = 1, perPage = 20) => {
     try {
       const filter = {
         $or: [{ authorId: user.id }, { email: user.email }],
       };
 
-      const articles = await Article.find(filter).sort({ updatedAt: -1 });
-      return articles;
+      const skip = (page - 1) * perPage;
+
+      const [articles, total] = await Promise.all([
+        Article.find(filter)
+          .sort({ updatedAt: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean()
+          .exec(),
+        Article.countDocuments(filter),
+      ]);
+
+      const formattedArticles = articles.map((article) => ({
+        id: article._id,
+        title: article.title,
+        slug: article.slug,
+        content: article.content,
+        coverImage: article.coverImage,
+        media: article.media,
+        authorId: article.authorId,
+        authorName: article.authorName,
+        email: article.email,
+        category: article.category,
+        tags: article.tags,
+        keywords: article.keywords,
+        metaTitle: article.metaTitle,
+        metaDescription: article.metaDescription,
+        status: article.status,
+        priority: article.priority,
+        views: article.views,
+        likes: article.likes,
+        createdAt: article.createdAt,
+        updatedAt: article.updatedAt,
+      }));
+
+      return { articles: formattedArticles, total };
     } catch (error) {
       logger.error(`Error fetching my articles: ${error.message}`);
       throw error;
     }
   },
 
-  getAllArticles: async () => {
+  getAllArticles: async (page = 1, perPage = 20) => {
     try {
-      const articles = await Article.find({}).sort({ updatedAt: -1 });
-      return articles;
+      const skip = (page - 1) * perPage;
+
+      const [articles, total] = await Promise.all([
+        Article.find({})
+          .sort({ updatedAt: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean()
+          .exec(),
+        Article.countDocuments({}),
+      ]);
+
+      const formattedArticles = articles.map((article) => ({
+        id: article._id,
+        title: article.title,
+        slug: article.slug,
+        content: article.content,
+        coverImage: article.coverImage,
+        media: article.media,
+        authorId: article.authorId,
+        authorName: article.authorName,
+        email: article.email,
+        category: article.category,
+        tags: article.tags,
+        keywords: article.keywords,
+        metaTitle: article.metaTitle,
+        metaDescription: article.metaDescription,
+        status: article.status,
+        priority: article.priority,
+        views: article.views,
+        likes: article.likes,
+        createdAt: article.createdAt,
+        updatedAt: article.updatedAt,
+      }));
+
+      return { articles: formattedArticles, total };
     } catch (error) {
       logger.error(`Error fetching all articles: ${error.message}`);
       throw error;
@@ -65,7 +134,7 @@ const articleService = {
         ? { _id: identifier }
         : { slug: identifier };
 
-      const article = await Article.findOne(query);
+      const article = await Article.findOne(query).lean().exec();
       if (!article) {
         throw new Error("Article not found");
       }

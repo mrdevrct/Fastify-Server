@@ -2,6 +2,13 @@ const { logger } = require("../../../utils/logger/logger");
 const { formatResponse } = require("../../../utils/response/formatResponse");
 const fileUploader = require("../../../utils/uploader/fileUploader");
 const { articleService } = require("../service/article.service");
+const { paginate } = require("../../../utils/pagination/paginate"); // اضافه کردن ماژول paginate
+const {
+  notificationService,
+} = require("../../notification/service/notification.service");
+const {
+  NOTIFICATION_TYPES,
+} = require("../../../utils/notification/notification.enums");
 
 const articleController = {
   createArticle: async (request, reply) => {
@@ -11,7 +18,6 @@ const articleController = {
       let coverImageData = null;
       let mediaData = [];
 
-      // پردازش داده‌های multipart/form-data
       const parts = request.parts();
       for await (const part of parts) {
         if (part.type === "file") {
@@ -47,7 +53,6 @@ const articleController = {
         }
       }
 
-      // اعتبارسنجی فیلدهای اجباری
       if (!articleData.title || !articleData.content) {
         return reply
           .status(400)
@@ -56,7 +61,6 @@ const articleController = {
           );
       }
 
-      // تولید slug اگر غایب باشد
       if (!articleData.slug) {
         articleData.slug = articleData.title
           .toLowerCase()
@@ -64,14 +68,12 @@ const articleController = {
           .replace(/(^-|-$)/g, "");
       }
 
-      // اعتبارسنجی تصویر کاور
       if (!coverImageData && !articleData.coverImage) {
         return reply
           .status(400)
           .send(formatResponse({}, true, "Cover image is required", 400));
       }
 
-      // محدودیت تعداد رسانه‌ها
       if (mediaData.length > 10) {
         return reply
           .status(400)
@@ -80,12 +82,10 @@ const articleController = {
           );
       }
 
-      // آپلود تصویر کاور
       const coverImage = coverImageData
         ? await fileUploader.uploadArticleCoverImage(coverImageData, user)
         : articleData.coverImage;
 
-      // آپلود رسانه‌ها
       const media =
         mediaData.length > 0
           ? await fileUploader.uploadArticleMedia(
@@ -95,10 +95,22 @@ const articleController = {
             )
           : articleData.media || [];
 
-      // ایجاد مقاله
       const newArticle = await articleService.createArticle(
         { ...articleData, coverImage, media },
         user
+      );
+
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.ADD_ARTICLE,
+        `New article created: ${newArticle.title}`,
+        {
+          articleId: newArticle._id.toString(),
+          title: newArticle.title,
+          slug: newArticle.slug,
+          timestamp: new Date().toISOString(),
+        }
       );
 
       logger.info(`Article created by user: ${user.email}`);
@@ -116,6 +128,7 @@ const articleController = {
   getMyArticles: async (request, reply) => {
     try {
       const user = request.user;
+      const { page, perPage } = request.query;
 
       const myArticlesAccess = user.featureAccess.find(
         (f) => f.feature === "MY_ARTICLES"
@@ -133,16 +146,30 @@ const articleController = {
           );
       }
 
-      const articles = await articleService.getMyArticles(user);
+      const pageNum = Math.max(parseInt(page) || 1, 1);
+      const perPageNum =
+        parseInt(perPage) || parseInt(process.env.ARTICLES_PER_PAGE) || 20;
+
+      const { articles, total } = await articleService.getMyArticles(
+        user,
+        pageNum,
+        perPageNum
+      );
+      const pagination = paginate({
+        total,
+        page: pageNum,
+        perPage: perPageNum,
+      });
+
       const sanitizedArticles = articles.map((article) => ({
-        ...article.toObject(),
+        ...article,
         comments: [],
       }));
 
       logger.info(`Articles retrieved for user ${user.email}`);
       return reply
         .status(200)
-        .send(formatResponse(sanitizedArticles, false, null, 200));
+        .send(formatResponse(sanitizedArticles, false, null, 200, pagination));
     } catch (error) {
       logger.error(`Error retrieving user articles: ${error.message}`);
       return reply
@@ -154,8 +181,11 @@ const articleController = {
   getAllArticles: async (request, reply) => {
     try {
       const user = request.user;
+      const { page, perPage } = request.query;
 
-      const allArticlesAccess = user.featureAccess.find();
+      const allArticlesAccess = user.featureAccess.find(
+        (f) => f.feature === "ALL_ARTICLES"
+      );
       if (!allArticlesAccess || allArticlesAccess.access !== "FULL_ACCESS") {
         return reply
           .status(403)
@@ -169,16 +199,29 @@ const articleController = {
           );
       }
 
-      const articles = await articleService.getAllArticles();
+      const pageNum = Math.max(parseInt(page) || 1, 1);
+      const perPageNum =
+        parseInt(perPage) || parseInt(process.env.ARTICLES_PER_PAGE) || 20;
+
+      const { articles, total } = await articleService.getAllArticles(
+        pageNum,
+        perPageNum
+      );
+      const pagination = paginate({
+        total,
+        page: pageNum,
+        perPage: perPageNum,
+      });
+
       const sanitizedArticles = articles.map((article) => ({
-        ...article.toObject(),
+        ...article,
         comments: [],
       }));
 
       logger.info(`All articles retrieved by user ${user.email}`);
       return reply
         .status(200)
-        .send(formatResponse(sanitizedArticles, false, null, 200));
+        .send(formatResponse(sanitizedArticles, false, null, 200, pagination));
     } catch (error) {
       logger.error(`Error retrieving all articles: ${error.message}`);
       return reply
@@ -209,32 +252,50 @@ const articleController = {
     try {
       const user = request.user;
       const { articleId } = request.params;
-      const updateData = request.body;
-
-      const parts = request.parts();
+      const updateData = {};
       let coverImageData = null;
       let mediaData = [];
 
+      const parts = request.parts();
       for await (const part of parts) {
-        if (part.type === "file" && part.fieldname === "coverImage") {
-          const fileBuffer = await part.toBuffer();
-          const fileSize = fileBuffer.length;
-          if (!fileSize) {
-            return reply
-              .status(400)
-              .send(formatResponse({}, true, "Invalid cover image size", 400));
+        if (part.type === "file") {
+          if (part.fieldname === "coverImage") {
+            const fileBuffer = await part.toBuffer();
+            const fileSize = fileBuffer.length;
+            if (!fileSize) {
+              return reply
+                .status(400)
+                .send(
+                  formatResponse({}, true, "Invalid cover image size", 400)
+                );
+            }
+            coverImageData = { ...part, size: fileSize, fileBuffer };
+          } else if (part.fieldname === "media") {
+            const fileBuffer = await part.toBuffer();
+            const fileSize = fileBuffer.length;
+            if (!fileSize) {
+              return reply
+                .status(400)
+                .send(formatResponse({}, true, "Invalid media file size", 400));
+            }
+            mediaData.push({ ...part, size: fileSize, fileBuffer });
           }
-          coverImageData = { ...part, size: fileSize, fileBuffer };
-        } else if (part.type === "file" && part.fieldname === "media") {
-          const fileBuffer = await part.toBuffer();
-          const fileSize = fileBuffer.length;
-          if (!fileSize) {
-            return reply
-              .status(400)
-              .send(formatResponse({}, true, "Invalid media file size", 400));
+        } else if (part.type === "field") {
+          if (part.fieldname.endsWith("[]")) {
+            const fieldName = part.fieldname.slice(0, -2);
+            updateData[fieldName] = updateData[fieldName] || [];
+            updateData[fieldName].push(part.value);
+          } else {
+            updateData[part.fieldname] = part.value;
           }
-          mediaData.push({ ...part, size: fileSize, fileBuffer });
         }
+      }
+
+      if (updateData.title && !updateData.slug) {
+        updateData.slug = updateData.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "");
       }
 
       let coverImage = updateData.coverImage;
@@ -260,6 +321,19 @@ const articleController = {
         user
       );
 
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.UPDATE_ARTICLE,
+        `Article updated: ${article.title}`,
+        {
+          articleId: article._id.toString(),
+          title: article.title,
+          slug: article.slug,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`Article ${articleId} updated by user ${user.email}`);
       return reply.status(200).send(formatResponse(article, false, null, 200));
     } catch (error) {
@@ -275,7 +349,21 @@ const articleController = {
       const user = request.user;
       const { articleId } = request.params;
 
+      const article = await articleService.getArticle(articleId, user);
       await articleService.deleteArticle(articleId, user);
+
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.REMOVE_ARTICLE,
+        `Article deleted: ${article.title}`,
+        {
+          articleId: article._id.toString(),
+          title: article.title,
+          slug: article.slug,
+          timestamp: new Date().toISOString(),
+        }
+      );
 
       logger.info(`Article ${articleId} deleted by user ${user.email}`);
       return reply.status(200).send(formatResponse({}, false, null, 200));
@@ -303,6 +391,20 @@ const articleController = {
         articleId,
         { commentText, replyTo },
         user
+      );
+
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.GENERAL_NOTIFICATION,
+        `New comment added to article: ${article.title}`,
+        {
+          articleId: article._id.toString(),
+          title: article.title,
+          commentText,
+          commenter: user.email,
+          timestamp: new Date().toISOString(),
+        }
       );
 
       logger.info(
@@ -342,6 +444,19 @@ const articleController = {
       const { articleId } = request.params;
 
       const article = await articleService.likeArticle(articleId, user);
+
+      await notificationService.createAndSendNotification(
+        request.server,
+        user.id,
+        NOTIFICATION_TYPES.GENERAL_NOTIFICATION,
+        `Article liked: ${article.title}`,
+        {
+          articleId: article._id.toString(),
+          title: article.title,
+          liker: user.email,
+          timestamp: new Date().toISOString(),
+        }
+      );
 
       logger.info(`Article ${articleId} liked by user ${user.email}`);
       return reply.status(200).send(formatResponse(article, false, null, 200));
