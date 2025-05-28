@@ -764,3 +764,12 @@ Require stack:
 ❗ [ERROR] 05/27/2025, 10:13:49 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
 ❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
 ❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/28/2025, 11:56:56 AM | Error: Server startup error: fastifySwagger is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:31:28)
+❗ [ERROR] 05/28/2025, 11:56:57 AM | Error: Server startup error: fastifySwagger is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:29:26)
+❗ [ERROR] 05/28/2025, 12:01:39 PM | Error: Server startup error: Failed building the validation schema for POST: /api/users/auth, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/28/2025, 12:01:42 PM | Error: Server startup error: Failed building the validation schema for POST: /api/users/auth, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/28/2025, 12:01:59 PM | Error: Server startup error: Failed building the validation schema for POST: /api/users/auth, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/28/2025, 12:07:09 PM | Error: Server startup error: Method 'POST' already declared for route '/api/categories' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/28/2025, 12:07:10 PM | Error: Server startup error: Method 'POST' already declared for route '/api/categories' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/28/2025, 12:07:33 PM | Error: Server startup error: notificationSchema is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:28:20)
+❗ [ERROR] 05/28/2025, 12:07:36 PM | Error: Server startup error: notificationR is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:28:20)
