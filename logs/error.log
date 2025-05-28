@@ -1,82 +1,775 @@
-❗ [ERROR] 05/14/2025, 03:16:57 AM | Error: Server startup error: Plugin must be a function or a promise. Received: 'undefined' | Location: at validatePlugin (/Users/devrct/Developer/server/node_modules/avvio/lib/validate-plugin.js:19:13)
-❗ [ERROR] 05/14/2025, 03:17:19 AM | Error: Server startup error: requestLogger is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:10:26)
-❗ [ERROR] 05/14/2025, 03:17:27 AM | Error: Server startup error: ogger is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:10:26)
-❗ [ERROR] 05/14/2025, 03:17:28 AM | Error: Server startup error: logger is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:10:26)
-❗ [ERROR] 05/14/2025, 03:17:32 AM | Error: Server startup error: Plugin must be a function or a promise. Received: 'object' | Location: at validatePlugin (/Users/devrct/Developer/server/node_modules/avvio/lib/validate-plugin.js:19:13)
-❗ [ERROR] 05/14/2025, 03:20:55 AM | Error: Server startup error: logger is not defined | Location: at setupMiddlewares (/Users/devrct/Developer/server/src/middlewares/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:15 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:15 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:17 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:5)
-❗ [ERROR] 05/14/2025, 03:21:21 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:25 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:26 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:27 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:33 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:39 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:3:3)
-❗ [ERROR] 05/14/2025, 03:21:40 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:41 AM | Error: Server startup error: logger is not defined | Location: at setupInterceptors (/Users/devrct/Developer/server/src/interceptors/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:21:44 AM | Error: Server startup error: logger is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:2:3)
-❗ [ERROR] 05/14/2025, 03:22:20 AM | Error: Server startup error: loo is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:22:21 AM | Error: Server startup error: lo is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:22:22 AM | Error: Server startup error: logger is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:22:24 AM | Error: Server startup error: logger is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:17:3)
-❗ [ERROR] 05/14/2025, 03:37:22 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:23 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:52 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:55 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:44:56 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:00 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:07 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:13 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:45:22 AM | Error: Server startup error: userRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:5:20)
-❗ [ERROR] 05/14/2025, 03:58:06 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 03:58:29 AM | Error: Server startup error: aw is not defined | Location: at setupMiddlewares (/Users/devrct/Developer/server/src/middlewares/index.js:7:3)
-❗ [ERROR] 05/14/2025, 03:59:41 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:00:08 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:00:09 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:00:11 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:01:30 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
-❗ [ERROR] 05/14/2025, 04:01:53 AM | Error: Server startup error: authMiddleware is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:17:28)
-❗ [ERROR] 05/14/2025, 04:01:55 AM | Error: Server startup error: authMiddleware is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:16:28)
-❗ [ERROR] 05/14/2025, 04:01:56 AM | Error: Server startup error: authMiddleware is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:28)
-❗ [ERROR] 05/14/2025, 04:02:00 AM | Error: Server startup error: Async function has too many arguments. Async hooks should not use the 'done' argument. | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:295:25)
-❗ [ERROR] 05/14/2025, 04:02:37 AM | Error: Server startup error: Async function has too many arguments. Async hooks should not use the 'done' argument. | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:295:25)
-❗ [ERROR] 05/14/2025, 04:08:50 AM | Error: Server startup error: validateMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:22)
-❗ [ERROR] 05/14/2025, 04:08:51 AM | Error: Server startup error: validateMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:28:22)
-❗ [ERROR] 05/14/2025, 04:08:55 AM | Error: Server startup error: Async function has too many arguments. Async hooks should not use the 'done' argument. | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:295:25)
-❗ [ERROR] 05/14/2025, 01:47:50 PM | Error refreshing token: Invalid or expired refresh token
-❗ [ERROR] 05/14/2025, 01:47:57 PM | Error refreshing token: Invalid or expired refresh token
-❗ [ERROR] 05/14/2025, 01:48:07 PM | Error refreshing token: Invalid or expired refresh token
-❗ [ERROR] 05/14/2025, 01:48:47 PM | Error verifying code: Invalid or expired verification code
-❗ [ERROR] 05/14/2025, 09:01:41 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:05 PM | Error: Server startup error: Missing handler function for "POST:/upload-profile-image" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/14/2025, 09:02:08 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:30 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:31 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:02:35 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:17 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:17 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:18 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:19 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:26 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:27 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:28 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:30 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:31 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:40 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 09:46:41 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:12:11)
-❗ [ERROR] 05/14/2025, 10:01:14 PM | Error: Server startup error: multipart is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:11:26)
-❗ [ERROR] 05/14/2025, 10:01:30 PM | Error updating profile: Cannot read properties of undefined (reading 'profileImage')
-❗ [ERROR] 05/14/2025, 10:03:32 PM | Error: Server startup error: authdto is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:42)
-❗ [ERROR] 05/14/2025, 10:03:33 PM | Error: Server startup error: authdto is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:42)
-❗ [ERROR] 05/14/2025, 10:03:47 PM | Error: Server startup error: authdto is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:29:42)
-❗ [ERROR] 05/14/2025, 10:05:34 PM | Error uploading file: fileStream.pipe is not a function
-❗ [ERROR] 05/14/2025, 10:05:34 PM | Error updating profile: fileStream.pipe is not a function
-❗ [ERROR] 05/14/2025, 10:22:00 PM | Error: Server startup error: Missing handler function for "POST:/profile/image" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/14/2025, 10:22:01 PM | Error: Server startup error: Missing handler function for "POST:/profile/image" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
-❗ [ERROR] 05/14/2025, 10:29:22 PM | Error: Server startup error: static is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:18:26)
-❗ [ERROR] 05/14/2025, 10:29:23 PM | Error: Server startup error: static is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:18:26)
-❗ [ERROR] 05/14/2025, 10:29:33 PM | Error: Server startup error: static is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:19:26)
-❗ [ERROR] 05/14/2025, 10:29:44 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:20:11)
-❗ [ERROR] 05/14/2025, 10:29:45 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:21:11)
-❗ [ERROR] 05/14/2025, 10:30:19 PM | Error: Server startup error: path is not defined | Location: at setupApp (/Users/devrct/Developer/server/src/app.js:21:11)
+❗ [ERROR] 05/15/2025, 04:47:19 PM | Error sending message: logger.error is not a function
+❗ [ERROR] 05/15/2025, 04:47:53 PM | Error sending message: Ticket validation failed: messages.0.senderName: Path `senderName` is required.
+❗ [ERROR] 05/15/2025, 04:47:53 PM | Error sending message: Error sending message
+❗ [ERROR] 05/15/2025, 05:15:51 PM | Error sending message: Ticket validation failed: messages.1.files.0.id: Path `id` is required., messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 05:21:28 PM | Error sending message: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 05:21:35 PM | Error sending message: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 05:27:54 PM | Error: Server startup error: Missing handler function for "POST:/message" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:28:05 PM | Error: Server startup error: Missing handler function for "POST:/message" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:33:02 PM | Error: Server startup error: fastify.multipart is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:21:27)
+❗ [ERROR] 05/15/2025, 05:33:12 PM | Error: Server startup error: fastify.multipart is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:20:27)
+❗ [ERROR] 05/15/2025, 05:33:28 PM | Error sending message: Cannot destructure property 'ticketId' of 'request.body' as it is undefined.
+❗ [ERROR] 05/15/2025, 05:33:34 PM | Error sending message: Cannot destructure property 'ticketId' of 'request.body' as it is undefined.
+❗ [ERROR] 05/15/2025, 05:35:48 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:35:58 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:37:15 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:37:18 PM | Multipart parsing error: request.multipart is not a function
+❗ [ERROR] 05/15/2025, 05:38:52 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:38:54 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:39:00 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:39:00 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 05:39:06 PM | Error: Server startup error: Missing handler function for "POST:/upload-file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:12:22 PM | ❌ Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:12:22 PM | Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:03 PM | ❌ Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:03 PM | Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:15 PM | ❌ Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:22:15 PM | Error uploading ticket file: mongoose is not defined
+❗ [ERROR] 05/15/2025, 07:23:28 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:23:28 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:19 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:19 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:35 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:24:35 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:00 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:00 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:30 PM | ❌ Error uploading ticket file: Logger.info is not a function
+❗ [ERROR] 05/15/2025, 07:26:30 PM | Error uploading ticket file: Logger.info is not a function
+❗ [ERROR] 05/15/2025, 07:26:40 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:40 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:46 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:26:46 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:12 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:12 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:33 PM | Error adding file to ticket: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:27:33 PM | Error uploading ticket file: Ticket validation failed: messages.1.files.0.size: Path `size` is required.
+❗ [ERROR] 05/15/2025, 07:32:17 PM | ❌ Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:32:17 PM | Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:32:32 PM | ❌ Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:32:32 PM | Error uploading ticket file: File size is required and cannot be zero
+❗ [ERROR] 05/15/2025, 07:45:07 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:45:08 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:45:16 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:45:17 PM | Error: Server startup error: Missing handler function for "POST:/file" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 07:46:06 PM | Error sending message: Cannot read properties of undefined (reading 'ticketId')
+❗ [ERROR] 05/15/2025, 07:48:06 PM | Error: Server startup error: Cannot find module './routes/ticket.routes'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:12 PM | Error: Server startup error: Cannot find module '.'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:13 PM | Error: Server startup error: Cannot find module '../'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:18 PM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
+❗ [ERROR] 05/15/2025, 07:48:20 PM | Error: Server startup error: Cannot find module '../modules/ticket'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:24 PM | Error: Server startup error: Cannot find module '../modules/ticket'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:26 PM | Error: Server startup error: Cannot find module '../modules/ticket/'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:27 PM | Error: Server startup error: Cannot find module '../modules/ticket/routes/'
+Require stack:
+- /Users/devrct/Developer/server/src/configs/plugins.js
+- /Users/devrct/Developer/server/src/app.js
+- /Users/devrct/Developer/server/src/server.js | Location: Require stack:
+❗ [ERROR] 05/15/2025, 07:48:28 PM | Error: Server startup error: preValidation hook should be a function, instead got [object Undefined] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
+❗ [ERROR] 05/15/2025, 07:56:16 PM | خطا در ارسال پیام: reach files limit
+❗ [ERROR] 05/15/2025, 07:58:57 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/15/2025, 08:01:14 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/15/2025, 08:01:15 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/15/2025, 08:17:19 PM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/15/2025, 08:25:28 PM | Error: Validation error: Cannot read properties of undefined (reading 'parseAsync') | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
+❗ [ERROR] 05/15/2025, 08:26:23 PM | Error: Validation error: Cannot read properties of undefined (reading 'parseAsync') | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
+❗ [ERROR] 05/15/2025, 10:39:11 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:12 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:22 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:23 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:24 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:25 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:27 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:28 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:32 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:39:33 PM | Error: Server startup error: Missing handler function for "GET:/:ticketId/messages" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:10 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:11 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:12 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:15 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:16 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:17 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:19 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:20 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:40:21 PM | Error: Server startup error: Missing handler function for "PATCH:/:ticketId/messages/read" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:01 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:02 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:10 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:12 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:13 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:14 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:15 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:17 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:17 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:18 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:43:19 PM | Error: Server startup error: Missing handler function for "POST:/reply" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:47:16 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:44 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:45 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:46 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:50:57 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:51:01 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:51:03 PM | Error: Server startup error: Missing handler function for "PATCH:/update" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/15/2025, 10:54:26 PM | Error: Server startup error: fastify.pu is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:69:11)
+❗ [ERROR] 05/15/2025, 10:54:28 PM | Error: Server startup error: fastify.puy is not a function | Location: at ticketRoutes (/Users/devrct/Developer/server/src/modules/ticket/routes/ticket.route.js:69:11)
+❗ [ERROR] 05/15/2025, 10:56:25 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/15/2025, 10:56:37 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/15/2025, 10:57:22 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/15/2025, 11:01:46 PM | Error fetching messages: ticketService.getTicketMessages is not a function
+❗ [ERROR] 05/16/2025, 02:54:05 AM | Error marking messages as read: ticketService.markMessagesAsRead is not a function
+❗ [ERROR] 05/16/2025, 02:57:02 AM | Error marking messages as read: You do not have permission to update this ticket
+❗ [ERROR] 05/16/2025, 02:57:02 AM | Error marking messages as read: You do not have permission to update this ticket
+❗ [ERROR] 05/16/2025, 03:25:34 AM | Error sending message: Ticket not found
+❗ [ERROR] 05/16/2025, 03:25:34 AM | Error sending message: Ticket not found
+❗ [ERROR] 05/16/2025, 03:25:57 AM | Error marking messages as read: Ticket not found
+❗ [ERROR] 05/16/2025, 03:25:57 AM | Error marking messages as read: Ticket not found
+❗ [ERROR] 05/16/2025, 03:26:59 AM | Error getting ticket messages: Ticket not found
+❗ [ERROR] 05/16/2025, 03:26:59 AM | Error fetching messages: Ticket not found
+❗ [ERROR] 05/16/2025, 03:29:33 AM | Error getting ticket messages: You do not have permission to view this ticket
+❗ [ERROR] 05/16/2025, 03:29:33 AM | Error fetching messages: You do not have permission to view this ticket
+❗ [ERROR] 05/16/2025, 04:14:03 AM | Error: Server startup error: Method 'POST' already declared for route '/api/tickets' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 04:14:26 AM | Error: Server startup error: articleRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:13:20)
+❗ [ERROR] 05/16/2025, 04:17:01 AM | Error: Validation error: schema.parseAsync is not a function | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
+❗ [ERROR] 05/16/2025, 04:18:34 AM | Error creating article: Article validation failed: title: Path `title` is required., slug: Path `slug` is required., content: Path `content` is required.
+❗ [ERROR] 05/16/2025, 04:18:34 AM | Error creating article: Article validation failed: title: Path `title` is required., slug: Path `slug` is required., content: Path `content` is required.
+❗ [ERROR] 05/16/2025, 04:22:22 AM | Error creating article: Field 'tags' of text index contains an array in document: { _id: ObjectId('68268c468759ad407218ff21'), title: "Introduction to AI", slug: "introduction-to-ai", content: "# Introduction to AI\n![AI Diagram](media_id_1)\nThis is an article about AI.\n<video src="media_id_2" controls></video>", coverImage: { type: "IMAGE", url: "/uploads/article/images/article-cover-superadmin-undefined-20250516042222.png", mimeType: "image/png", size: 114887, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268c468759ad407218ff22'), uploadedAt: new Date(1747356742212) }, media: [ { type: "IMAGE", url: "/uploads/article/images/article-superadmin-undefined-20250516042222.png", mimeType: "image/png", size: 75891, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268c468759ad407218ff23'), uploadedAt: new Date(1747356742213) } ], authorId: ObjectId('68261c189793af40ff160090'), authorName: "John Doe", email: "john@example.com", category: "TECHNOLOGY", tags: [ "ai", "machine learning" ], keywords: [ "artificial intelligence", "machine learning" ], metaTitle: "Introduction to Artificial Intelligence", metaDescription: "Learn the basics of AI and its applications.", status: "PUBLISHED", priority: "MEDIUM", views: 0, likes: [], publishedAt: new Date(1747356742218), comments: [], createdAt: new Date(1747356742213), updatedAt: new Date(1747356742218), __v: 0 }
+❗ [ERROR] 05/16/2025, 04:22:22 AM | Error creating article: Field 'tags' of text index contains an array in document: { _id: ObjectId('68268c468759ad407218ff21'), title: "Introduction to AI", slug: "introduction-to-ai", content: "# Introduction to AI\n![AI Diagram](media_id_1)\nThis is an article about AI.\n<video src="media_id_2" controls></video>", coverImage: { type: "IMAGE", url: "/uploads/article/images/article-cover-superadmin-undefined-20250516042222.png", mimeType: "image/png", size: 114887, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268c468759ad407218ff22'), uploadedAt: new Date(1747356742212) }, media: [ { type: "IMAGE", url: "/uploads/article/images/article-superadmin-undefined-20250516042222.png", mimeType: "image/png", size: 75891, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268c468759ad407218ff23'), uploadedAt: new Date(1747356742213) } ], authorId: ObjectId('68261c189793af40ff160090'), authorName: "John Doe", email: "john@example.com", category: "TECHNOLOGY", tags: [ "ai", "machine learning" ], keywords: [ "artificial intelligence", "machine learning" ], metaTitle: "Introduction to Artificial Intelligence", metaDescription: "Learn the basics of AI and its applications.", status: "PUBLISHED", priority: "MEDIUM", views: 0, likes: [], publishedAt: new Date(1747356742218), comments: [], createdAt: new Date(1747356742213), updatedAt: new Date(1747356742218), __v: 0 }
+❗ [ERROR] 05/16/2025, 04:24:37 AM | Error creating article: Field 'tags' of text index contains an array in document: { _id: ObjectId('68268ccd15731f3428354025'), title: "Introduction to AI", slug: "introduction-to-ai", content: "# Introduction to AI\n![AI Diagram](media_id_1)\nThis is an article about AI.\n<video src="media_id_2" controls></video>", coverImage: { type: "IMAGE", url: "/uploads/article/images/article-cover-superadmin-undefined-20250516042437.png", mimeType: "image/png", size: 114887, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268ccd15731f3428354026'), uploadedAt: new Date(1747356877650) }, media: [ { type: "IMAGE", url: "/uploads/article/images/article-superadmin-undefined-20250516042437.png", mimeType: "image/png", size: 75891, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268ccd15731f3428354027'), uploadedAt: new Date(1747356877650) } ], authorId: ObjectId('68261c189793af40ff160090'), authorName: "John Doe", email: "john@example.com", category: "TECHNOLOGY", tags: [ "ai", "machine learning" ], keywords: [ "artificial intelligence", "machine learning" ], metaTitle: "Introduction to Artificial Intelligence", metaDescription: "Learn the basics of AI and its applications.", status: "PUBLISHED", priority: "MEDIUM", views: 0, likes: [], publishedAt: new Date(1747356877655), comments: [], createdAt: new Date(1747356877651), updatedAt: new Date(1747356877655), __v: 0 }
+❗ [ERROR] 05/16/2025, 04:24:37 AM | Error creating article: Field 'tags' of text index contains an array in document: { _id: ObjectId('68268ccd15731f3428354025'), title: "Introduction to AI", slug: "introduction-to-ai", content: "# Introduction to AI\n![AI Diagram](media_id_1)\nThis is an article about AI.\n<video src="media_id_2" controls></video>", coverImage: { type: "IMAGE", url: "/uploads/article/images/article-cover-superadmin-undefined-20250516042437.png", mimeType: "image/png", size: 114887, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268ccd15731f3428354026'), uploadedAt: new Date(1747356877650) }, media: [ { type: "IMAGE", url: "/uploads/article/images/article-superadmin-undefined-20250516042437.png", mimeType: "image/png", size: 75891, caption: "", altText: "", uploadedBy: ObjectId('68261c189793af40ff160090'), _id: ObjectId('68268ccd15731f3428354027'), uploadedAt: new Date(1747356877650) } ], authorId: ObjectId('68261c189793af40ff160090'), authorName: "John Doe", email: "john@example.com", category: "TECHNOLOGY", tags: [ "ai", "machine learning" ], keywords: [ "artificial intelligence", "machine learning" ], metaTitle: "Introduction to Artificial Intelligence", metaDescription: "Learn the basics of AI and its applications.", status: "PUBLISHED", priority: "MEDIUM", views: 0, likes: [], publishedAt: new Date(1747356877655), comments: [], createdAt: new Date(1747356877651), updatedAt: new Date(1747356877655), __v: 0 }
+❗ [ERROR] 05/16/2025, 04:10:02 PM | ❌ Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:10:02 PM | Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:10:41 PM | ❌ Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:10:41 PM | Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:20:30 PM | ❌ Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:20:30 PM | Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:21:14 PM | ❌ Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:21:14 PM | Error uploading profile image: File size is required and cannot be zero
+❗ [ERROR] 05/16/2025, 04:46:13 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:46:20 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:46:26 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:46:27 PM | Error: Server startup error: ipBlockMiddleware is not defined | Location: at userRoutes (/Users/devrct/Developer/server/src/modules/user/routes/user.routes.js:19:23)
+❗ [ERROR] 05/16/2025, 04:50:11 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:11 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:13 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:14 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:14 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:15 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:15 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:16 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:16 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:17 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:17 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:18 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:18 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:19 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:19 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:50:20 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:27 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:28 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:28 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:29 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:29 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:30 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:30 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:30 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:31 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:31 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:32 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:32 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:33 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:33 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:34 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:34 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:34 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:35 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:35 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:35 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:36 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:37 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:37 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:52:38 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:55:44 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:55:45 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:55:46 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:56:39 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:56:40 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 04:56:51 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:53 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:54 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:54 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:55 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:55 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:56 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:56 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:56 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:57 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:58 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:56:58 PM | Error logging in: Invalid credentials
+❗ [ERROR] 05/16/2025, 04:57:44 PM | Error: Server startup error: Plugin must be a function or a promise. Received: 'object' | Location: at validatePlugin (/Users/devrct/Developer/server/node_modules/avvio/lib/validate-plugin.js:19:13)
+❗ [ERROR] 05/16/2025, 05:00:09 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:10 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:10 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:11 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:12 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:00:13 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:04:02 PM | Error: Server startup error: fastify.setTrustProxy is not a function | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:16:11)
+❗ [ERROR] 05/16/2025, 05:05:36 PM | Error: Server startup error: fastify.setTrustProxy is not a function | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:16:11)
+❗ [ERROR] 05/16/2025, 05:05:47 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:47 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:48 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:48 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:49 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:49 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:50 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:51 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:51 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:52 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:52 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:05:53 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:42 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:42 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:43 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:43 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 05:09:43 PM | Error logging in: Invalid credentials or password not set
+❗ [ERROR] 05/16/2025, 08:20:28 PM | Error creating article: E11000 duplicate key error collection: shop-server.articles index: slug_1 dup key: { slug: "introduction-to-ai" }
+❗ [ERROR] 05/16/2025, 08:20:28 PM | Error creating article: E11000 duplicate key error collection: shop-server.articles index: slug_1 dup key: { slug: "introduction-to-ai" }
+❗ [ERROR] 05/16/2025, 08:51:14 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/16/2025, 08:53:24 PM | Error: Server startup error: Method 'POST' already declared for route '/api/articles' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 08:53:38 PM | Error: Server startup error: productRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:15:20)
+❗ [ERROR] 05/16/2025, 08:53:44 PM | Error: Validation error: schema.parseAsync is not a function | Location: at Object.<anonymous> (/Users/devrct/Developer/server/src/middlewares/validation/validate.middleware.js:7:20)
+❗ [ERROR] 05/16/2025, 08:54:12 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/16/2025, 08:54:12 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/16/2025, 09:16:10 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:16:14 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:16:20 PM | Error: Server startup error: caRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:18:20)
+❗ [ERROR] 05/16/2025, 09:16:21 PM | Error: Server startup error: cartRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:18:20)
+❗ [ERROR] 05/16/2025, 09:17:06 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:17:24 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:17:34 PM | Error: Server startup error: paymentsoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:20:20)
+❗ [ERROR] 05/16/2025, 09:17:36 PM | Error: Server startup error: paymentoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:20:20)
+❗ [ERROR] 05/16/2025, 09:17:37 PM | Error: Server startup error: paymentRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:20:20)
+❗ [ERROR] 05/16/2025, 09:21:21 PM | Error: Server startup error: Method 'POST' already declared for route '/api/products' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/16/2025, 09:21:36 PM | Error: Server startup error: festivalRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:24:20)
+❗ [ERROR] 05/17/2025, 04:01:56 AM | Auth error: jwt expired
+❗ [ERROR] 05/17/2025, 04:02:28 AM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/17/2025, 04:02:51 AM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/17/2025, 04:03:21 AM | Error creating order: Cart is empty
+❗ [ERROR] 05/17/2025, 04:03:21 AM | Error creating order: Cart is empty
+❗ [ERROR] 05/17/2025, 04:05:04 AM | Auth error: jwt malformed
+❗ [ERROR] 05/17/2025, 04:05:55 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 04:05:55 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 04:06:34 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 04:06:34 AM | Error creating payment: Amount does not match order total
+❗ [ERROR] 05/17/2025, 11:40:14 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:40:14 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:40:30 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:40:30 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:41:12 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:41:12 AM | Error creating order: Transaction numbers are only allowed on a replica set member or mongos
+❗ [ERROR] 05/17/2025, 11:45:31 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:45:31 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:46:04 AM | Error creating payment: Order not found
+❗ [ERROR] 05/17/2025, 11:46:04 AM | Error creating payment: Order not found
+❗ [ERROR] 05/19/2025, 10:37:16 PM | Error: Server startup error: Missing handler function for "GET:/my-products" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/19/2025, 10:37:17 PM | Error: Server startup error: Missing handler function for "GET:/my-products" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/19/2025, 10:37:28 PM | Error: Server startup error: Missing handler function for "GET:/my-products" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/19/2025, 10:37:33 PM | Error: Server startup error: Missing handler function for "GET:/my-products" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/19/2025, 10:37:34 PM | Error: Server startup error: Missing handler function for "GET:/my-products" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/19/2025, 10:38:44 PM | Error: Server startup error: Method 'POST' already declared for route '/api/festivals' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/19/2025, 10:38:59 PM | Error: Server startup error: categories is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:39:01 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:40:09 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:40:12 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:40:32 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:40:37 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:40:38 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:40:45 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:40:46 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:41:06 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:41:11 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:41:12 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:41:46 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:41:50 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:41:56 PM | Error: Server startup error: categorie is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/19/2025, 10:42:00 PM | Error: Server startup error: categoryRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:26:20)
+❗ [ERROR] 05/20/2025, 03:25:30 AM | Error creating category: Category validation failed: image: Cast to string failed for value "{
+  type: 'IMAGE',
+  url: '/uploads/category/images/category-superadmin-undefined-20250520032530.jpeg',
+  mimeType: 'image/jpeg',
+  size: 12861,
+  caption: '',
+  altText: '',
+  uploadedBy: undefined
+}" (type Object) at path "image", slug: Path `slug` is required.
+❗ [ERROR] 05/20/2025, 03:25:30 AM | Error creating category: Category validation failed: image: Cast to string failed for value "{
+  type: 'IMAGE',
+  url: '/uploads/category/images/category-superadmin-undefined-20250520032530.jpeg',
+  mimeType: 'image/jpeg',
+  size: 12861,
+  caption: '',
+  altText: '',
+  uploadedBy: undefined
+}" (type Object) at path "image", slug: Path `slug` is required.
+❗ [ERROR] 05/20/2025, 03:32:16 AM | Error creating category: Category validation failed: image: Cast to string failed for value "{
+  type: 'IMAGE',
+  url: '/uploads/category/images/category-superadmin-68261c189793af40ff160090-20250520033216.jpeg',
+  mimeType: 'image/jpeg',
+  size: 12861,
+  caption: '',
+  altText: '',
+  uploadedBy: new ObjectId('68261c189793af40ff160090')
+}" (type Object) at path "image", slug: Path `slug` is required.
+❗ [ERROR] 05/20/2025, 03:32:16 AM | Error creating category: Category validation failed: image: Cast to string failed for value "{
+  type: 'IMAGE',
+  url: '/uploads/category/images/category-superadmin-68261c189793af40ff160090-20250520033216.jpeg',
+  mimeType: 'image/jpeg',
+  size: 12861,
+  caption: '',
+  altText: '',
+  uploadedBy: new ObjectId('68261c189793af40ff160090')
+}" (type Object) at path "image", slug: Path `slug` is required.
+❗ [ERROR] 05/20/2025, 03:42:25 AM | Error creating category: Category validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/20/2025, 03:42:25 AM | Error creating category: Category validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 01:58:26 PM | ⚠️ خطا در ارسال پینگ به ::1: Cannot read properties of undefined (reading 'send')
+❗ [ERROR] 05/22/2025, 02:40:17 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:17 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:22 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:22 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:27 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:28 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:32 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:34 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:37 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:40 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:46 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:47 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:49 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:49 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:49 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:49 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:49 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:40:49 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:20 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:20 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:21 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:21 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:26 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:27 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:31 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:33 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:36 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:39 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:41 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:46 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:56 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:41:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:12 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:12 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:17 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:18 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:22 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:23 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:23 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:24 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:24 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:24 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:24 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:55 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:55 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:58 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:59 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:59 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:59 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:59 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:59 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:42:59 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:00 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:00 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:01 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:03 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:03 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:04 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:04 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:06 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:06 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:06 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:06 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:08 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:08 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:13 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:13 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:13 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:13 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:13 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:18 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:19 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:20 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:25 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:25 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:31 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:31 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:36 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:37 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:41 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:41 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:41 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:42 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:43 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:44 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:50 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:55 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:43:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:00 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:03 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:05 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:09 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:10 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:15 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:15 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:20 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:21 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:27 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:32 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:33 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:39 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:41 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:47 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:53 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:44:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:02 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:03 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:09 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:09 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:14 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:15 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:21 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:27 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:33 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:39 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:45:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:03 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:09 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:15 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:21 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:27 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:33 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:39 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:46:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:03 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:09 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:15 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:21 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:27 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:33 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:39 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:47:57 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:03 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:09 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:15 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:21 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:27 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:33 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:39 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:45 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:49 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:48:51 PM | ⚠️ Error handling WebSocket connection from ::1: Cannot read properties of undefined (reading 'on')
+❗ [ERROR] 05/22/2025, 02:52:48 PM | Error: Server startup error: userWsRoutes is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:12:26)
+❗ [ERROR] 05/22/2025, 10:24:16 PM | Error: Server startup error: userWsRoutes is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:12:26)
+❗ [ERROR] 05/22/2025, 10:24:20 PM | ⚠️ Invalid token from ::1: jwt must be provided
+❗ [ERROR] 05/22/2025, 10:24:38 PM | ⚠️ Invalid token from ::1: jwt must be provided
+❗ [ERROR] 05/22/2025, 10:57:09 PM | ❌ Error uploading product main image: Only JPEG, PNG, and GIF images are allowed for main image
+❗ [ERROR] 05/22/2025, 10:57:09 PM | Error creating product: Only JPEG, PNG, and GIF images are allowed for main image
+❗ [ERROR] 05/22/2025, 10:57:27 PM | ❌ Error uploading product main image: Only JPEG, PNG, and GIF images are allowed for main image
+❗ [ERROR] 05/22/2025, 10:57:27 PM | Error creating product: Only JPEG, PNG, and GIF images are allowed for main image
+❗ [ERROR] 05/22/2025, 10:57:59 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 10:57:59 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 10:58:10 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 10:58:10 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 11:03:08 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 11:03:08 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 11:05:06 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 11:05:06 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 11:08:59 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 11:08:59 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/22/2025, 11:10:34 PM | Error: Validation error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "email"
+    ],
+    "message": "Required"
+  }
+] | Location: {
+❗ [ERROR] 05/22/2025, 11:11:51 PM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/23/2025, 07:45:54 PM | Error: Server startup error: NOTIFICATION_TYPES is not defined | Location: at shopRoutes (/Users/devrct/Developer/server/src/websocket/shop/routes/shop.routes.js:24:35)
+❗ [ERROR] 05/23/2025, 07:45:54 PM | Error: Server startup error: NOTIFICATION_TYPES is not defined | Location: at shopRoutes (/Users/devrct/Developer/server/src/websocket/shop/routes/shop.routes.js:23:35)
+❗ [ERROR] 05/23/2025, 07:45:55 PM | Error: Server startup error: NOTIFICATION_TYPES is not defined | Location: at shopRoutes (/Users/devrct/Developer/server/src/websocket/shop/routes/shop.routes.js:24:35)
+❗ [ERROR] 05/23/2025, 08:19:09 PM | Notification error: Notification validation failed: adminId: Cast to ObjectId failed for value "12345" (type string) at path "adminId" because of "BSONError"
+❗ [ERROR] 05/23/2025, 08:25:14 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:25:15 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:25:20 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:25:23 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:28:41 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:28:50 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:28:55 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:28:56 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:29:50 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:31 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:33 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:34 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:35 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:37 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:45 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:48 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:30:49 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/23/2025, 08:33:15 PM | Error: Server startup error: Method 'GET' already declared for route '/shop' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/23/2025, 08:33:41 PM | Error: Server startup error: Method 'GET' already declared for route '/shop' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/23/2025, 08:33:41 PM | Error: Server startup error: Method 'GET' already declared for route '/shop' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/24/2025, 02:58:07 AM | Error: Server startup error: Missing handler function for "POST:/notification" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/24/2025, 02:58:09 AM | Error: Server startup error: Missing handler function for "POST:/notification" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/24/2025, 03:16:58 AM | Notification error: Cannot read properties of undefined (reading 'readyState')
+❗ [ERROR] 05/24/2025, 03:21:52 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:8:28)
+❗ [ERROR] 05/24/2025, 03:21:52 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:8:28)
+❗ [ERROR] 05/24/2025, 03:21:54 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:8:26)
+❗ [ERROR] 05/24/2025, 03:21:58 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:7:26)
+❗ [ERROR] 05/24/2025, 03:22:07 AM | Error: Server startup error: websocket is not defined | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:7:26)
+❗ [ERROR] 05/24/2025, 05:41:27 PM | Error: Server startup error: Cannot read properties of undefined (reading 'toUpperCase') | Location: at Printf.template (/Users/devrct/Developer/server/src/utils/logger/logger.js:65:49)
+❗ [ERROR] 05/24/2025, 05:41:29 PM | Error: Server startup error: logger.l is not a function | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:6:10)
+❗ [ERROR] 05/24/2025, 05:41:31 PM | Error: Server startup error: logger.in is not a function | Location: at setupWebsocket (/Users/devrct/Developer/server/src/websocket/index.js:6:12)
+❗ [ERROR] 05/24/2025, 06:10:34 PM | Error: Server startup error: Missing handler function for "PUT:/:productId/inventory" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/24/2025, 06:10:35 PM | Error: Server startup error: Missing handler function for "PUT:/:productId/inventory" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/24/2025, 06:14:37 PM | Error: Server startup error: Missing handler function for "PUT:/:productId/inventory" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/24/2025, 06:24:25 PM | Auth error: jwt expired
+❗ [ERROR] 05/24/2025, 06:25:01 PM | خطا در ایجاد محصول: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/24/2025, 06:25:01 PM | خطا در ایجاد محصول: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/24/2025, 06:25:16 PM | خطا در ایجاد محصول: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/24/2025, 06:25:16 PM | خطا در ایجاد محصول: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/24/2025, 06:25:48 PM | خطا در ایجاد محصول: Cannot read properties of undefined (reading 'createNotification')
+❗ [ERROR] 05/24/2025, 06:25:48 PM | خطا در ایجاد محصول: Cannot read properties of undefined (reading 'createNotification')
+❗ [ERROR] 05/24/2025, 06:27:57 PM | خطا در ایجاد نوتیفیکیشن: fastify.broadcastNotification is not a function
+❗ [ERROR] 05/24/2025, 06:27:57 PM | خطا در ایجاد محصول: notification is not defined
+❗ [ERROR] 05/24/2025, 06:27:57 PM | خطا در ایجاد محصول: notification is not defined
+❗ [ERROR] 05/24/2025, 06:29:18 PM | خطا در ایجاد محصول: E11000 duplicate key error collection: shop-server.products index: slug_1 dup key: { slug: "گوشی سامسونگ گلکسی S23" }
+❗ [ERROR] 05/24/2025, 06:29:18 PM | خطا در ایجاد محصول: E11000 duplicate key error collection: shop-server.products index: slug_1 dup key: { slug: "گوشی سامسونگ گلکسی S23" }
+❗ [ERROR] 05/24/2025, 06:29:41 PM | خطا در ایجاد نوتیفیکیشن: fastify.broadcastNotification is not a function
+❗ [ERROR] 05/24/2025, 06:29:41 PM | خطا در ایجاد محصول: notification is not defined
+❗ [ERROR] 05/24/2025, 06:29:41 PM | خطا در ایجاد محصول: notification is not defined
+❗ [ERROR] 05/24/2025, 06:36:10 PM | خطا در ایجاد نوتیفیکیشن: fastify.broadcastNotification is not a function
+❗ [ERROR] 05/24/2025, 06:36:10 PM | خطا در ایجاد محصول: notification is not defined
+❗ [ERROR] 05/24/2025, 06:36:11 PM | خطا در ایجاد محصول: notification is not defined
+❗ [ERROR] 05/27/2025, 04:13:09 AM | Error in createAndSendNotification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 04:13:09 AM | Error creating product: mongoose is not defined
+❗ [ERROR] 05/27/2025, 04:15:41 AM | Error creating product: E11000 duplicate key error collection: shop-server.products index: slug_1 dup key: { slug: "گوشی سامسونگ گلکسی S23" }
+❗ [ERROR] 05/27/2025, 04:15:41 AM | Error creating product: E11000 duplicate key error collection: shop-server.products index: slug_1 dup key: { slug: "گوشی سامسونگ گلکسی S23" }
+❗ [ERROR] 05/27/2025, 04:20:32 AM | Error creating product: E11000 duplicate key error collection: shop-server.products index: slug_1 dup key: { slug: "گوشی سامسونگ گلکسی S23" }
+❗ [ERROR] 05/27/2025, 04:20:32 AM | Error creating product: E11000 duplicate key error collection: shop-server.products index: slug_1 dup key: { slug: "گوشی سامسونگ گلکسی S23" }
+❗ [ERROR] 05/27/2025, 03:49:31 PM | Auth error: jwt malformed
+❗ [ERROR] 05/27/2025, 03:49:55 PM | Error in createAndSendNotification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 03:49:55 PM | Error sending test notification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 03:51:36 PM | Error in createAndSendNotification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 03:51:36 PM | Error sending test notification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 03:51:37 PM | Error in createAndSendNotification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 03:51:37 PM | Error sending test notification: mongoose is not defined
+❗ [ERROR] 05/27/2025, 09:22:17 PM | Error fetching products: Cannot read properties of undefined (reading 'id')
+❗ [ERROR] 05/27/2025, 09:22:42 PM | Error fetching products: Cannot read properties of undefined (reading 'id')
+❗ [ERROR] 05/27/2025, 09:33:04 PM | Error updating product: the request is not multipart
+❗ [ERROR] 05/27/2025, 10:10:12 PM | Error: Server startup error: Missing handler function for "GET:/:identifier/similar" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/27/2025, 10:13:49 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:13:49 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/27/2025, 10:15:02 PM | Error creating product: Product validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/28/2025, 11:56:56 AM | Error: Server startup error: fastifySwagger is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:31:28)
+❗ [ERROR] 05/28/2025, 11:56:57 AM | Error: Server startup error: fastifySwagger is not defined | Location: at setupPlugins (/Users/devrct/Developer/server/src/configs/plugins.js:29:26)
+❗ [ERROR] 05/28/2025, 12:01:39 PM | Error: Server startup error: Failed building the validation schema for POST: /api/users/auth, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/28/2025, 12:01:42 PM | Error: Server startup error: Failed building the validation schema for POST: /api/users/auth, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/28/2025, 12:01:59 PM | Error: Server startup error: Failed building the validation schema for POST: /api/users/auth, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/28/2025, 12:07:09 PM | Error: Server startup error: Method 'POST' already declared for route '/api/categories' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/28/2025, 12:07:10 PM | Error: Server startup error: Method 'POST' already declared for route '/api/categories' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/28/2025, 12:07:33 PM | Error: Server startup error: notificationSchema is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:28:20)
+❗ [ERROR] 05/28/2025, 12:07:36 PM | Error: Server startup error: notificationR is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:28:20)

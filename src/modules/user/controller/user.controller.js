@@ -1,18 +1,17 @@
 const { logger } = require("../../../utils/logger/logger");
 const { paginate } = require("../../../utils/pagination/paginate");
 const { formatResponse } = require("../../../utils/response/formatResponse");
-const fileUploader = require("../../../utils/uploader/uploader");
+const fileUploader = require("../../../utils/uploader/fileUploader");
+const { generateToken } = require("../../../utils/user/userGenerators");
 const { userService } = require("../service/user.service");
-const jwt = require("jsonwebtoken");
-
-const generateToken = (user) => {
-  return jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, {
-    expiresIn: "1d",
-  });
-};
+const {
+  notificationService,
+} = require("../../notification/service/notification.service");
+const {
+  NOTIFICATION_TYPES,
+} = require("../../../utils/notification/notification.enums");
 
 const userController = {
-  // ثبت‌نام یا ورود با ایمیل
   auth: async (request, reply) => {
     try {
       const user = await userService.auth(request.body);
@@ -29,7 +28,6 @@ const userController = {
     }
   },
 
-  // تأیید کد
   verifyCode: async (request, reply) => {
     try {
       const { user, refreshToken, refreshTokenExpires } =
@@ -53,7 +51,6 @@ const userController = {
     }
   },
 
-  // ورود با رمز عبور
   loginWithPassword: async (request, reply) => {
     try {
       const { user, refreshToken, refreshTokenExpires } =
@@ -77,7 +74,38 @@ const userController = {
     }
   },
 
-  // به‌روزرسانی پروفایل
+  forgotPassword: async (request, reply) => {
+    try {
+      await userService.forgotPassword(request.body);
+      logger.info(`Password reset code sent for: ${request.body.email}`);
+      return formatResponse(
+        { message: "Password reset code sent to your email" },
+        false,
+        null,
+        200
+      );
+    } catch (error) {
+      logger.error(`Error in forgot password: ${error.message}`);
+      return formatResponse({}, true, error.message, 400);
+    }
+  },
+
+  resetPassword: async (request, reply) => {
+    try {
+      const user = await userService.resetPassword(request.body);
+      logger.info(`Password reset successfully for: ${user.email}`);
+      return formatResponse(
+        { message: "Password reset successfully" },
+        false,
+        null,
+        200
+      );
+    } catch (error) {
+      logger.error(`Error resetting password: ${error.message}`);
+      return formatResponse({}, true, error.message, 400);
+    }
+  },
+
   updateProfile: async (request, reply) => {
     try {
       const user = await userService.updateProfile(
@@ -87,6 +115,21 @@ const userController = {
       if (!user) {
         return formatResponse({}, true, "User not found", 404);
       }
+
+      // نوتیفیکیشن برای به‌روزرسانی پروفایل
+      await notificationService.createAndSendNotification(
+        request.server,
+        user._id.toString(),
+        NOTIFICATION_TYPES.UPDATE_USER_PROFILE,
+        `User profile updated: ${user.email}`,
+        {
+          userId: user._id.toString(),
+          username: user.username,
+          email: user.email,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`User profile updated: ${user.email}`);
       return formatResponse({
         id: user._id,
@@ -107,7 +150,6 @@ const userController = {
     }
   },
 
-  // آپلود تصویر پروفایل
   uploadProfileImage: async (request, reply) => {
     try {
       const data = await request.file();
@@ -120,10 +162,29 @@ const userController = {
         return formatResponse({}, true, "User not found", 404);
       }
 
-      const profilePath = await fileUploader.uploadProfileImage(data, user);
+      const profilePath = await fileUploader.uploadProfileImage(
+        data,
+        user,
+        "user"
+      );
       const updatedUser = await userService.updateProfile(request.user.id, {
         profilePath,
       });
+
+      // نوتیفیکیشن برای به‌روزرسانی تصویر پروفایل
+      await notificationService.createAndSendNotification(
+        request.server,
+        updatedUser._id.toString(),
+        NOTIFICATION_TYPES.UPDATE_USER_PROFILE,
+        `Profile image updated for: ${updatedUser.email}`,
+        {
+          userId: updatedUser._id.toString(),
+          username: updatedUser.username,
+          email: updatedUser.email,
+          profilePath: updatedUser.profilePath,
+          timestamp: new Date().toISOString(),
+        }
+      );
 
       logger.info(`Profile image updated for user: ${user.email}`);
       return formatResponse({
@@ -138,7 +199,6 @@ const userController = {
     }
   },
 
-  // دریافت پروفایل
   getProfile: async (request, reply) => {
     try {
       const user = await userService.getProfile(request.user.id);
@@ -162,13 +222,28 @@ const userController = {
     }
   },
 
-  // به‌روزرسانی دسترسی‌های فیچر
   updateFeatureAccess: async (request, reply) => {
     try {
       const user = await userService.updateFeatureAccess(
         request.user.id,
         request.body
       );
+
+      // نوتیفیکیشن برای به‌روزرسانی دسترسی‌ها
+      await notificationService.createAndSendNotification(
+        request.server,
+        user._id.toString(),
+        NOTIFICATION_TYPES.UPDATE_USER_PROFILE,
+        `Feature access updated for: ${user.email}`,
+        {
+          userId: user._id.toString(),
+          username: user.username,
+          email: user.email,
+          featureAccess: user.featureAccess,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`Feature access updated for user: ${user.email}`);
       return formatResponse({
         id: user._id,
@@ -182,7 +257,6 @@ const userController = {
     }
   },
 
-  // دریافت اطلاعات کاربر لاگین‌شده
   getCurrentUser: async (request, reply) => {
     try {
       const user = await userService.getCurrentUser(request.user.id);
@@ -206,7 +280,6 @@ const userController = {
     }
   },
 
-  // دریافت لیست کاربران
   getUsers: async (request, reply) => {
     try {
       const page = Math.max(parseInt(request.query.page) || 1, 1);
@@ -228,7 +301,6 @@ const userController = {
     }
   },
 
-  // رفرش توکن
   refreshToken: async (request, reply) => {
     try {
       const { user, accessToken, refreshToken, refreshTokenExpires } =
@@ -247,6 +319,50 @@ const userController = {
       });
     } catch (error) {
       logger.error(`Error refreshing token: ${error.message}`);
+      return formatResponse({}, true, error.message, 400);
+    }
+  },
+
+  banUser: async (request, reply) => {
+    try {
+      const admin = request.user;
+      const { userId, reason } = request.body;
+
+      const user = await userService.findById(userId);
+      if (!user) {
+        return formatResponse({}, true, "User not found", 404);
+      }
+
+      // بن کردن کاربر
+      const bannedUser = await userService.banUser(userId, reason);
+
+      // ابطال توکن‌ها
+      await userService.invalidateTokens(userId);
+
+      // نوتیفیکیشن برای بن شدن
+      await notificationService.createAndSendNotification(
+        request.server,
+        userId,
+        NOTIFICATION_TYPES.SUSPEND_USER,
+        `Your account has been suspended: ${reason || "No reason provided"}`,
+        {
+          userId: userId,
+          username: bannedUser.username,
+          email: bannedUser.email,
+          reason: reason || "No reason provided",
+          timestamp: new Date().toISOString(),
+        }
+      );
+
+      logger.info(`User ${userId} banned by admin ${admin.email}`);
+      return formatResponse(
+        { message: `User ${bannedUser.email} banned successfully` },
+        false,
+        null,
+        200
+      );
+    } catch (error) {
+      logger.error(`Error banning user: ${error.message}`);
       return formatResponse({}, true, error.message, 400);
     }
   },

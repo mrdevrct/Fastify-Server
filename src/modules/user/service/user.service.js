@@ -2,40 +2,22 @@ const User = require("../model/user.model");
 const RefreshToken = require("../model/refreshToken.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
 const { logger } = require("../../../utils/logger/logger");
 const { sendVerificationCode } = require("../../../utils/sendEmail/email");
 const defaultFeatures = require("../../../configs/defaultFeatures");
-
-const generateVerificationCode = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
-};
-
-const generateDefaultUsername = () => {
-  const date = new Date();
-  const dateString = date.toISOString().slice(0, 10).replace(/-/g, "");
-  return `user-${dateString}`;
-};
-
-const generateRefreshToken = async (userId) => {
-  const token = crypto.randomBytes(40).toString("hex");
-  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 روز
-  const refreshToken = new RefreshToken({
-    userId,
-    token,
-    expiresAt,
-  });
-  await refreshToken.save();
-  return { token, expiresAt };
-};
+const {
+  generateDefaultUsername,
+  generateVerificationCode,
+  generateRefreshToken,
+} = require("../../../utils/user/userGenerators");
 
 const userService = {
-  // ثبت‌نام یا ورود با ایمیل
+  // Sign up or login with email
   auth: async ({ email }) => {
     try {
       let user = await User.findOne({ email });
       const code = generateVerificationCode();
-      const expires = new Date(Date.now() + 10 * 60 * 1000);
+      const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
       if (!user) {
         let username = generateDefaultUsername();
@@ -61,7 +43,7 @@ const userService = {
 
       await user.save();
 
-      // ارسال ایمیل بدون انتظار (fire-and-forget)
+      // Send email (fire-and-forget)
       sendVerificationCode(user.email, code)
         .then(() => {
           logger.info(`Verification code sent to ${user.email}`);
@@ -80,7 +62,7 @@ const userService = {
     }
   },
 
-  // تأیید کد
+  // Verify email code
   verifyCode: async ({ email, code }) => {
     const user = await User.findOne({
       email,
@@ -104,7 +86,7 @@ const userService = {
     return { user, refreshToken, refreshTokenExpires: expiresAt };
   },
 
-  // ورود با رمز عبور
+  // Login with password
   loginWithPassword: async ({ email, password }) => {
     const user = await User.findOne({ email });
     if (!user || !user.password) {
@@ -122,7 +104,66 @@ const userService = {
     return { user, refreshToken, refreshTokenExpires: expiresAt };
   },
 
-  // به‌روزرسانی پروفایل
+  // Forgot password
+  forgotPassword: async ({ email }) => {
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new Error("User not found");
+      }
+
+      const code = generateVerificationCode();
+      const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+      user.resetPasswordCode = code;
+      user.resetPasswordExpires = expires;
+      await user.save();
+
+      // Send reset code email (fire-and-forget)
+      sendVerificationCode(user.email, code)
+        .then(() => {
+          logger.info(`Password reset code sent to ${user.email}`);
+        })
+        .catch((emailError) => {
+          logger.warn(
+            `Failed to send reset code email to ${user.email}: ${emailError.message}`
+          );
+          logger.info(`Reset code for ${user.email}: ${code}`);
+        });
+
+      return user;
+    } catch (error) {
+      logger.error(`Error in forgot password: ${error.message}`);
+      throw error;
+    }
+  },
+
+  // Reset password
+  resetPassword: async ({ email, code, password }) => {
+    try {
+      const user = await User.findOne({
+        email,
+        resetPasswordCode: code,
+        resetPasswordExpires: { $gt: new Date() },
+      });
+
+      if (!user) {
+        throw new Error("Invalid or expired reset code");
+      }
+
+      user.password = await bcrypt.hash(password, 10);
+      user.resetPasswordCode = undefined;
+      user.resetPasswordExpires = undefined;
+      await user.save();
+
+      return user;
+    } catch (error) {
+      logger.error(`Error resetting password: ${error.message}`);
+      throw error;
+    }
+  },
+
+  // Update profile
   updateProfile: async (userId, profileData) => {
     const updateData = { ...profileData };
     if (profileData.password) {
@@ -131,7 +172,7 @@ const userService = {
     return await User.findByIdAndUpdate(userId, updateData, { new: true });
   },
 
-  // دریافت پروفایل
+  // Get profile
   getProfile: async (userId) => {
     const user = await User.findById(userId);
     if (!user) {
@@ -140,7 +181,7 @@ const userService = {
     return user;
   },
 
-  // به‌روزرسانی دسترسی‌های فیچر
+  // Update feature access
   updateFeatureAccess: async (userId, featureAccessData) => {
     const user = await User.findById(userId);
     if (!user) {
@@ -162,7 +203,7 @@ const userService = {
     return user;
   },
 
-  // دریافت اطلاعات کاربر لاگین‌شده
+  // Get current logged-in user
   getCurrentUser: async (userId) => {
     const user = await User.findById(userId);
     if (!user) {
@@ -171,7 +212,7 @@ const userService = {
     return user;
   },
 
-  // دریافت لیست کاربران
+  // Get list of users
   getUsers: async (currentUserId, page, perPage) => {
     const currentUser = await User.findById(currentUserId);
     if (!currentUser) {
@@ -189,7 +230,7 @@ const userService = {
       .select(
         "_id username email lastName firstName userType adminStatus profilePath reportCount isBanned featureAccess"
       )
-      .sort({ createdAt: -1 }) // مرتب‌سازی از جدید به قدیم
+      .sort({ createdAt: -1 }) // Sort by newest first
       .skip((page - 1) * perPage)
       .limit(perPage);
 
@@ -210,12 +251,12 @@ const userService = {
     return { users: formattedUsers, total };
   },
 
-  // دریافت کاربر با شناسه
+  // Find user by ID
   findById: async (id) => {
     return await User.findById(id);
   },
 
-  // اعتبارسنجی و رفرش توکن
+  // Validate and refresh token
   refreshToken: async ({ refreshToken }) => {
     const token = await RefreshToken.findOne({
       token: refreshToken,
@@ -236,7 +277,7 @@ const userService = {
       { expiresIn: "7d" }
     );
 
-    // به‌روزرسانی رفرش توکن
+    // Replace old refresh token with a new one
     await RefreshToken.deleteOne({ _id: token._id });
     const { token: newRefreshToken, expiresAt } = await generateRefreshToken(
       token.userId._id

@@ -7,65 +7,70 @@ const {
   updateProfileDto,
   updateFeatureAccessDto,
   refreshTokenDto,
+  forgotPasswordDto,
+  resetPasswordDto,
 } = require("../dto/user.dto");
-
-// میان‌افزار برای بررسی دسترسی ادمین
-const adminOnlyMiddleware = async (request, reply) => {
-  const user = await require("../service/user.service").userService.findById(
-    request.user.id
-  );
-  if (
-    user.userType !== "ADMIN" ||
-    !["ADMIN", "SUPER_ADMIN"].includes(user.adminStatus)
-  ) {
-    reply.code(403).send({ error: "Access denied: Admin only" });
-  }
-};
+const adminOnlyMiddleware = require("../../../middlewares/auth/adminOnly.middleware");
+const ipBlockMiddleware = require("../../../middlewares/security/ipBlock.middleware");
 
 const userRoutes = async (fastify, options) => {
-  // ثبت‌نام یا ورود با ایمیل
+  // Sign up or log in with email
   fastify.post(
     "/auth",
     { preValidation: [validateMiddleware(authDto)] },
-    userController.auth
+    ipBlockMiddleware(userController.auth)
   );
 
-  // تأیید کد
+  // Verify code
   fastify.post(
     "/verify",
     { preValidation: [validateMiddleware(verifyCodeDto)] },
-    userController.verifyCode
+    ipBlockMiddleware(userController.verifyCode)
   );
 
-  // ورود با رمز عبور
+  // Log in with password
   fastify.post(
     "/login",
     { preValidation: [validateMiddleware(loginWithPasswordDto)] },
-    userController.loginWithPassword
+    ipBlockMiddleware(userController.loginWithPassword)
   );
 
-  // به‌روزرسانی پروفایل
+  // Forgot password
+  fastify.post(
+    "/forgot-password",
+    { preValidation: [validateMiddleware(forgotPasswordDto)] },
+    userController.forgotPassword
+  );
+
+  // Reset password
+  fastify.post(
+    "/reset-password",
+    { preValidation: [validateMiddleware(resetPasswordDto)] },
+    userController.resetPassword
+  );
+
+  // Update profile
   fastify.put(
     "/profile",
     { preValidation: [fastify.auth, validateMiddleware(updateProfileDto)] },
     userController.updateProfile
   );
 
-  // آپلود تصویر پروفایل
+  // Upload profile image
   fastify.post(
     "/profile/image",
     { preValidation: [fastify.auth] },
     userController.uploadProfileImage
   );
 
-  // دریافت پروفایل
+  // Get profile
   fastify.get(
     "/profile",
     { preValidation: [fastify.auth] },
     userController.getProfile
   );
 
-  // به‌روزرسانی دسترسی‌های فیچر
+  // Update feature access
   fastify.put(
     "/feature-access",
     {
@@ -74,21 +79,21 @@ const userRoutes = async (fastify, options) => {
     userController.updateFeatureAccess
   );
 
-  // دریافت اطلاعات کاربر لاگین‌شده
+  // Get currently logged-in user info
   fastify.get(
     "/me",
     { preValidation: [fastify.auth] },
     userController.getCurrentUser
   );
 
-  // دریافت لیست کاربران (فقط برای ادمین‌ها)
+  // Get list of users (admin only)
   fastify.get(
     "/all",
     { preValidation: [fastify.auth, adminOnlyMiddleware] },
     userController.getUsers
   );
 
-  // رفرش توکن
+  // Refresh token
   fastify.post(
     "/refresh-token",
     { preValidation: [validateMiddleware(refreshTokenDto)] },
