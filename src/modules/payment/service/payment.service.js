@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Payment = require("../model/payment.model");
-const Order = require("../../order/model/order.model");
-const OrderStatusHistory = require("../../order/model/OrderStatusHistory.model");
+const Order = require("../../order/model/oreder/order.model");
+const OrderStatusHistory = require("../../order/model/oreder-status-history/orderStatusHistory.model");
 const { logger } = require("../../../utils/logger/logger");
 
 const paymentService = {
