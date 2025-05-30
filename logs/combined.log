@@ -15399,3 +15399,25 @@
 ℹ️ [INFO] 05/30/2025, 04:33:42 AM | Routes configured
 ℹ️ [INFO] 05/30/2025, 04:33:42 AM | WebSocket server initialized
 ℹ️ [INFO] 05/30/2025, 04:33:42 AM | Server running on port 8080
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | MongoDB connected
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Swagger plugins registered
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Middlewares configured
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | CORS enabled
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Interceptors configured
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Routes configured
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | WebSocket server initialized
+ℹ️ [INFO] 05/30/2025, 04:45:26 AM | Server running on port 8080
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | MongoDB connected
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Swagger plugins registered
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Middlewares configured
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | CORS enabled
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Interceptors configured
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Routes configured
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | WebSocket server initialized
+ℹ️ [INFO] 05/30/2025, 04:45:27 AM | Server running on port 8080
