@@ -1,6 +1,6 @@
-const setupApp = require("./app");
-const { connectDB } = require("./configs/database");
-const { logger } = require("./utils/logger/logger");
+const setupApp = require("./src/app");
+const { connectDB } = require("./src/configs/database");
+const { logger } = require("./src/utils/logger/logger");
 
 const start = async () => {
   try {

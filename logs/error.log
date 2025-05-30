@@ -773,3 +773,35 @@ Require stack:
 ❗ [ERROR] 05/28/2025, 12:07:10 PM | Error: Server startup error: Method 'POST' already declared for route '/api/categories' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
 ❗ [ERROR] 05/28/2025, 12:07:33 PM | Error: Server startup error: notificationSchema is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:28:20)
 ❗ [ERROR] 05/28/2025, 12:07:36 PM | Error: Server startup error: notificationR is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:28:20)
+❗ [ERROR] 05/29/2025, 04:12:53 AM | Error: Server startup error: preValidation hook should be a function, instead got [object Promise] | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:282:23)
+❗ [ERROR] 05/29/2025, 04:12:58 AM | Error: Server startup error: Failed building the validation schema for POST: /api/reports, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/29/2025, 04:13:34 AM | Error: Server startup error: reportedUserJsonSchema is not defined | Location: at reportRoutes (/Users/devrct/Developer/server/src/modules/report/routes/report.routes.js:170:28)
+❗ [ERROR] 05/29/2025, 04:13:37 AM | Error: Server startup error: reportedUserJsonSchema is not defined | Location: at reportRoutes (/Users/devrct/Developer/server/src/modules/report/routes/report.routes.js:170:28)
+❗ [ERROR] 05/29/2025, 04:13:37 AM | Error: Server startup error: reportedUserJsonSchema is not defined | Location: at reportRoutes (/Users/devrct/Developer/server/src/modules/report/routes/report.routes.js:189:28)
+❗ [ERROR] 05/29/2025, 04:13:48 AM | Error: Server startup error: reportedUserJsonSchema is not defined | Location: at reportRoutes (/Users/devrct/Developer/server/src/modules/report/routes/report.routes.js:190:28)
+❗ [ERROR] 05/29/2025, 04:13:53 AM | Error: Server startup error: Failed building the validation schema for POST: /api/reports, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/29/2025, 04:15:49 AM | Error: Server startup error: Failed building the validation schema for POST: /api/reports, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/29/2025, 04:15:50 AM | Error: Server startup error: Failed building the validation schema for POST: /api/reports, due to error schema is invalid: data/required must be array | Location: at Boot.<anonymous> (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:392:21)
+❗ [ERROR] 05/29/2025, 04:16:10 AM | Error: Server startup error: createReportBodySchema is not defined | Location: at reportRoutes (/Users/devrct/Developer/server/src/modules/report/routes/report.routes.js:15:15)
+❗ [ERROR] 05/29/2025, 04:16:13 AM | Error: Server startup error: createReportBodySchema is not defined | Location: at reportRoutes (/Users/devrct/Developer/server/src/modules/report/routes/report.routes.js:19:15)
+❗ [ERROR] 05/29/2025, 09:27:05 PM | Error: Server startup error: Method 'GET' already declared for route '/api/notifications' | Location: at Object.addNewRoute (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 05/29/2025, 09:27:21 PM | Error: Server startup error: siteStatusRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:30:20)
+❗ [ERROR] 05/29/2025, 09:33:18 PM | Error updating site status: SiteStatus validation failed: updatedBy: Path `updatedBy` is required.
+❗ [ERROR] 05/29/2025, 09:33:18 PM | Error updating site status: SiteStatus validation failed: updatedBy: Path `updatedBy` is required.
+❗ [ERROR] 05/29/2025, 09:35:56 PM | Error updating site status: Cannot read properties of undefined (reading 'emit')
+❗ [ERROR] 05/29/2025, 09:35:56 PM | Error updating site status: Cannot read properties of undefined (reading 'emit')
+❗ [ERROR] 05/29/2025, 09:38:55 PM | Error updating site status: SiteStatus validation failed: updatedBy: Path `updatedBy` is required.
+❗ [ERROR] 05/29/2025, 09:38:55 PM | Error updating site status: SiteStatus validation failed: updatedBy: Path `updatedBy` is required.
+❗ [ERROR] 05/29/2025, 10:10:25 PM | Error: Server startup error: Missing handler function for "POST:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:10:26 PM | Error: Server startup error: Missing handler function for "POST:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:12:08 PM | Error creating/updating site status: SiteStatus validation failed: updatedBy: Path `updatedBy` is required.
+❗ [ERROR] 05/29/2025, 10:12:08 PM | Error updating site status: SiteStatus validation failed: updatedBy: Path `updatedBy` is required.
+❗ [ERROR] 05/29/2025, 10:19:30 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:19:31 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:19:48 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:19:51 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:19:52 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:19:53 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:19:57 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/29/2025, 10:20:15 PM | Error fetching current valid site status: Class constructor ObjectId cannot be invoked without 'new'
+❗ [ERROR] 05/29/2025, 10:20:15 PM | Error fetching current valid site status: Class constructor ObjectId cannot be invoked without 'new'

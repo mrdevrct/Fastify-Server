@@ -33,6 +33,21 @@ const userController = {
       const { user, refreshToken, refreshTokenExpires } =
         await userService.verifyCode(request.body);
       const token = generateToken(user);
+
+      // ارسال نوتیفیکیشن برای فعال‌سازی حساب
+      await notificationService.createAndSendNotification(
+        request.server,
+        user._id.toString(),
+        NOTIFICATION_TYPES.ACTIVATE_USER,
+        `Your account has been activated: ${user.email}`,
+        {
+          userId: user._id.toString(),
+          username: user.username,
+          email: user.email,
+          timestamp: new Date().toISOString(),
+        }
+      );
+
       logger.info(`User verified: ${user.email}`);
       return formatResponse({
         id: user._id,

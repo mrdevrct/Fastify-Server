@@ -7,7 +7,8 @@ const categoryRoutes = async (fastify, options) => {
     "/",
     {
       schema: {
-        description: "Create a new category (superadmin only)",
+        description:
+          "Create a new category (requires SUPER_ADMIN authentication)",
         tags: ["Categories"],
         security: [{ bearerAuth: [] }],
         consumes: ["multipart/form-data"],
@@ -56,12 +57,18 @@ const categoryRoutes = async (fastify, options) => {
             },
           },
           400: {
-            description: "Invalid request",
+            description: "Invalid request (e.g., missing name, invalid image)",
+            type: "object",
+            properties: { error: { type: "string" } },
+          },
+          401: {
+            description:
+              "Unauthorized: Invalid or missing authentication token",
             type: "object",
             properties: { error: { type: "string" } },
           },
           403: {
-            description: "Forbidden: Superadmin access required",
+            description: "Forbidden: Requires SUPER_ADMIN access",
             type: "object",
             properties: { error: { type: "string" } },
           },
@@ -77,7 +84,8 @@ const categoryRoutes = async (fastify, options) => {
     "/",
     {
       schema: {
-        description: "Get list of categories with optional filters",
+        description:
+          "Get list of categories with optional filters (public access)",
         tags: ["Categories"],
         querystring: {
           type: "object",
@@ -117,7 +125,7 @@ const categoryRoutes = async (fastify, options) => {
             },
           },
           400: {
-            description: "Invalid request",
+            description: "Invalid request (e.g., invalid query parameters)",
             type: "object",
             properties: { error: { type: "string" } },
           },
@@ -132,7 +140,7 @@ const categoryRoutes = async (fastify, options) => {
     "/:identifier",
     {
       schema: {
-        description: "Get a category by ID or slug",
+        description: "Get a category by ID or slug (public access)",
         tags: ["Categories"],
         params: {
           type: "object",
@@ -163,7 +171,7 @@ const categoryRoutes = async (fastify, options) => {
     "/:categoryId",
     {
       schema: {
-        description: "Update a category (superadmin only)",
+        description: "Update a category (requires SUPER_ADMIN authentication)",
         tags: ["Categories"],
         security: [{ bearerAuth: [] }],
         consumes: ["multipart/form-data"],
@@ -220,8 +228,14 @@ const categoryRoutes = async (fastify, options) => {
             type: "object",
             properties: { error: { type: "string" } },
           },
+          401: {
+            description:
+              "Unauthorized: Invalid or missing authentication token",
+            type: "object",
+            properties: { error: { type: "string" } },
+          },
           403: {
-            description: "Forbidden: Superadmin access required",
+            description: "Forbidden: Requires SUPER_ADMIN access",
             type: "object",
             properties: { error: { type: "string" } },
           },
@@ -237,7 +251,7 @@ const categoryRoutes = async (fastify, options) => {
     "/:categoryId",
     {
       schema: {
-        description: "Delete a category (superadmin only)",
+        description: "Delete a category (requires SUPER_ADMIN authentication)",
         tags: ["Categories"],
         security: [{ bearerAuth: [] }],
         params: {
@@ -273,8 +287,14 @@ const categoryRoutes = async (fastify, options) => {
             type: "object",
             properties: { error: { type: "string" } },
           },
+          401: {
+            description:
+              "Unauthorized: Invalid or missing authentication token",
+            type: "object",
+            properties: { error: { type: "string" } },
+          },
           403: {
-            description: "Forbidden: Superadmin access required",
+            description: "Forbidden: Requires SUPER_ADMIN access",
             type: "object",
             properties: { error: { type: "string" } },
           },
