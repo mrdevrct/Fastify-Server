@@ -94,7 +94,7 @@ const categoryController = {
 
       const categories = await categoryService.getCategories(filters, options);
       const response = formatResponse(categories, false, null, 200);
-      console.log("Response before sending:", response); // لاگ برای دیباگ
+      console.log("Response before sending:", response);
       return reply.status(200).send(response);
     } catch (error) {
       logger.error(`Error fetching categories: ${error.message}`);

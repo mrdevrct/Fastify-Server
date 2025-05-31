@@ -44,7 +44,9 @@ const categoryService = {
         query.parentId = filters.parentId === "null" ? null : filters.parentId;
       if (filters.slug) query.slug = filters.slug;
 
+      logger.info(`Query for categories: ${JSON.stringify(query)}`);
       const categories = await Category.find(query).sort({ createdAt: -1 });
+      logger.info(`Found categories: ${JSON.stringify(categories)}`);
 
       if (options.tree) {
         return buildCategoryTree(categories);

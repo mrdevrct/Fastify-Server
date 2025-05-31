@@ -16692,3 +16692,75 @@
 ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Routes configured
 ℹ️ [INFO] 05/31/2025, 04:56:26 AM | WebSocket server initialized
 ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | MongoDB connected
+🐛 [DEBUG] 05/31/2025, 05:08:34 AM | Registering requestLogger hook
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 05:08:34 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | MongoDB connected
+🐛 [DEBUG] 05/31/2025, 05:08:35 AM | Registering requestLogger hook
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 05:08:35 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | MongoDB connected
+🐛 [DEBUG] 05/31/2025, 05:08:39 AM | Registering requestLogger hook
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 05:08:39 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | MongoDB connected
+🐛 [DEBUG] 05/31/2025, 05:08:40 AM | Registering requestLogger hook
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 05:08:40 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 05:08:48 AM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 05:08:48 AM | Found categories: []
+ℹ️ [INFO] 05/31/2025, 05:08:49 AM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 05:08:49 AM | Found categories: []
+ℹ️ [INFO] 05/31/2025, 05:08:50 AM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 05:08:50 AM | Found categories: []
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | MongoDB connected
+🐛 [DEBUG] 05/31/2025, 05:09:04 AM | Registering requestLogger hook
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 05:09:04 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 05:09:05 AM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 05:09:05 AM | Found categories: []
+ℹ️ [INFO] 05/31/2025, 05:09:05 AM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 05:09:05 AM | Found categories: []
+ℹ️ [INFO] 05/31/2025, 05:09:06 AM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 05:09:06 AM | Found categories: []

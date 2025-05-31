@@ -19,33 +19,6 @@ const categoryRoutes = async (fastify, options) => {
   // Get categories
   fastify.get(
     "/",
-    {
-      schema: {
-        description:
-          "Get list of categories with optional filters (public access)",
-        tags: ["Categories"],
-        querystring: {
-          type: "object",
-          properties: {
-            parentId: {
-              type: "string",
-              description: "Filter by parent category ID",
-              nullable: true,
-            },
-            slug: { type: "string", description: "Filter by category slug" },
-            tree: {
-              type: "boolean",
-              description: "Return categories as a tree structure",
-              default: false,
-            },
-          },
-        },
-        response: {
-          200: successResponseSchema,
-          400: errorResponseSchema,
-        },
-      },
-    },
     categoryController.getCategories
   );
 
