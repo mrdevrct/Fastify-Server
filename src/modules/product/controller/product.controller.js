@@ -18,6 +18,7 @@ const productController = {
       let mainImageData = null;
       let mediaData = [];
 
+      // پردازش multipart form-data
       const parts = request.parts();
       for await (const part of parts) {
         if (part.type === "file") {
@@ -53,6 +54,7 @@ const productController = {
         }
       }
 
+      // اعتبارسنجی فیلدهای اجباری
       if (
         !productData.name ||
         !productData.description ||
@@ -72,7 +74,7 @@ const productController = {
           );
       }
 
-      if (!mainImageData && !productData.mainImage) {
+      if (!mainImageData) {
         return reply
           .status(400)
           .send(formatResponse({}, true, "Main image is required", 400));
@@ -86,24 +88,42 @@ const productController = {
           );
       }
 
-      const mainImage = mainImageData
-        ? await fileUploader.uploadProductMainImage(mainImageData, user)
-        : productData.mainImage;
-
-      const media =
-        mediaData.length > 0
-          ? await fileUploader.uploadProductMedia(
-              mediaData,
-              user,
-              productData._id
-            )
-          : productData.media || [];
-
-      const newProduct = await productService.createProduct(
-        { ...productData, mainImage, media },
+      // آپلود تصویر اصلی
+      const mainImage = await fileUploader.uploadProductMainImage(
+        mainImageData,
         user
       );
 
+      // ایجاد محصول بدون مدیا (چون هنوز productId نداریم)
+      const initialProductData = {
+        ...productData,
+        mainImage,
+        media: [], // ابتدا مدیا خالی باشد
+      };
+
+      const newProduct = await productService.createProduct(
+        initialProductData,
+        user
+      );
+
+      // آپلود فایل‌های مدیا با استفاده از productId
+      let media = [];
+      if (mediaData.length > 0) {
+        media = await fileUploader.uploadProductMedia(
+          mediaData,
+          user,
+          newProduct._id // استفاده از _id محصول تازه ایجاد شده
+        );
+      }
+
+      // به‌روزرسانی محصول با فایل‌های مدیا
+      const updatedProduct = await productService.updateProduct(
+        newProduct._id,
+        { media },
+        user
+      );
+
+      // ارسال نوتیفیکیشن
       await notificationService.createAndSendNotification(
         request.server,
         user.id,
@@ -122,7 +142,7 @@ const productController = {
       logger.info(`Product created by user: ${user.email}`);
       return reply
         .status(201)
-        .send(formatResponse(newProduct, false, null, 201));
+        .send(formatResponse(updatedProduct, false, null, 201));
     } catch (error) {
       logger.error(`Error creating product: ${error.message}`);
       return reply
@@ -131,6 +151,7 @@ const productController = {
     }
   },
 
+  // بقیه توابع بدون تغییر باقی می‌مانند
   getProducts: async (request, reply) => {
     try {
       const {
@@ -174,7 +195,6 @@ const productController = {
         perPage: perPageNum,
       });
 
-      // Log user ID only if user is authenticated
       if (request.user) {
         logger.info(`Product list retrieved by user: ${request.user.id}`);
       } else {
@@ -348,7 +368,6 @@ const productController = {
         user
       );
 
-      // نوتیفیکیشن برای به‌روزرسانی محصول
       const notificationType = updateData.price
         ? NOTIFICATION_TYPES.UPDATE_PRICE
         : NOTIFICATION_TYPES.UPDATE_PRODUCT_SPEC;
@@ -386,7 +405,6 @@ const productController = {
       const product = await productService.getProduct(productId, user);
       await productService.deleteProduct(productId, user);
 
-      // نوتیفیکیشن برای حذف محصول
       await notificationService.createAndSendNotification(
         request.server,
         user.id,
@@ -432,7 +450,6 @@ const productController = {
         user
       );
 
-      // نوتیفیکیشن برای افزودن نظر
       await notificationService.createAndSendNotification(
         request.server,
         user.id,
