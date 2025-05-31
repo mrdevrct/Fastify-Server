@@ -812,3 +812,4 @@ Require stack:
 ❗ [ERROR] 05/31/2025, 03:00:13 AM | Error creating category: Category validation failed: slug: Path `slug` is required.
 ❗ [ERROR] 05/31/2025, 03:00:13 AM | Error creating category: Category validation failed: slug: Path `slug` is required.
 ❗ [ERROR] 05/31/2025, 03:12:32 AM | Error creating product: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+❗ [ERROR] 05/31/2025, 04:56:16 AM | Error: Server startup error: Cannot read properties of undefined (reading 'isFluentSchema') | Location: at generateFluentSchema (/Users/devrct/Developer/server/node_modules/fastify/lib/schemas.js:126:33)

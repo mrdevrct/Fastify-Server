@@ -417,3 +417,282 @@
 ℹ️ [INFO] 05/31/2025, 03:55:51 AM | Routes configured
 ℹ️ [INFO] 05/31/2025, 03:55:51 AM | WebSocket server initialized
 ℹ️ [INFO] 05/31/2025, 03:55:51 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:23:06 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:25:12 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:25:13 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:28:58 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:29:00 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:29:45 AM | Login attempt for existing user: superadmin@gmail.com
+ℹ️ [INFO] 05/31/2025, 04:29:45 AM | Auth processed for: superadmin@gmail.com
+⚠️ [WARN] 05/31/2025, 04:29:47 AM | Failed to send verification email to superadmin@gmail.com: Missing credentials for "PLAIN"
+ℹ️ [INFO] 05/31/2025, 04:29:47 AM | Verification code for superadmin@gmail.com: 852477
+ℹ️ [INFO] 05/31/2025, 04:30:04 AM | Notification saved: ACTIVATE_USER, ID: 683a54943e0178d68c745dfb
+ℹ️ [INFO] 05/31/2025, 04:30:04 AM | Notification sent via WebSocket: ACTIVATE_USER
+ℹ️ [INFO] 05/31/2025, 04:30:04 AM | User verified: superadmin@gmail.com
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Starting to process multipart form-data
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: name, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: name = گوشی سامسونگ گلکسی S23
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: description, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: description = گلکسی S23 با پردازنده قدرتمند، دوربین 50 مگاپیکسلی و نمایشگر 120Hz
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: price, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: price = 29999000
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: discountPrice, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: discountPrice = 26999000
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: stock, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: stock = 50
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: categoryId, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: categoryId = 683a40ad3ddb0251bad14725
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: brand, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: brand = Samsung
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: attributes, type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Attributes collected: {"ram": "8GB", "storage": "256GB"}
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: tags[], type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: tags[] = samsung
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: tags[], type: field
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Field collected: tags[] = galaxy
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: mainImage, type: file
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Main image collected
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing part: media, type: file
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Media file collected: s-l1200.jpg
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Collected productData: {"name":"گوشی سامسونگ گلکسی S23","description":"گلکسی S23 با پردازنده قدرتمند، دوربین 50 مگاپیکسلی و نمایشگر 120Hz","price":"29999000","discountPrice":"26999000","stock":"50","categoryId":"683a40ad3ddb0251bad14725","brand":"Samsung","attributes":{"ram":"8GB","storage":"256GB"},"tags":["samsung","galaxy"]}
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Main image present: true
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Media files count: 1
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Uploading main image
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Upload directories initialized successfully
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | ✅ Product main image uploaded locally for superadmin@gmail.com => product-main-superadmin-68261c189793af40ff160090-20250531043038.jpeg
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Main image uploaded: /uploads/product/images/product-main-superadmin-68261c189793af40ff160090-20250531043038.jpeg
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Creating product in database
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Product created with ID: 683a54b63e0178d68c745e07
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Uploading 1 media files
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Processing 1 media files for product 683a54b63e0178d68c745e07
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Generated filename: product-superadmin-683a54b63e0178d68c745e07-20250531043038.jpeg
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Upload directories initialized successfully
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Saving file locally: /Users/devrct/Developer/server/src/Uploads/product/images/product-superadmin-683a54b63e0178d68c745e07-20250531043038.jpeg
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | ✅ Product media uploaded locally for superadmin@gmail.com => /uploads/product/images/product-superadmin-683a54b63e0178d68c745e07-20250531043038.jpeg
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Added file to uploadedFiles: s-l1200.jpg
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Successfully uploaded 1 media files
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Media uploaded: [{"type":"IMAGE","url":"/uploads/product/images/product-superadmin-683a54b63e0178d68c745e07-20250531043038.jpeg","mimeType":"image/jpeg","size":48240,"caption":"","altText":"","uploadedBy":"68261c189793af40ff160090"}]
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Updating product with media
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Product updated with media
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Notification saved: ADD_PRODUCT, ID: 683a54b63e0178d68c745e11
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Notification sent via WebSocket: ADD_PRODUCT
+ℹ️ [INFO] 05/31/2025, 04:30:38 AM | Product created by user: superadmin@gmail.com
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:50:33 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:50:34 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:50:48 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:50:49 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:51:16 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:52:10 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:52:11 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:52:25 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:52:26 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:52:27 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:53:31 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:55:32 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:55:32 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:55:32 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:55:33 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:55:37 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:55:38 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:55:58 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 04:56:16 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:56:16 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:56:16 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:56:16 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 04:56:26 AM | Server running on port 8080

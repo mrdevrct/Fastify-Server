@@ -1,5 +1,10 @@
 const { categoryController } = require("../controller/category.controller");
 const { categoryJsonSchema } = require("../model/schema/category.schema");
+const {
+  metaSchema,
+  successResponseSchema,
+  errorResponseSchema,
+} = require("../../../utils/response/responseSchemas");
 
 const categoryRoutes = async (fastify, options) => {
   // Create category
@@ -36,31 +41,8 @@ const categoryRoutes = async (fastify, options) => {
           },
         },
         response: {
-          200: {
-            description: "List of categories",
-            type: "object",
-            properties: {
-              data: {
-                type: "array",
-                items: {
-                  ...categoryJsonSchema,
-                  properties: {
-                    ...categoryJsonSchema.properties,
-                    children: {
-                      type: "array",
-                      items: categoryJsonSchema,
-                      description: "Subcategories (if tree=true)",
-                    },
-                  },
-                },
-              },
-            },
-          },
-          400: {
-            description: "Invalid request (e.g., invalid query parameters)",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
+          200: successResponseSchema,
+          400: errorResponseSchema,
         },
       },
     },
@@ -82,16 +64,8 @@ const categoryRoutes = async (fastify, options) => {
           required: ["identifier"],
         },
         response: {
-          200: {
-            description: "Category details",
-            type: "object",
-            properties: { data: categoryJsonSchema },
-          },
-          400: {
-            description: "Invalid request or category not found",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
+          200: successResponseSchema,
+          400: errorResponseSchema,
         },
       },
     },
@@ -150,27 +124,10 @@ const categoryRoutes = async (fastify, options) => {
           },
         },
         response: {
-          200: {
-            description: "Category updated successfully",
-            type: "object",
-            properties: { data: categoryJsonSchema },
-          },
-          400: {
-            description: "Invalid request or category not found",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
-          401: {
-            description:
-              "Unauthorized: Invalid or missing authentication token",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
-          403: {
-            description: "Forbidden: Requires SUPER_ADMIN access",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
+          200: successResponseSchema,
+          400: errorResponseSchema,
+          401: errorResponseSchema,
+          403: errorResponseSchema,
         },
       },
       preValidation: [fastify.auth],
@@ -209,27 +166,10 @@ const categoryRoutes = async (fastify, options) => {
           },
         },
         response: {
-          200: {
-            description: "Category deleted successfully",
-            type: "object",
-            properties: { data: {} },
-          },
-          400: {
-            description: "Invalid request or category not found",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
-          401: {
-            description:
-              "Unauthorized: Invalid or missing authentication token",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
-          403: {
-            description: "Forbidden: Requires SUPER_ADMIN access",
-            type: "object",
-            properties: { error: { type: "string" } },
-          },
+          200: successResponseSchema,
+          400: errorResponseSchema,
+          401: errorResponseSchema,
+          403: errorResponseSchema,
         },
       },
       preValidation: [fastify.auth],

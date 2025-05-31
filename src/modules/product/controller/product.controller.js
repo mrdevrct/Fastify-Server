@@ -18,41 +18,57 @@ const productController = {
       let mainImageData = null;
       let mediaData = [];
 
+      // لاگ‌گذاری برای بررسی شروع پردازش
+      logger.info("Starting to process multipart form-data");
+
       // پردازش multipart form-data
       const parts = request.parts();
       for await (const part of parts) {
+        logger.info(`Processing part: ${part.fieldname}, type: ${part.type}`);
         if (part.type === "file") {
           if (part.fieldname === "mainImage") {
             const fileBuffer = await part.toBuffer();
             const fileSize = fileBuffer.length;
             if (!fileSize) {
+              logger.error("Invalid main image size");
               return reply
                 .status(400)
                 .send(formatResponse({}, true, "Invalid main image size", 400));
             }
             mainImageData = { ...part, size: fileSize, fileBuffer };
+            logger.info("Main image collected");
           } else if (part.fieldname === "media") {
             const fileBuffer = await part.toBuffer();
             const fileSize = fileBuffer.length;
             if (!fileSize) {
+              logger.error("Invalid media file size");
               return reply
                 .status(400)
                 .send(formatResponse({}, true, "Invalid media file size", 400));
             }
             mediaData.push({ ...part, size: fileSize, fileBuffer });
+            logger.info(`Media file collected: ${part.filename}`);
           }
         } else if (part.type === "field") {
           if (part.fieldname.endsWith("[]")) {
             const fieldName = part.fieldname.slice(0, -2);
             productData[fieldName] = productData[fieldName] || [];
             productData[fieldName].push(part.value);
+            logger.info(`Field collected: ${fieldName}[] = ${part.value}`);
           } else if (part.fieldname === "attributes") {
             productData.attributes = JSON.parse(part.value);
+            logger.info(`Attributes collected: ${part.value}`);
           } else {
             productData[part.fieldname] = part.value;
+            logger.info(`Field collected: ${part.fieldname} = ${part.value}`);
           }
         }
       }
+
+      // لاگ‌گذاری داده‌های جمع‌آوری‌شده
+      logger.info(`Collected productData: ${JSON.stringify(productData)}`);
+      logger.info(`Main image present: ${!!mainImageData}`);
+      logger.info(`Media files count: ${mediaData.length}`);
 
       // اعتبارسنجی فیلدهای اجباری
       if (
@@ -62,6 +78,7 @@ const productController = {
         productData.stock == null ||
         !productData.categoryId
       ) {
+        logger.error("Missing required fields");
         return reply
           .status(400)
           .send(
@@ -75,12 +92,14 @@ const productController = {
       }
 
       if (!mainImageData) {
+        logger.error("Main image is required");
         return reply
           .status(400)
           .send(formatResponse({}, true, "Main image is required", 400));
       }
 
       if (mediaData.length > 10) {
+        logger.error("Maximum 10 media files allowed");
         return reply
           .status(400)
           .send(
@@ -89,41 +108,70 @@ const productController = {
       }
 
       // آپلود تصویر اصلی
+      logger.info("Uploading main image");
       const mainImage = await fileUploader.uploadProductMainImage(
         mainImageData,
         user
       );
+      logger.info(`Main image uploaded: ${mainImage.url}`);
 
-      // ایجاد محصول بدون مدیا (چون هنوز productId نداریم)
+      // ایجاد محصول بدون مدیا
       const initialProductData = {
         ...productData,
         mainImage,
-        media: [], // ابتدا مدیا خالی باشد
+        media: [],
       };
 
+      logger.info("Creating product in database");
       const newProduct = await productService.createProduct(
         initialProductData,
         user
       );
+      logger.info(`Product created with ID: ${newProduct._id}`);
 
-      // آپلود فایل‌های مدیا با استفاده از productId
+      // آپلود فایل‌های مدیا
       let media = [];
       if (mediaData.length > 0) {
+        logger.info(`Uploading ${mediaData.length} media files`);
         media = await fileUploader.uploadProductMedia(
           mediaData,
           user,
-          newProduct._id // استفاده از _id محصول تازه ایجاد شده
+          newProduct._id
         );
+        logger.info(`Media uploaded: ${JSON.stringify(media)}`);
+
+        // به‌روزرسانی محصول با فایل‌های مدیا
+        logger.info("Updating product with media");
+        const updatedProduct = await productService.updateProduct(
+          newProduct._id,
+          { media },
+          user
+        );
+        logger.info("Product updated with media");
+
+        // ارسال نوتیفیکیشن
+        await notificationService.createAndSendNotification(
+          request.server,
+          user.id,
+          NOTIFICATION_TYPES.ADD_PRODUCT,
+          `New product added: ${newProduct.name}`,
+          {
+            productId: newProduct._id.toString(),
+            name: newProduct.name,
+            description: newProduct.description,
+            price: newProduct.price,
+            categoryId: newProduct.categoryId.toString(),
+            timestamp: new Date().toISOString(),
+          }
+        );
+
+        logger.info(`Product created by user: ${user.email}`);
+        return reply
+          .status(201)
+          .send(formatResponse(updatedProduct, false, null, 201));
       }
 
-      // به‌روزرسانی محصول با فایل‌های مدیا
-      const updatedProduct = await productService.updateProduct(
-        newProduct._id,
-        { media },
-        user
-      );
-
-      // ارسال نوتیفیکیشن
+      // اگر مدیا وجود ندارد، محصول اولیه را برگردان
       await notificationService.createAndSendNotification(
         request.server,
         user.id,
@@ -142,7 +190,7 @@ const productController = {
       logger.info(`Product created by user: ${user.email}`);
       return reply
         .status(201)
-        .send(formatResponse(updatedProduct, false, null, 201));
+        .send(formatResponse(newProduct, false, null, 201));
     } catch (error) {
       logger.error(`Error creating product: ${error.message}`);
       return reply

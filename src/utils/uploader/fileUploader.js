@@ -493,16 +493,43 @@ const fileUploader = {
 
   uploadProductMedia: async (files, user, productId) => {
     try {
+      // اعتبارسنجی اولیه
+      if (!files || !Array.isArray(files) || files.length === 0) {
+        logger.warn("No media files provided for upload");
+        return [];
+      }
+
       if (files.length > 10) {
+        logger.error("Maximum 10 media files allowed");
         throw new Error("Maximum 10 media files can be uploaded");
       }
+
+      logger.info(
+        `Processing ${files.length} media files for product ${productId}`
+      );
+
       const uploadedFiles = [];
       for (const file of files) {
-        if (!config.allowedProductFileTypes.includes(file.mimetype)) {
-          throw new Error("Unsupported file type");
+        // اعتبارسنجی فایل
+        if (!file || !file.mimetype || !file.filename) {
+          logger.error("Invalid file object: missing mimetype or filename");
+          throw new Error("Invalid file: missing mimetype or filename");
         }
-        const fileSize = file.size || file.file?.bytesRead || 0;
+
+        // بررسی نوع فایل
+        if (!config.allowedProductFileTypes.includes(file.mimetype)) {
+          logger.error(`Unsupported file type: ${file.mimetype}`);
+          throw new Error(`Unsupported file type: ${file.mimetype}`);
+        }
+
+        // بررسی اندازه فایل
+        const fileSize = file.size || file.bytesRead || 0;
         if (!fileSize || fileSize > config.maxFileSize) {
+          logger.error(
+            fileSize
+              ? `File size exceeds 20MB limit: ${fileSize} bytes`
+              : "File size is required and cannot be zero"
+          );
           throw new Error(
             fileSize
               ? "File size exceeds 20MB limit"
@@ -510,25 +537,48 @@ const fileUploader = {
           );
         }
 
+        // دریافت بافر فایل
         let fileBuffer;
-        if (file.toBuffer) {
-          fileBuffer = await file.toBuffer();
-        } else if (file.buffer) {
-          fileBuffer = file.buffer;
-        } else if (file.fileBuffer) {
-          fileBuffer = file.fileBuffer;
-        } else {
-          throw new Error("File buffer is missing!");
+        try {
+          if (file.toBuffer) {
+            fileBuffer = await file.toBuffer();
+          } else if (file.buffer) {
+            fileBuffer = file.buffer;
+          } else if (file.fileBuffer) {
+            fileBuffer = file.fileBuffer;
+          } else {
+            logger.error(`File buffer is missing for file: ${file.filename}`);
+            throw new Error("File buffer is missing!");
+          }
+        } catch (bufferError) {
+          logger.error(`Error reading file buffer: ${bufferError.message}`);
+          throw new Error(`Failed to read file buffer: ${bufferError.message}`);
         }
 
+        // بررسی معتبر بودن بافر
+        if (!fileBuffer || fileBuffer.length === 0) {
+          logger.error(`Empty file buffer for file: ${file.filename}`);
+          throw new Error(`Empty file buffer for file: ${file.filename}`);
+        }
+
+        // تولید نام فایل
         const fileExtension =
-          file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
+          file.mimetype.split("/")[1] ||
+          (file.filename ? path.extname(file.filename).slice(1) : "");
+        if (!fileExtension) {
+          logger.error(
+            `Could not determine file extension for file: ${file.filename}`
+          );
+          throw new Error("Could not determine file extension");
+        }
+
         const fileName = generateFileName(
           "product",
           user.username,
           productId || user.id,
           fileExtension
         );
+        logger.info(`Generated filename: ${fileName}`);
 
         let fileUrl, subPath;
         if (process.env.NODE_ENV === "production") {
@@ -542,6 +592,9 @@ const fileUploader = {
             ? "video"
             : "raw";
 
+          logger.info(
+            `Uploading to Cloudinary: ${fileName}, type: ${resourceType}`
+          );
           const result = await new Promise((resolve, reject) => {
             const stream = cloudinary.uploader.upload_stream(
               {
@@ -549,20 +602,29 @@ const fileUploader = {
                 resource_type: resourceType,
               },
               (error, result) => {
-                if (error)
+                if (error) {
+                  logger.error(`Cloudinary upload failed: ${error.message}`);
                   reject(
                     new Error(`Cloudinary upload failed: ${error.message}`)
                   );
-                resolve(result);
+                } else {
+                  resolve(result);
+                }
               }
             );
+            stream.on("error", (streamError) => {
+              logger.error(
+                `Stream error during Cloudinary upload: ${streamError.message}`
+              );
+              reject(new Error(`Stream error: ${streamError.message}`));
+            });
             stream.end(fileBuffer);
           });
 
           fileUrl = result.secure_url;
           subPath = cloudinarySubPath;
           logger.info(
-            `✅ Product media uploaded to Cloudinary for ${user.email} => ${fileName}`
+            `✅ Product media uploaded to Cloudinary for ${user.email} => ${fileUrl}`
           );
         } else {
           await initDirectories();
@@ -571,11 +633,12 @@ const fileUploader = {
             config
           );
           const fullPath = path.join(targetDir, fileName);
+          logger.info(`Saving file locally: ${fullPath}`);
           await fs.writeFile(fullPath, fileBuffer);
           fileUrl = `/uploads/product/${localSubPath}/${fileName}`;
           subPath = localSubPath;
           logger.info(
-            `✅ Product media uploaded locally for ${user.email} => ${fileName}`
+            `✅ Product media uploaded locally for ${user.email} => ${fileUrl}`
           );
         }
 
@@ -592,7 +655,10 @@ const fileUploader = {
           altText: file.altText || "",
           uploadedBy: user.id,
         });
+        logger.info(`Added file to uploadedFiles: ${file.filename}`);
       }
+
+      logger.info(`Successfully uploaded ${uploadedFiles.length} media files`);
       return uploadedFiles;
     } catch (error) {
       logger.error(`❌ Error uploading product media: ${error.message}`);

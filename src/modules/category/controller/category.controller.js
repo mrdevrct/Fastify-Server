@@ -19,7 +19,7 @@ const categoryController = {
           .status(403)
           .send(
             formatResponse(
-              {},
+              null,
               true,
               "Only superadmins can create categories",
               403
@@ -38,7 +38,7 @@ const categoryController = {
           if (!fileSize) {
             return reply
               .status(400)
-              .send(formatResponse({}, true, "Invalid image size", 400));
+              .send(formatResponse(null, true, "Invalid image size", 400));
           }
           imageData = { ...part, size: fileSize, fileBuffer };
         } else if (part.type === "field") {
@@ -49,7 +49,7 @@ const categoryController = {
       if (!categoryData.name) {
         return reply
           .status(400)
-          .send(formatResponse({}, true, "Category name is required", 400));
+          .send(formatResponse(null, true, "Category name is required", 400));
       }
 
       const image = imageData
@@ -82,7 +82,7 @@ const categoryController = {
       logger.error(`Error creating category: ${error.message}`);
       return reply
         .status(400)
-        .send(formatResponse({}, true, error.message, 400));
+        .send(formatResponse(null, true, error.message, 400));
     }
   },
 
@@ -93,14 +93,14 @@ const categoryController = {
       const options = { tree: tree === "true" };
 
       const categories = await categoryService.getCategories(filters, options);
-      return reply
-        .status(200)
-        .send(formatResponse(categories, false, null, 200));
+      const response = formatResponse(categories, false, null, 200);
+      console.log("Response before sending:", response); // لاگ برای دیباگ
+      return reply.status(200).send(response);
     } catch (error) {
       logger.error(`Error fetching categories: ${error.message}`);
       return reply
         .status(400)
-        .send(formatResponse({}, true, error.message, 400));
+        .send(formatResponse(null, true, error.message, 400));
     }
   },
 
@@ -114,7 +114,7 @@ const categoryController = {
       logger.error(`Error fetching category: ${error.message}`);
       return reply
         .status(400)
-        .send(formatResponse({}, true, error.message, 400));
+        .send(formatResponse(null, true, error.message, 400));
     }
   },
 
@@ -126,7 +126,7 @@ const categoryController = {
           .status(403)
           .send(
             formatResponse(
-              {},
+              null,
               true,
               "Only superadmins can update categories",
               403
@@ -146,7 +146,7 @@ const categoryController = {
           if (!fileSize) {
             return reply
               .status(400)
-              .send(formatResponse({}, true, "Invalid image size", 400));
+              .send(formatResponse(null, true, "Invalid image size", 400));
           }
           imageData = { ...part, size: fileSize, fileBuffer };
         } else if (part.type === "field") {
@@ -183,7 +183,7 @@ const categoryController = {
       logger.error(`Error updating category: ${error.message}`);
       return reply
         .status(400)
-        .send(formatResponse({}, true, error.message, 400));
+        .send(formatResponse(null, true, error.message, 400));
     }
   },
 
@@ -195,7 +195,7 @@ const categoryController = {
           .status(403)
           .send(
             formatResponse(
-              {},
+              null,
               true,
               "Only superadmins can delete categories",
               403
@@ -224,12 +224,12 @@ const categoryController = {
       );
 
       logger.info(`Category ${categoryId} deleted by ${user.email}`);
-      return reply.status(200).send(formatResponse({}, false, null, 200));
+      return reply.status(200).send(formatResponse(null, false, null, 200));
     } catch (error) {
       logger.error(`Error deleting category: ${error.message}`);
       return reply
         .status(400)
-        .send(formatResponse({}, true, error.message, 400));
+        .send(formatResponse(null, true, error.message, 400));
     }
   },
 };

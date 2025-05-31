@@ -1,22 +1,18 @@
 const formatResponse = (
-  data,
+  data = null,
   hasError = false,
   message = null,
   status = 200,
   pagination = null
 ) => {
   const response = {
+    data: hasError ? null : data || [],
     meta: {
       has_error: hasError,
-      message,
+      message: hasError ? message || "An error occurred" : null,
       status,
     },
   };
-
-  // Only include data if hasError is false
-  if (!hasError) {
-    response.data = data;
-  }
 
   if (pagination) {
     response.meta.pagination = {
