@@ -1,5 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
+const cloudinary = require("cloudinary").v2;
 const { logger } = require("../logger/logger");
 const config = require("../../configs/uploaderConfig");
 const initDirectories = require("./initDirectories");
@@ -11,6 +12,15 @@ const {
   getFestivalFileDir,
   getCategoryFileDir,
 } = require("./fileUtils");
+
+// پیکربندی Cloudinary
+if (process.env.NODE_ENV === "production") {
+  cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
+}
 
 const fileUploader = {
   uploadProfileImage: async (file, user) => {
@@ -28,15 +38,6 @@ const fileUploader = {
         );
       }
 
-      await initDirectories();
-      const fileExtension = file.mimetype.split("/")[1];
-      const fileName = generateFileName(
-        "user",
-        user.username,
-        user.id,
-        fileExtension
-      );
-
       let fileBuffer;
       if (file.toBuffer) {
         fileBuffer = await file.toBuffer();
@@ -48,12 +49,46 @@ const fileUploader = {
         throw new Error("File buffer is missing!");
       }
 
-      const fullPath = path.join(config.userImageDir, fileName);
+      const fileExtension = file.mimetype.split("/")[1];
+      const fileName = generateFileName(
+        "user",
+        user.username,
+        user.id,
+        fileExtension
+      );
 
-      await fs.writeFile(fullPath, fileBuffer);
-      logger.info(`✅ Profile image uploaded for ${user.email} => ${fileName}`);
+      let fileUrl;
+      if (process.env.NODE_ENV === "production") {
+        const result = await new Promise((resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            {
+              public_id: `user/images/${fileName}`,
+              resource_type: "image",
+            },
+            (error, result) => {
+              if (error)
+                reject(new Error(`Cloudinary upload failed: ${error.message}`));
+              resolve(result);
+            }
+          );
+          stream.end(fileBuffer);
+        });
 
-      return `/uploads/user/images/${fileName}`;
+        fileUrl = result.secure_url;
+        logger.info(
+          `✅ Profile image uploaded to Cloudinary for ${user.email} => ${fileName}`
+        );
+      } else {
+        await initDirectories();
+        const fullPath = path.join(config.userImageDir, fileName);
+        await fs.writeFile(fullPath, fileBuffer);
+        fileUrl = `/uploads/user/images/${fileName}`;
+        logger.info(
+          `✅ Profile image uploaded locally for ${user.email} => ${fileName}`
+        );
+      }
+
+      return fileUrl;
     } catch (error) {
       logger.error(`❌ Error uploading profile image: ${error.message}`);
       throw error;
@@ -75,21 +110,6 @@ const fileUploader = {
         );
       }
 
-      await initDirectories();
-      const { dir: targetDir, subPath } = getTicketFileDir(
-        file.mimetype,
-        config
-      );
-      const fileExtension =
-        file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
-      const fileName = generateFileName(
-        "ticket",
-        user.username,
-        ticketId,
-        fileExtension
-      );
-      const fullPath = path.join(targetDir, fileName);
-
       let fileBuffer;
       if (file.toBuffer) {
         fileBuffer = await file.toBuffer();
@@ -101,14 +121,67 @@ const fileUploader = {
         throw new Error("File buffer is missing!");
       }
 
-      await fs.writeFile(fullPath, fileBuffer);
-      logger.info(`✅ Ticket file uploaded for ${user.email} => ${fileName}`);
+      const fileExtension =
+        file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
+      const fileName = generateFileName(
+        "ticket",
+        user.username,
+        ticketId,
+        fileExtension
+      );
+
+      let fileUrl, subPath;
+      if (process.env.NODE_ENV === "production") {
+        const { subPath: cloudinarySubPath } = getTicketFileDir(
+          file.mimetype,
+          config
+        );
+        const resourceType = config.allowedImageTypes.includes(file.mimetype)
+          ? "image"
+          : config.allowedVideoTypes.includes(file.mimetype)
+          ? "video"
+          : "raw";
+
+        const result = await new Promise((resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            {
+              public_id: `ticket/${cloudinarySubPath}/${fileName}`,
+              resource_type: resourceType,
+            },
+            (error, result) => {
+              if (error)
+                reject(new Error(`Cloudinary upload failed: ${error.message}`));
+              resolve(result);
+            }
+          );
+          stream.end(fileBuffer);
+        });
+
+        fileUrl = result.secure_url;
+        subPath = cloudinarySubPath;
+        logger.info(
+          `✅ Ticket file uploaded to Cloudinary for ${user.email} => ${fileName}`
+        );
+      } else {
+        await initDirectories();
+        const { dir: targetDir, subPath: localSubPath } = getTicketFileDir(
+          file.mimetype,
+          config
+        );
+        const fullPath = path.join(targetDir, fileName);
+        await fs.writeFile(fullPath, fileBuffer);
+        fileUrl = `/uploads/ticket/${localSubPath}/${fileName}`;
+        subPath = localSubPath;
+        logger.info(
+          `✅ Ticket file uploaded locally for ${user.email} => ${fileName}`
+        );
+      }
 
       return {
         name: file.filename,
         size: fileSize,
         format: file.mimetype,
-        path: `/uploads/ticket/${subPath}/${fileName}`,
+        path: fileUrl,
       };
     } catch (error) {
       logger.error(`❌ Error uploading ticket file: ${error.message}`);
@@ -156,16 +229,6 @@ const fileUploader = {
         );
       }
 
-      await initDirectories();
-      const fileExtension = file.mimetype.split("/")[1];
-      const fileName = generateFileName(
-        "article-cover",
-        user.username,
-        user.id,
-        fileExtension
-      );
-      const fullPath = path.join(config.articleImageDir, fileName);
-
       let fileBuffer;
       if (file.toBuffer) {
         fileBuffer = await file.toBuffer();
@@ -177,14 +240,48 @@ const fileUploader = {
         throw new Error("File buffer is missing!");
       }
 
-      await fs.writeFile(fullPath, fileBuffer);
-      logger.info(
-        `✅ Article cover image uploaded for ${user.email} => ${fileName}`
+      const fileExtension = file.mimetype.split("/")[1];
+      const fileName = generateFileName(
+        "article-cover",
+        user.username,
+        user.id,
+        fileExtension
       );
+
+      let fileUrl;
+      if (process.env.NODE_ENV === "production") {
+        const result = await new Promise((resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            {
+              public_id: `article/images/${fileName}`,
+              resource_type: "image",
+            },
+            (error, result) => {
+              if (error)
+                reject(new Error(`Cloudinary upload failed: ${error.message}`));
+              resolve(result);
+            }
+          );
+          stream.end(fileBuffer);
+        });
+
+        fileUrl = result.secure_url;
+        logger.info(
+          `✅ Article cover image uploaded to Cloudinary for ${user.email} => ${fileName}`
+        );
+      } else {
+        await initDirectories();
+        const fullPath = path.join(config.articleImageDir, fileName);
+        await fs.writeFile(fullPath, fileBuffer);
+        fileUrl = `/uploads/article/images/${fileName}`;
+        logger.info(
+          `✅ Article cover image uploaded locally for ${user.email} => ${fileName}`
+        );
+      }
 
       return {
         type: "IMAGE",
-        url: `/uploads/article/images/${fileName}`,
+        url: fileUrl,
         mimeType: file.mimetype,
         size: fileSize,
         caption: file.caption || "",
@@ -218,21 +315,6 @@ const fileUploader = {
           );
         }
 
-        await initDirectories();
-        const { dir: targetDir, subPath } = getArticleFileDir(
-          file.mimetype,
-          config
-        );
-        const fileExtension =
-          file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
-        const fileName = generateFileName(
-          "article",
-          user.username,
-          articleId || user.id,
-          fileExtension
-        );
-        const fullPath = path.join(targetDir, fileName);
-
         let fileBuffer;
         if (file.toBuffer) {
           fileBuffer = await file.toBuffer();
@@ -244,10 +326,65 @@ const fileUploader = {
           throw new Error("File buffer is missing!");
         }
 
-        await fs.writeFile(fullPath, fileBuffer);
-        logger.info(
-          `✅ Article media uploaded for ${user.email} => ${fileName}`
+        const fileExtension =
+          file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
+        const fileName = generateFileName(
+          "article",
+          user.username,
+          articleId || user.id,
+          fileExtension
         );
+
+        let fileUrl, subPath;
+        if (process.env.NODE_ENV === "production") {
+          const { subPath: cloudinarySubPath } = getArticleFileDir(
+            file.mimetype,
+            config
+          );
+          const resourceType = config.allowedImageTypes.includes(file.mimetype)
+            ? "image"
+            : config.allowedVideoTypes.includes(file.mimetype)
+            ? "video"
+            : config.allowedAudioTypes.includes(file.mimetype)
+            ? "audio"
+            : "raw";
+
+          const result = await new Promise((resolve, reject) => {
+            const stream = cloudinary.uploader.upload_stream(
+              {
+                public_id: `article/${cloudinarySubPath}/${fileName}`,
+                resource_type: resourceType,
+              },
+              (error, result) => {
+                if (error)
+                  reject(
+                    new Error(`Cloudinary upload failed: ${error.message}`)
+                  );
+                resolve(result);
+              }
+            );
+            stream.end(fileBuffer);
+          });
+
+          fileUrl = result.secure_url;
+          subPath = cloudinarySubPath;
+          logger.info(
+            `✅ Article media uploaded to Cloudinary for ${user.email} => ${fileName}`
+          );
+        } else {
+          await initDirectories();
+          const { dir: targetDir, subPath: localSubPath } = getArticleFileDir(
+            file.mimetype,
+            config
+          );
+          const fullPath = path.join(targetDir, fileName);
+          await fs.writeFile(fullPath, fileBuffer);
+          fileUrl = `/uploads/article/${localSubPath}/${fileName}`;
+          subPath = localSubPath;
+          logger.info(
+            `✅ Article media uploaded locally for ${user.email} => ${fileName}`
+          );
+        }
 
         uploadedFiles.push({
           type: config.allowedImageTypes.includes(file.mimetype)
@@ -257,7 +394,7 @@ const fileUploader = {
             : config.allowedAudioTypes.includes(file.mimetype)
             ? "AUDIO"
             : "OTHER",
-          url: `/uploads/article/${subPath}/${fileName}`,
+          url: fileUrl,
           mimeType: file.mimetype,
           size: fileSize,
           caption: file.caption || "",
@@ -288,15 +425,6 @@ const fileUploader = {
             : "File size is required and cannot be zero"
         );
       }
-      await initDirectories();
-      const fileExtension = file.mimetype.split("/")[1];
-      const fileName = generateFileName(
-        "product-main",
-        user.username,
-        user.id,
-        fileExtension
-      );
-      const fullPath = path.join(config.productImageDir, fileName);
 
       let fileBuffer;
       if (file.toBuffer) {
@@ -309,13 +437,48 @@ const fileUploader = {
         throw new Error("File buffer is missing!");
       }
 
-      await fs.writeFile(fullPath, fileBuffer);
-      logger.info(
-        `✅ Product main image uploaded for ${user.email} => ${fileName}`
+      const fileExtension = file.mimetype.split("/")[1];
+      const fileName = generateFileName(
+        "product-main",
+        user.username,
+        user.id,
+        fileExtension
       );
+
+      let fileUrl;
+      if (process.env.NODE_ENV === "production") {
+        const result = await new Promise((resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            {
+              public_id: `product/images/${fileName}`,
+              resource_type: "image",
+            },
+            (error, result) => {
+              if (error)
+                reject(new Error(`Cloudinary upload failed: ${error.message}`));
+              resolve(result);
+            }
+          );
+          stream.end(fileBuffer);
+        });
+
+        fileUrl = result.secure_url;
+        logger.info(
+          `✅ Product main image uploaded to Cloudinary for ${user.email} => ${fileName}`
+        );
+      } else {
+        await initDirectories();
+        const fullPath = path.join(config.productImageDir, fileName);
+        await fs.writeFile(fullPath, fileBuffer);
+        fileUrl = `/uploads/product/images/${fileName}`;
+        logger.info(
+          `✅ Product main image uploaded locally for ${user.email} => ${fileName}`
+        );
+      }
+
       return {
         type: "IMAGE",
-        url: `/uploads/product/images/${fileName}`,
+        url: fileUrl,
         mimeType: file.mimetype,
         size: fileSize,
         caption: file.caption || "",
@@ -346,20 +509,6 @@ const fileUploader = {
               : "File size is required and cannot be zero"
           );
         }
-        await initDirectories();
-        const { dir: targetDir, subPath } = getProductFileDir(
-          file.mimetype,
-          config
-        );
-        const fileExtension =
-          file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
-        const fileName = generateFileName(
-          "product",
-          user.username,
-          productId || user.id,
-          fileExtension
-        );
-        const fullPath = path.join(targetDir, fileName);
 
         let fileBuffer;
         if (file.toBuffer) {
@@ -372,17 +521,71 @@ const fileUploader = {
           throw new Error("File buffer is missing!");
         }
 
-        await fs.writeFile(fullPath, fileBuffer);
-        logger.info(
-          `✅ Product media uploaded for ${user.email} => ${fileName}`
+        const fileExtension =
+          file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
+        const fileName = generateFileName(
+          "product",
+          user.username,
+          productId || user.id,
+          fileExtension
         );
+
+        let fileUrl, subPath;
+        if (process.env.NODE_ENV === "production") {
+          const { subPath: cloudinarySubPath } = getProductFileDir(
+            file.mimetype,
+            config
+          );
+          const resourceType = config.allowedImageTypes.includes(file.mimetype)
+            ? "image"
+            : config.allowedVideoTypes.includes(file.mimetype)
+            ? "video"
+            : "raw";
+
+          const result = await new Promise((resolve, reject) => {
+            const stream = cloudinary.uploader.upload_stream(
+              {
+                public_id: `product/${cloudinarySubPath}/${fileName}`,
+                resource_type: resourceType,
+              },
+              (error, result) => {
+                if (error)
+                  reject(
+                    new Error(`Cloudinary upload failed: ${error.message}`)
+                  );
+                resolve(result);
+              }
+            );
+            stream.end(fileBuffer);
+          });
+
+          fileUrl = result.secure_url;
+          subPath = cloudinarySubPath;
+          logger.info(
+            `✅ Product media uploaded to Cloudinary for ${user.email} => ${fileName}`
+          );
+        } else {
+          await initDirectories();
+          const { dir: targetDir, subPath: localSubPath } = getProductFileDir(
+            file.mimetype,
+            config
+          );
+          const fullPath = path.join(targetDir, fileName);
+          await fs.writeFile(fullPath, fileBuffer);
+          fileUrl = `/uploads/product/${localSubPath}/${fileName}`;
+          subPath = localSubPath;
+          logger.info(
+            `✅ Product media uploaded locally for ${user.email} => ${fileName}`
+          );
+        }
+
         uploadedFiles.push({
           type: config.allowedImageTypes.includes(file.mimetype)
             ? "IMAGE"
             : config.allowedVideoTypes.includes(file.mimetype)
             ? "VIDEO"
             : "OTHER",
-          url: `/uploads/product/${subPath}/${fileName}`,
+          url: fileUrl,
           mimeType: file.mimetype,
           size: fileSize,
           caption: file.caption || "",
@@ -414,16 +617,6 @@ const fileUploader = {
         );
       }
 
-      await initDirectories();
-      const fileExtension = file.mimetype.split("/")[1];
-      const fileName = generateFileName(
-        "festival-banner",
-        user.username,
-        user.id,
-        fileExtension
-      );
-      const fullPath = path.join(config.festivalImageDir, fileName);
-
       let fileBuffer;
       if (file.toBuffer) {
         fileBuffer = await file.toBuffer();
@@ -435,14 +628,48 @@ const fileUploader = {
         throw new Error("File buffer is missing!");
       }
 
-      await fs.writeFile(fullPath, fileBuffer);
-      logger.info(
-        `✅ Festival banner image uploaded for ${user.email} => ${fileName}`
+      const fileExtension = file.mimetype.split("/")[1];
+      const fileName = generateFileName(
+        "festival-banner",
+        user.username,
+        user.id,
+        fileExtension
       );
+
+      let fileUrl;
+      if (process.env.NODE_ENV === "production") {
+        const result = await new Promise((resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            {
+              public_id: `festival/images/${fileName}`,
+              resource_type: "image",
+            },
+            (error, result) => {
+              if (error)
+                reject(new Error(`Cloudinary upload failed: ${error.message}`));
+              resolve(result);
+            }
+          );
+          stream.end(fileBuffer);
+        });
+
+        fileUrl = result.secure_url;
+        logger.info(
+          `✅ Festival banner image uploaded to Cloudinary for ${user.email} => ${fileName}`
+        );
+      } else {
+        await initDirectories();
+        const fullPath = path.join(config.festivalImageDir, fileName);
+        await fs.writeFile(fullPath, fileBuffer);
+        fileUrl = `/uploads/festival/images/${fileName}`;
+        logger.info(
+          `✅ Festival banner image uploaded locally for ${user.email} => ${fileName}`
+        );
+      }
 
       return {
         type: "IMAGE",
-        url: `/uploads/festival/images/${fileName}`,
+        url: fileUrl,
         mimeType: file.mimetype,
         size: fileSize,
         caption: file.caption || "",
@@ -480,21 +707,6 @@ const fileUploader = {
           );
         }
 
-        await initDirectories();
-        const { dir: targetDir, subPath } = getFestivalFileDir(
-          file.mimetype,
-          config
-        );
-        const fileExtension =
-          file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
-        const fileName = generateFileName(
-          "festival",
-          user.username,
-          festivalId || user.id,
-          fileExtension
-        );
-        const fullPath = path.join(targetDir, fileName);
-
         let fileBuffer;
         if (file.toBuffer) {
           fileBuffer = await file.toBuffer();
@@ -506,14 +718,61 @@ const fileUploader = {
           throw new Error("File buffer is missing!");
         }
 
-        await fs.writeFile(fullPath, fileBuffer);
-        logger.info(
-          `✅ Festival media uploaded for ${user.email} => ${fileName}`
+        const fileExtension =
+          file.mimetype.split("/")[1] || path.extname(file.filename).slice(1);
+        const fileName = generateFileName(
+          "festival",
+          user.username,
+          festivalId || user.id,
+          fileExtension
         );
+
+        let fileUrl, subPath;
+        if (process.env.NODE_ENV === "production") {
+          const { subPath: cloudinarySubPath } = getFestivalFileDir(
+            file.mimetype,
+            config
+          );
+          const result = await new Promise((resolve, reject) => {
+            const stream = cloudinary.uploader.upload_stream(
+              {
+                public_id: `festival/${cloudinarySubPath}/${fileName}`,
+                resource_type: "image",
+              },
+              (error, result) => {
+                if (error)
+                  reject(
+                    new Error(`Cloudinary upload failed: ${error.message}`)
+                  );
+                resolve(result);
+              }
+            );
+            stream.end(fileBuffer);
+          });
+
+          fileUrl = result.secure_url;
+          subPath = cloudinarySubPath;
+          logger.info(
+            `✅ Festival media uploaded to Cloudinary for ${user.email} => ${fileName}`
+          );
+        } else {
+          await initDirectories();
+          const { dir: targetDir, subPath: localSubPath } = getFestivalFileDir(
+            file.mimetype,
+            config
+          );
+          const fullPath = path.join(targetDir, fileName);
+          await fs.writeFile(fullPath, fileBuffer);
+          fileUrl = `/uploads/festival/${localSubPath}/${fileName}`;
+          subPath = localSubPath;
+          logger.info(
+            `✅ Festival media uploaded locally for ${user.email} => ${fileName}`
+          );
+        }
 
         uploadedFiles.push({
           type: "IMAGE",
-          url: `/uploads/festival/${subPath}/${fileName}`,
+          url: fileUrl,
           mimeType: file.mimetype,
           size: fileSize,
           caption: file.caption || "",
@@ -546,16 +805,6 @@ const fileUploader = {
         );
       }
 
-      await initDirectories();
-      const fileExtension = file.mimetype.split("/")[1];
-      const fileName = generateFileName(
-        "category",
-        user.username,
-        user.id,
-        fileExtension
-      );
-      const fullPath = path.join(config.categoryImageDir, fileName);
-
       let fileBuffer;
       if (file.toBuffer) {
         fileBuffer = await file.toBuffer();
@@ -567,14 +816,48 @@ const fileUploader = {
         throw new Error("File buffer is missing!");
       }
 
-      await fs.writeFile(fullPath, fileBuffer);
-      logger.info(
-        `✅ Category image uploaded for ${user.email} => ${fileName}`
+      const fileExtension = file.mimetype.split("/")[1];
+      const fileName = generateFileName(
+        "category",
+        user.username,
+        user.id,
+        fileExtension
       );
+
+      let fileUrl;
+      if (process.env.NODE_ENV === "production") {
+        const result = await new Promise((resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            {
+              public_id: `category/images/${fileName}`,
+              resource_type: "image",
+            },
+            (error, result) => {
+              if (error)
+                reject(new Error(`Cloudinary upload failed: ${error.message}`));
+              resolve(result);
+            }
+          );
+          stream.end(fileBuffer);
+        });
+
+        fileUrl = result.secure_url;
+        logger.info(
+          `✅ Category image uploaded to Cloudinary for ${user.email} => ${fileName}`
+        );
+      } else {
+        await initDirectories();
+        const fullPath = path.join(config.categoryImageDir, fileName);
+        await fs.writeFile(fullPath, fileBuffer);
+        fileUrl = `/uploads/category/images/${fileName}`;
+        logger.info(
+          `✅ Category image uploaded locally for ${user.email} => ${fileName}`
+        );
+      }
 
       return {
         type: "IMAGE",
-        url: `/uploads/category/images/${fileName}`,
+        url: fileUrl,
         mimeType: file.mimetype,
         size: fileSize,
         caption: file.caption || "",

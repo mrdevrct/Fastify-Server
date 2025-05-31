@@ -10,7 +10,6 @@ const categoryService = {
         const parent = await Category.findById(categoryData.parentId);
         if (!parent) throw new Error("Parent category not found");
 
-        // بررسی عمق سلسله‌مراتب (حداکثر 4 سطح)
         let depth = 0;
         let current = parent;
         while (current && current.parentId && depth < 4) {
@@ -23,7 +22,6 @@ const categoryService = {
 
       const newCategory = new Category({
         name: categoryData.name,
-        slug: categoryData.slug,
         parentId: categoryData.parentId || null,
         description: categoryData.description || "",
         image: categoryData.image || "",
@@ -42,12 +40,9 @@ const categoryService = {
   getCategories: async (filters = {}, options = {}) => {
     try {
       const query = {};
-      if (filters.parentId) {
+      if (filters.parentId)
         query.parentId = filters.parentId === "null" ? null : filters.parentId;
-      }
-      if (filters.slug) {
-        query.slug = filters.slug;
-      }
+      if (filters.slug) query.slug = filters.slug;
 
       const categories = await Category.find(query).sort({ createdAt: -1 });
 
@@ -85,12 +80,11 @@ const categoryService = {
 
       if (
         updateData.parentId &&
-        updateData.parentId !== category.parentId.toString()
+        updateData.parentId !== category.parentId?.toString()
       ) {
         const parent = await Category.findById(updateData.parentId);
         if (!parent) throw new Error("Parent category not found");
 
-        // بررسی عمق سلسله‌مراتب
         let depth = 0;
         let current = parent;
         while (current && current.parentId && depth < 4) {
@@ -100,7 +94,6 @@ const categoryService = {
         if (depth >= 4)
           throw new Error("Maximum category depth exceeded (4 levels)");
 
-        // جلوگیری از تنظیم خود یا زیرمجموعه‌ها به‌عنوان والد
         const subCategories = await getAllSubCategories(categoryId);
         if (
           subCategories.includes(updateData.parentId) ||
@@ -111,9 +104,9 @@ const categoryService = {
       }
 
       if (updateData.name) category.name = updateData.name;
-      if (updateData.slug) category.slug = updateData.slug;
-      if (updateData.description) category.description = updateData.description;
-      if (updateData.image) category.image = updateData.image;
+      if (updateData.description !== undefined)
+        category.description = updateData.description;
+      if (updateData.image !== undefined) category.image = updateData.image;
       if (updateData.metaTitle) category.metaTitle = updateData.metaTitle;
       if (updateData.metaDescription)
         category.metaDescription = updateData.metaDescription;
@@ -135,20 +128,20 @@ const categoryService = {
       const category = await Category.findById(categoryId);
       if (!category) throw new Error("Category not found");
 
-      // بررسی وجود محصولات در این دسته‌بندی یا زیرمجموعه‌ها
       const subCategories = await getAllSubCategories(categoryId);
       const categoriesToCheck = [categoryId, ...subCategories];
       const productCount = await Product.countDocuments({
         categoryId: { $in: categoriesToCheck },
       });
+
       if (productCount > 0 && !options.force) {
         throw new Error("Cannot delete category with associated products");
       }
 
-      // انتقال زیرمجموعه‌ها به والد جدید یا null
       if (options.newParentId) {
         const newParent = await Category.findById(options.newParentId);
         if (!newParent) throw new Error("New parent category not found");
+
         await Category.updateMany(
           { parentId: categoryId },
           { parentId: options.newParentId }
@@ -157,7 +150,6 @@ const categoryService = {
         await Category.updateMany({ parentId: categoryId }, { parentId: null });
       }
 
-      // حذف دسته‌بندی
       await category.remove();
       return true;
     } catch (error) {
@@ -167,7 +159,6 @@ const categoryService = {
   },
 };
 
-// تابع کمکی برای ساخت درخت دسته‌بندی
 function buildCategoryTree(categories) {
   const map = {};
   const tree = [];
@@ -177,10 +168,8 @@ function buildCategoryTree(categories) {
   });
 
   categories.forEach((category) => {
-    if (category.parentId) {
-      if (map[category.parentId]) {
-        map[category.parentId].children.push(map[category._id]);
-      }
+    if (category.parentId && map[category.parentId]) {
+      map[category.parentId].children.push(map[category._id]);
     } else {
       tree.push(map[category._id]);
     }
@@ -189,7 +178,6 @@ function buildCategoryTree(categories) {
   return tree;
 }
 
-// تابع کمکی برای یافتن زیرمجموعه‌ها
 async function getAllSubCategories(categoryId) {
   const subCategories = [];
   const queue = [categoryId];

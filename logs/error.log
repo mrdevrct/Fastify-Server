@@ -805,3 +805,10 @@ Require stack:
 ❗ [ERROR] 05/29/2025, 10:19:57 PM | Error: Server startup error: Missing handler function for "GET:/" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
 ❗ [ERROR] 05/29/2025, 10:20:15 PM | Error fetching current valid site status: Class constructor ObjectId cannot be invoked without 'new'
 ❗ [ERROR] 05/29/2025, 10:20:15 PM | Error fetching current valid site status: Class constructor ObjectId cannot be invoked without 'new'
+❗ [ERROR] 05/30/2025, 11:10:05 PM | Error: Server startup error: categoryRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/server/src/modules/index.js:28:20)
+❗ [ERROR] 05/30/2025, 11:21:03 PM | Error: Server startup error: Missing handler function for "POST:/test" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/30/2025, 11:21:04 PM | Error: Server startup error: Missing handler function for "POST:/test" route. | Location: at Object.route (/Users/devrct/Developer/server/node_modules/fastify/lib/route.js:192:13)
+❗ [ERROR] 05/31/2025, 01:55:51 AM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 05/31/2025, 03:00:13 AM | Error creating category: Category validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/31/2025, 03:00:13 AM | Error creating category: Category validation failed: slug: Path `slug` is required.
+❗ [ERROR] 05/31/2025, 03:12:32 AM | Error creating product: Expected property name or '}' in JSON at position 1 (line 1 column 2)

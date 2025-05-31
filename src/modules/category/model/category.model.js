@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const slugify = require("slugify"); // اضافه کردن این خط
 
 const CategorySchema = new Schema({
   name: {
@@ -11,7 +12,6 @@ const CategorySchema = new Schema({
   slug: {
     type: String,
     unique: true,
-    required: true,
     trim: true,
   },
   parentId: {
@@ -51,23 +51,30 @@ const CategorySchema = new Schema({
 
 CategorySchema.pre("save", async function (next) {
   this.updatedAt = Date.now();
+
   if (!this.name) {
     return next(new Error("نام دسته‌بندی برای تولید اسلاگ الزامی است"));
   }
+
   if (!this.slug) {
-    let slug = this.name
-      .replace(/\s+/g, "-") 
-      .replace(/[^\u0600-\u06FFa-z0-9-]+/g, "") 
-      .replace(/(^-|-$)/g, "")
-      .substring(0, 50); 
-    if (!slug) {
+    const rawSlug = slugify(this.name, {
+      lower: true,
+      strict: true,
+      locale: "fa", // برای نگه‌داشتن حروف فارسی
+      remove: /[*+~.()'"!:@،؛؟]/g, // حذف کاراکترهای خاص فارسی و انگلیسی
+    });
+
+    if (!rawSlug) {
       return next(new Error("تولید اسلاگ معتبر از نام امکان‌پذیر نیست"));
     }
-    this.slug = slug;
+
+    this.slug = rawSlug;
   }
+
   if (!this.metaTitle) {
     this.metaTitle = this.name.substring(0, 70);
   }
+
   if (!this.metaDescription && this.description) {
     this.metaDescription = this.description.substring(0, 160);
   }

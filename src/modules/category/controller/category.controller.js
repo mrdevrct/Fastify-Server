@@ -54,7 +54,7 @@ const categoryController = {
 
       const image = imageData
         ? (await fileUploader.uploadCategoryImage(imageData, user)).url
-        : categoryData.image;
+        : categoryData.image || "";
 
       const newCategory = await categoryService.createCategory(
         { ...categoryData, image },

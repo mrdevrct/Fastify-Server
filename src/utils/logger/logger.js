@@ -13,7 +13,7 @@ const formatTimestamp = () =>
   });
 
 const logger = winston.createLogger({
-  level: "info",
+  level: "debug", // سطح debug برای گرفتن همه لاگ‌ها
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.json(),
@@ -31,6 +31,9 @@ const logger = winston.createLogger({
             break;
           case "warn":
             emojiIcon = emoji.get("warning");
+            break;
+          case "debug":
+            emojiIcon = emoji.get("bug");
             break;
           default:
             emojiIcon = emoji.get("grey_question");
@@ -52,8 +55,8 @@ const logger = winston.createLogger({
           logMessage = `${emojiIcon} [${level.toUpperCase()}] ${formatTimestamp()} | ${methodIcon} ${
             metadata.method
           } ${metadata.url} | ${statusIcon} Status: ${
-            metadata.status
-          } | ⏱️ Ping: ${metadata.ping}ms`;
+            metadata.status || "N/A"
+          } | ⏱️ Ping: ${metadata.ping || "N/A"}ms`;
         } else {
           if (level === "error" && stack) {
             const stackLines = stack.split("\n");
@@ -71,9 +74,16 @@ const logger = winston.createLogger({
     )
   ),
   transports: [
-    new winston.transports.Console(),
+    new winston.transports.Console({ level: "debug" }), // لاگ debug به کنسول
     new winston.transports.File({ filename: "logs/error.log", level: "error" }),
-    new winston.transports.File({ filename: "logs/combined.log" }),
+    new winston.transports.File({
+      filename: "logs/combined.log",
+      level: "debug",
+    }),
+    new winston.transports.File({
+      filename: "logs/success.log",
+      level: "info",
+    }), // فایل برای لاگ‌های موفقیت
   ],
 });
 
@@ -81,12 +91,50 @@ if (!fs.existsSync("logs")) {
   fs.mkdirSync("logs");
 }
 
-// یک پلاگین ساده برای Fastify
+// پلاگین برای Fastify
 const requestLogger = async (fastify) => {
-  fastify.addHook("onRequest", async (request) => {
+  console.log("🔍 Registering requestLogger hook");
+  logger.debug("Registering requestLogger hook");
+
+  // لاگ درخواست ورودی
+  fastify.addHook("onRequest", async (request, reply) => {
+    console.log(`🚀 onRequest: ${request.method} ${request.url}`);
     logger.info("Incoming request", {
       method: request.method,
       url: request.url,
+      headers: request.headers,
+      ip: request.ip,
+    });
+  });
+
+  // لاگ درخواست‌های موفق
+  fastify.addHook("onResponse", async (request, reply) => {
+    if (reply.statusCode < 400) {
+      // فقط برای پاسخ‌های موفق (200, 201, و غیره)
+      console.log(
+        `✅ onSuccess: ${request.method} ${request.url} | Status: ${reply.statusCode}`
+      );
+      logger.info("Request successful", {
+        method: request.method,
+        url: request.url,
+        status: reply.statusCode,
+        ping: reply.getResponseTime(),
+        ip: request.ip,
+      });
+    }
+  });
+
+  // لاگ برای خطاها
+  fastify.addHook("onError", async (request, reply, error) => {
+    console.log(
+      `❌ onError: ${request.method} ${request.url} | Error: ${error.message}`
+    );
+    logger.error("Request error", {
+      method: request.method,
+      url: request.url,
+      error: error.message,
+      stack: error.stack,
+      status: reply.statusCode,
     });
   });
 };

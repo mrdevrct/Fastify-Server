@@ -28,7 +28,7 @@ const categoryJsonSchema = {
       description: "Category update timestamp",
     },
   },
-  required: ["name", "slug"],
+  required: ["name"],
 };
 
 module.exports = { categoryJsonSchema };

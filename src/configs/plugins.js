@@ -7,28 +7,30 @@ const fastifySwagger = require("@fastify/swagger");
 const fastifySwaggerUi = require("@fastify/swagger-ui");
 
 const setupPlugins = async (fastify) => {
-  // Register multipart for file uploads
+  console.log("Starting plugin registration");
+
   await fastify.register(multipart, {
+    attachFieldsToBody: false,
     limits: {
       fileSize: 20 * 1024 * 1024, // 20MB
       files: 3,
     },
   });
+  console.log("Multipart plugin registered");
 
-  // Serve static files from /uploads folder
   await fastify.register(staticPlugin, {
     root: path.join(__dirname, "..", "uploads"),
     prefix: "/uploads/",
     decorateReply: false,
   });
+  console.log("Static plugin registered");
 
-  // Custom request logger
   await fastify.register(requestLogger);
+  console.log("Request logger plugin registered");
 
-  // Auth decorator
   fastify.decorate("auth", authMiddleware);
+  console.log("Auth decorator registered");
 
-  // Compute server URL based on environment
   const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
   const host =
     process.env.NODE_ENV === "production"
@@ -36,7 +38,6 @@ const setupPlugins = async (fastify) => {
       : `localhost:${process.env.PORT || 8081}`;
   const serverUrl = `${protocol}://${host}`;
 
-  // Register Swagger for API documentation
   await fastify.register(fastifySwagger, {
     openapi: {
       info: {
@@ -61,8 +62,8 @@ const setupPlugins = async (fastify) => {
       },
     },
   });
+  console.log("Swagger plugin registered");
 
-  // Register Swagger UI
   await fastify.register(fastifySwaggerUi, {
     routePrefix: "/swagger",
     uiConfig: {
@@ -72,7 +73,6 @@ const setupPlugins = async (fastify) => {
     staticCSP: true,
     transformStaticCSP: (header) => header,
     transform: (schema) => {
-      // Use the same resolved server URL
       const resolvedSchema = { ...schema };
       resolvedSchema.servers = [
         {
@@ -83,8 +83,9 @@ const setupPlugins = async (fastify) => {
       return resolvedSchema;
     },
   });
+  console.log("Swagger UI plugin registered");
 
-  logger.info("Swagger plugins registered");
+  logger.info("All plugins registered successfully");
 };
 
 module.exports = setupPlugins;
