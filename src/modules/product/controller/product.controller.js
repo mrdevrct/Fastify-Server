@@ -18,10 +18,8 @@ const productController = {
       let mainImageData = null;
       let mediaData = [];
 
-      // لاگ‌گذاری برای بررسی شروع پردازش
       logger.info("Starting to process multipart form-data");
 
-      // پردازش multipart form-data
       const parts = request.parts();
       for await (const part of parts) {
         logger.info(`Processing part: ${part.fieldname}, type: ${part.type}`);
@@ -65,12 +63,10 @@ const productController = {
         }
       }
 
-      // لاگ‌گذاری داده‌های جمع‌آوری‌شده
       logger.info(`Collected productData: ${JSON.stringify(productData)}`);
       logger.info(`Main image present: ${!!mainImageData}`);
       logger.info(`Media files count: ${mediaData.length}`);
 
-      // اعتبارسنجی فیلدهای اجباری
       if (
         !productData.name ||
         !productData.description ||
@@ -107,7 +103,6 @@ const productController = {
           );
       }
 
-      // آپلود تصویر اصلی
       logger.info("Uploading main image");
       const mainImage = await fileUploader.uploadProductMainImage(
         mainImageData,
@@ -115,7 +110,6 @@ const productController = {
       );
       logger.info(`Main image uploaded: ${mainImage.url}`);
 
-      // ایجاد محصول بدون مدیا
       const initialProductData = {
         ...productData,
         mainImage,
@@ -129,7 +123,6 @@ const productController = {
       );
       logger.info(`Product created with ID: ${newProduct._id}`);
 
-      // آپلود فایل‌های مدیا
       let media = [];
       if (mediaData.length > 0) {
         logger.info(`Uploading ${mediaData.length} media files`);
@@ -140,7 +133,6 @@ const productController = {
         );
         logger.info(`Media uploaded: ${JSON.stringify(media)}`);
 
-        // به‌روزرسانی محصول با فایل‌های مدیا
         logger.info("Updating product with media");
         const updatedProduct = await productService.updateProduct(
           newProduct._id,
@@ -149,7 +141,6 @@ const productController = {
         );
         logger.info("Product updated with media");
 
-        // ارسال نوتیفیکیشن
         await notificationService.createAndSendNotification(
           request.server,
           user.id,
@@ -171,7 +162,6 @@ const productController = {
           .send(formatResponse(updatedProduct, false, null, 201));
       }
 
-      // اگر مدیا وجود ندارد، محصول اولیه را برگردان
       await notificationService.createAndSendNotification(
         request.server,
         user.id,
@@ -199,7 +189,6 @@ const productController = {
     }
   },
 
-  // بقیه توابع بدون تغییر باقی می‌مانند
   getProducts: async (request, reply) => {
     try {
       const {
@@ -392,27 +381,31 @@ const productController = {
         }
       }
 
-      let mainImage = updateData.mainImage;
+      // آپلود تصویر اصلی در صورت وجود
       if (mainImageData) {
-        mainImage = await fileUploader.uploadProductMainImage(
+        updateData.mainImage = await fileUploader.uploadProductMainImage(
           mainImageData,
           user
         );
       }
 
-      let media = updateData.media || [];
+      // آپلود فایل‌های رسانه‌ای جدید و ادغام با رسانه‌های موجود
       if (mediaData.length > 0) {
         const uploadedMedia = await fileUploader.uploadProductMedia(
           mediaData,
           user,
           productId
         );
-        media = [...media, ...uploadedMedia];
+        const existingProduct = await productService.getProduct(
+          productId,
+          user
+        );
+        updateData.media = [...(existingProduct.media || []), ...uploadedMedia];
       }
 
       const product = await productService.updateProduct(
         productId,
-        { ...updateData, mainImage, media },
+        updateData,
         user
       );
 

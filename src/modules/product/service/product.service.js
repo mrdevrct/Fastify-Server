@@ -32,7 +32,6 @@ const productService = {
 
       await newProduct.save();
 
-      // ایجاد سند فروش اولیه
       await ProductSales.create({ productId: newProduct._id, salesCount: 0 });
 
       return newProduct;
@@ -46,12 +45,10 @@ const productService = {
     try {
       const query = { status: "PUBLISHED" };
 
-      // فیلترها
       if (filters.categorySlug) {
         const category = await Category.findOne({ slug: filters.categorySlug });
         if (!category) throw new Error("Category not found");
 
-        // یافتن تمام زیرمجموعه‌ها
         const subCategories = await getAllSubCategories(category._id);
         query.categoryId = { $in: [category._id, ...subCategories] };
       }
@@ -73,7 +70,6 @@ const productService = {
         query.$text = { $search: filters.search };
       }
 
-      // مرتب‌سازی
       const sortOptions = {};
       if (sort.sortBy === "priceAsc") sortOptions.price = 1;
       if (sort.sortBy === "priceDesc") sortOptions.price = -1;
@@ -82,7 +78,6 @@ const productService = {
       if (sort.sortBy === "topRated") sortOptions.averageRating = -1;
       if (sort.sortBy === "mostDiscounted") sortOptions.discountPercentage = -1;
 
-      // صفحه‌بندی
       const skip = (page - 1) * perPage;
 
       const [products, total] = await Promise.all([
@@ -96,7 +91,6 @@ const productService = {
         Product.countDocuments(query),
       ]);
 
-      // فرمت کردن محصولات برای پاسخ
       const formattedProducts = products.map((product) => ({
         id: product._id,
         name: product.name,
@@ -246,10 +240,10 @@ const productService = {
 
       const query = {
         status: "PUBLISHED",
-        _id: { $ne: productId }, // محصول خودش رو حذف کن
+        _id: { $ne: productId },
         $or: [
-          { categoryId: product.categoryId }, // محصولات با دسته‌بندی یکسان
-          { tags: { $in: product.tags } }, // محصولات با تگ‌های مشابه
+          { categoryId: product.categoryId },
+          { tags: { $in: product.tags } },
         ],
       };
 
@@ -270,29 +264,41 @@ const productService = {
       const product = await Product.findById(productId);
       if (!product) throw new Error("Product not found");
 
-      if (updateData.name) product.name = updateData.name;
-      if (updateData.description) product.description = updateData.description;
-      if (updateData.mainImage)
-        product.mainImage = { ...updateData.mainImage, uploadedBy: user.id };
-      if (updateData.media) {
-        product.media = updateData.media.map((m) => ({
-          ...m,
-          uploadedBy: user.id,
-        }));
-      }
-      if (updateData.price) product.price = updateData.price;
-      if (updateData.discountPrice !== undefined)
-        product.discountPrice = updateData.discountPrice;
-      if (updateData.stock !== undefined) product.stock = updateData.stock;
-      if (updateData.categoryId) product.categoryId = updateData.categoryId;
-      if (updateData.brand) product.brand = updateData.brand;
-      if (updateData.attributes) product.attributes = updateData.attributes;
-      if (updateData.tags) product.tags = updateData.tags;
-      if (updateData.keywords) product.keywords = updateData.keywords;
-      if (updateData.metaTitle) product.metaTitle = updateData.metaTitle;
-      if (updateData.metaDescription)
-        product.metaDescription = updateData.metaDescription;
-      if (updateData.status) product.status = updateData.status;
+      const fieldsToUpdate = [
+        "name",
+        "description",
+        "mainImage",
+        "media",
+        "price",
+        "discountPrice",
+        "stock",
+        "categoryId",
+        "brand",
+        "attributes",
+        "tags",
+        "keywords",
+        "metaTitle",
+        "metaDescription",
+        "status",
+      ];
+
+      fieldsToUpdate.forEach((field) => {
+        if (updateData[field] !== undefined) {
+          if (field === "mainImage" && updateData.mainImage) {
+            product.mainImage = {
+              ...updateData.mainImage,
+              uploadedBy: user.id,
+            };
+          } else if (field === "media" && updateData.media) {
+            product.media = updateData.media.map((m) => ({
+              ...m,
+              uploadedBy: user.id,
+            }));
+          } else {
+            product[field] = updateData[field];
+          }
+        }
+      });
 
       product.updatedAt = new Date();
       await product.save();
@@ -358,7 +364,6 @@ const productService = {
   },
 };
 
-// تابع کمکی برای یافتن زیرمجموعه‌ها
 async function getAllSubCategories(categoryId) {
   const subCategories = [];
   const queue = [categoryId];

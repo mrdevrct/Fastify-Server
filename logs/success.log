@@ -763,3 +763,133 @@
 ℹ️ [INFO] 05/31/2025, 05:09:05 AM | Found categories: []
 ℹ️ [INFO] 05/31/2025, 05:09:06 AM | Query for categories: {}
 ℹ️ [INFO] 05/31/2025, 05:09:06 AM | Found categories: []
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | MongoDB connected
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | All plugins registered successfully
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | Middlewares configured
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | Helmet security headers enabled
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | CORS enabled
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | Security middlewares fully configured
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | Interceptors configured
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | Routes configured
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | WebSocket server initialized
+ℹ️ [INFO] 05/31/2025, 11:51:31 AM | Server running on port 8080
+ℹ️ [INFO] 05/31/2025, 11:51:33 AM | Login attempt for existing user: superadmin@gmail.com
+ℹ️ [INFO] 05/31/2025, 11:51:33 AM | Auth processed for: superadmin@gmail.com
+⚠️ [WARN] 05/31/2025, 11:51:34 AM | Failed to send verification email to superadmin@gmail.com: Missing credentials for "PLAIN"
+ℹ️ [INFO] 05/31/2025, 11:51:34 AM | Verification code for superadmin@gmail.com: 419209
+ℹ️ [INFO] 05/31/2025, 11:51:49 AM | Notification saved: ACTIVATE_USER, ID: 683abc1dc9dfe750d5448670
+ℹ️ [INFO] 05/31/2025, 11:51:49 AM | Notification sent via WebSocket: ACTIVATE_USER
+ℹ️ [INFO] 05/31/2025, 11:51:49 AM | User verified: superadmin@gmail.com
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Starting to process multipart form-data
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: name, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: name = گوشی سامسونگ گلکسی S21
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: description, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: description = گوشی هوشمند با دوربین 50MP
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: price, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: price = 29999000
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: discountPrice, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: discountPrice = 26999000
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: stock, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: stock = 50
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: categoryId, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: categoryId = 682bca04d786b66a58b6f1d7
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: brand, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: brand = Samsung
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: attributes, type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Attributes collected: {"ram": "8GB", "storage": "256GB"}
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: tags[], type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: tags[] = smartphone
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: tags[], type: field
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Field collected: tags[] = samsung
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: mainImage, type: file
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Main image collected
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing part: media, type: file
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Media file collected: screencapture-digikala-2025-05-07-14_34_42.png
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Collected productData: {"name":"گوشی سامسونگ گلکسی S21","description":"گوشی هوشمند با دوربین 50MP","price":"29999000","discountPrice":"26999000","stock":"50","categoryId":"682bca04d786b66a58b6f1d7","brand":"Samsung","attributes":{"ram":"8GB","storage":"256GB"},"tags":["smartphone","samsung"]}
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Main image present: true
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Media files count: 1
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Uploading main image
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Upload directories initialized successfully
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | ✅ Product main image uploaded locally for superadmin@gmail.com => product-main-superadmin-68261c189793af40ff160090-20250531115216.png
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Main image uploaded: /uploads/product/images/product-main-superadmin-68261c189793af40ff160090-20250531115216.png
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Creating product in database
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Product created with ID: 683abc38c9dfe750d544867c
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Uploading 1 media files
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Processing 1 media files for product 683abc38c9dfe750d544867c
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Generated filename: product-superadmin-683abc38c9dfe750d544867c-20250531115216.png
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Upload directories initialized successfully
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Saving file locally: /Users/devrct/Developer/server/src/Uploads/product/images/product-superadmin-683abc38c9dfe750d544867c-20250531115216.png
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | ✅ Product media uploaded locally for superadmin@gmail.com => /uploads/product/images/product-superadmin-683abc38c9dfe750d544867c-20250531115216.png
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Added file to uploadedFiles: screencapture-digikala-2025-05-07-14_34_42.png
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Successfully uploaded 1 media files
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Media uploaded: [{"type":"IMAGE","url":"/uploads/product/images/product-superadmin-683abc38c9dfe750d544867c-20250531115216.png","mimeType":"image/png","size":3946219,"caption":"","altText":"","uploadedBy":"68261c189793af40ff160090"}]
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Updating product with media
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Product updated with media
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Notification saved: ADD_PRODUCT, ID: 683abc38c9dfe750d5448686
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Notification sent via WebSocket: ADD_PRODUCT
+ℹ️ [INFO] 05/31/2025, 11:52:16 AM | Product created by user: superadmin@gmail.com
+ℹ️ [INFO] 05/31/2025, 12:06:39 PM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 12:06:39 PM | Found categories: []
+ℹ️ [INFO] 05/31/2025, 12:07:34 PM | Query for categories: {}
+ℹ️ [INFO] 05/31/2025, 12:07:34 PM | Found categories: [{"_id":"683a58583bf1b5460b727a1b","name":"گوشی آیفون","parentId":"683a573a3bf1b5460b7279e4","description":"خرید انواع مدل‌های گوشی آیفون اپل با گارانتی معتبر و بهترین قیمت","image":"https://res.cloudinary.com/dmomxg8qs/image/upload/v1748654167/category/images/category-superadmin-6839083c8666a08839ea2da9-20250531011607.jpeg.jpg","metaTitle":"خرید آیفون | جدیدترین گوشی‌های Apple iPhone","metaDescription":"بررسی، مشخصات و خرید اینترنتی گوشی‌های آیفون Apple با بهترین قیمت بازار و تنوع مدل‌ها از آیفون 11 تا آیفون 15","createdAt":"2025-05-31T01:16:08.522Z","updatedAt":"2025-05-31T01:16:08.523Z","slug":"gwshy-aayfwn","__v":0}]
+ℹ️ [INFO] 06/01/2025, 05:27:35 PM | MongoDB connected
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | All plugins registered successfully
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | Middlewares configured
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | Helmet security headers enabled
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | CORS enabled
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | Security middlewares fully configured
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | Interceptors configured
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | Routes configured
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | WebSocket server initialized
+ℹ️ [INFO] 06/01/2025, 05:27:36 PM | Server running on port 8080
+ℹ️ [INFO] 06/01/2025, 05:31:11 PM | Login attempt for existing user: superadmin@gmail.com
+ℹ️ [INFO] 06/01/2025, 05:31:11 PM | Auth processed for: superadmin@gmail.com
+⚠️ [WARN] 06/01/2025, 05:31:12 PM | Failed to send verification email to superadmin@gmail.com: Missing credentials for "PLAIN"
+ℹ️ [INFO] 06/01/2025, 05:31:12 PM | Verification code for superadmin@gmail.com: 147070
+❗ [ERROR] 06/01/2025, 05:31:49 PM | Error verifying code: Invalid or expired verification code
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | MongoDB connected
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | All plugins registered successfully
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | Middlewares configured
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | Helmet security headers enabled
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | CORS enabled
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | Security middlewares fully configured
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | Interceptors configured
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | Routes configured
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | WebSocket server initialized
+ℹ️ [INFO] 06/01/2025, 05:52:48 PM | Server running on port 8080
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | MongoDB connected
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | All plugins registered successfully
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | Middlewares configured
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | Helmet security headers enabled
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | CORS enabled
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | Security middlewares fully configured
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | Interceptors configured
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | Routes configured
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | WebSocket server initialized
+ℹ️ [INFO] 06/01/2025, 05:52:49 PM | Server running on port 8080
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | MongoDB connected
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | All plugins registered successfully
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | Middlewares configured
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | Helmet security headers enabled
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | CORS enabled
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | Security middlewares fully configured
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | Interceptors configured
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | Routes configured
+ℹ️ [INFO] 06/01/2025, 05:53:23 PM | WebSocket server initialized
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | Server running on port 8080
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | MongoDB connected
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | All plugins registered successfully
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | Middlewares configured
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | Helmet security headers enabled
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | Rate limiting applied (100 reqs/min)
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | CORS enabled
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | Security middlewares fully configured
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | Interceptors configured
+ℹ️ [INFO] 06/01/2025, 05:53:24 PM | Routes configured
+ℹ️ [INFO] 06/01/2025, 05:53:25 PM | WebSocket server initialized
+ℹ️ [INFO] 06/01/2025, 05:53:25 PM | Server running on port 8080
