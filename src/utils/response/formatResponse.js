@@ -3,7 +3,8 @@ const formatResponse = (
   hasError = false,
   message = null,
   status = 200,
-  pagination = null
+  pagination = null,
+  attributes = null
 ) => {
   const response = {
     data: hasError ? null : data || [],
@@ -22,6 +23,10 @@ const formatResponse = (
       nextPage: pagination.nextPage || null,
       prevPage: pagination.prevPage || null,
     };
+  }
+
+  if (attributes) {
+    response.attributes = attributes;
   }
 
   return response;

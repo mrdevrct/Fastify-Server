@@ -11,16 +11,12 @@ const productRoutes = async (fastify, options) => {
     { preValidation: [fastify.auth] },
     productController.getProducts
   );
-  fastify.get("/all-products", productController.getProducts);
+  fastify.get("/all", productController.getProducts);
   fastify.get("/new", productController.getNewProducts);
   fastify.get("/popular", productController.getPopularProducts);
   fastify.get("/top-selling", productController.getTopSellingProducts);
   fastify.get("/most-discounted", productController.getMostDiscountedProducts);
-  fastify.get(
-    "/:identifier",
-    { preValidation: [fastify.auth] },
-    productController.getProduct
-  );
+  fastify.get("/:identifier", productController.getProduct);
   fastify.get("/:identifier/similar", productController.getSimilarProducts);
   fastify.put(
     "/:productId",

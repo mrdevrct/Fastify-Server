@@ -8,6 +8,7 @@ const {
 const {
   NOTIFICATION_TYPES,
 } = require("../../../utils/notification/notification.enums");
+const { seoService } = require("../../SEO/service/seo.service");
 
 const categoryController = {
   createCategory: async (request, reply) => {
@@ -93,8 +94,18 @@ const categoryController = {
       const options = { tree: tree === "true" };
 
       const categories = await categoryService.getCategories(filters, options);
-      const response = formatResponse(categories, false, null, 200);
-      console.log("Response before sending:", response);
+
+      // دریافت اتریبیوت‌های SEO برای لیست دسته‌بندی‌ها
+      const seoAttributes = await seoService.getListSeo("category");
+
+      const response = formatResponse(
+        categories,
+        false,
+        null,
+        200,
+        null,
+        seoAttributes // اضافه کردن اتریبیوت‌های SEO
+      );
       return reply.status(200).send(response);
     } catch (error) {
       logger.error(`Error fetching categories: ${error.message}`);

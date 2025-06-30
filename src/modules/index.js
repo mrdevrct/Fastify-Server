@@ -6,6 +6,7 @@ const categoryRoutes = require("./category/routes/category.route");
 const festivalRoutes = require("./festival/routes/festival.routes");
 const notificationRoutes = require("./notification/routes/notification.routes");
 const orderRoutes = require("./order/routes/order.routes");
+const seoRoutes = require("./SEO/routes/seo.routes");
 const paymentRoutes = require("./payment/routes/payment.routes");
 const productRoutes = require("./product/routes/product.routes");
 const reportRoutes = require("./report/routes/report.routes");
@@ -29,6 +30,7 @@ const setupRoutes = async (fastify) => {
   fastify.register(categoryRoutes, { prefix: "/api/categories" });
   fastify.register(notificationRoutes, { prefix: "/api/notifications" });
   fastify.register(siteStatusRoutes, { prefix: "/api/site-status" });
+  fastify.register(seoRoutes, { prefix: "/api/seo" });
 };
 
 module.exports = setupRoutes;

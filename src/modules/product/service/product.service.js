@@ -210,7 +210,7 @@ const productService = {
     }
   },
 
-  getProduct: async (identifier, user) => {
+  getProduct: async (identifier) => {
     try {
       const query = mongoose.Types.ObjectId.isValid(identifier)
         ? { _id: identifier }
@@ -282,8 +282,10 @@ const productService = {
         "status",
       ];
 
+      // Only update fields that are explicitly provided in updateData
       fieldsToUpdate.forEach((field) => {
-        if (updateData[field] !== undefined) {
+        if (field in updateData) {
+          // Check if field exists in updateData
           if (field === "mainImage" && updateData.mainImage) {
             product.mainImage = {
               ...updateData.mainImage,

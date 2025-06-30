@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const Category = require("../model/category.model");
 const Product = require("../../product/model/product.model");
 const { logger } = require("../../../utils/logger/logger");
+const { buildSeoAttributes } = require("../../../utils/seo/seoHelper");
+const { seoService } = require("../../SEO/service/seo.service");
 
 const categoryService = {
   createCategory: async (categoryData, user) => {
@@ -46,13 +48,26 @@ const categoryService = {
 
       logger.info(`Query for categories: ${JSON.stringify(query)}`);
       const categories = await Category.find(query).sort({ createdAt: -1 });
-      logger.info(`Found categories: ${JSON.stringify(categories)}`);
+
+      // اضافه کردن اطلاعات SEO به هر دسته‌بندی
+      const categoriesWithSeo = await Promise.all(
+        categories.map(async (category) => {
+          const seo = await seoService.getSeo(category._id, "category");
+          return {
+            ...category.toObject(),
+            seo:
+              seo || buildSeoAttributes(category.toObject(), "category", false),
+          };
+        })
+      );
+
+      logger.info(`Found categories: ${JSON.stringify(categoriesWithSeo)}`);
 
       if (options.tree) {
-        return buildCategoryTree(categories);
+        return buildCategoryTree(categoriesWithSeo);
       }
 
-      return categories;
+      return categoriesWithSeo;
     } catch (error) {
       logger.error(`Error fetching categories: ${error.message}`);
       throw error;

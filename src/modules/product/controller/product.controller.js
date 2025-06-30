@@ -9,6 +9,7 @@ const {
 const {
   NOTIFICATION_TYPES,
 } = require("../../../utils/notification/notification.enums");
+const { seoService } = require("../../SEO/service/seo.service");
 
 const productController = {
   createProduct: async (request, reply) => {
@@ -18,54 +19,40 @@ const productController = {
       let mainImageData = null;
       let mediaData = [];
 
-      logger.info("Starting to process multipart form-data");
-
       const parts = request.parts();
       for await (const part of parts) {
-        logger.info(`Processing part: ${part.fieldname}, type: ${part.type}`);
         if (part.type === "file") {
           if (part.fieldname === "mainImage") {
             const fileBuffer = await part.toBuffer();
             const fileSize = fileBuffer.length;
             if (!fileSize) {
-              logger.error("Invalid main image size");
               return reply
                 .status(400)
                 .send(formatResponse({}, true, "Invalid main image size", 400));
             }
             mainImageData = { ...part, size: fileSize, fileBuffer };
-            logger.info("Main image collected");
           } else if (part.fieldname === "media") {
             const fileBuffer = await part.toBuffer();
             const fileSize = fileBuffer.length;
             if (!fileSize) {
-              logger.error("Invalid media file size");
               return reply
                 .status(400)
                 .send(formatResponse({}, true, "Invalid media file size", 400));
             }
             mediaData.push({ ...part, size: fileSize, fileBuffer });
-            logger.info(`Media file collected: ${part.filename}`);
           }
         } else if (part.type === "field") {
           if (part.fieldname.endsWith("[]")) {
             const fieldName = part.fieldname.slice(0, -2);
             productData[fieldName] = productData[fieldName] || [];
             productData[fieldName].push(part.value);
-            logger.info(`Field collected: ${fieldName}[] = ${part.value}`);
           } else if (part.fieldname === "attributes") {
             productData.attributes = JSON.parse(part.value);
-            logger.info(`Attributes collected: ${part.value}`);
           } else {
             productData[part.fieldname] = part.value;
-            logger.info(`Field collected: ${part.fieldname} = ${part.value}`);
           }
         }
       }
-
-      logger.info(`Collected productData: ${JSON.stringify(productData)}`);
-      logger.info(`Main image present: ${!!mainImageData}`);
-      logger.info(`Media files count: ${mediaData.length}`);
 
       if (
         !productData.name ||
@@ -74,7 +61,6 @@ const productController = {
         productData.stock == null ||
         !productData.categoryId
       ) {
-        logger.error("Missing required fields");
         return reply
           .status(400)
           .send(
@@ -87,15 +73,13 @@ const productController = {
           );
       }
 
-      if (!mainImageData) {
-        logger.error("Main image is required");
+      if (!mainImageData && !productData.mainImage) {
         return reply
           .status(400)
           .send(formatResponse({}, true, "Main image is required", 400));
       }
 
       if (mediaData.length > 10) {
-        logger.error("Maximum 10 media files allowed");
         return reply
           .status(400)
           .send(
@@ -103,64 +87,23 @@ const productController = {
           );
       }
 
-      logger.info("Uploading main image");
-      const mainImage = await fileUploader.uploadProductMainImage(
-        mainImageData,
-        user
-      );
-      logger.info(`Main image uploaded: ${mainImage.url}`);
+      const mainImage = mainImageData
+        ? await fileUploader.uploadProductMainImage(mainImageData, user)
+        : productData.mainImage;
 
-      const initialProductData = {
-        ...productData,
-        mainImage,
-        media: [],
-      };
+      const media =
+        mediaData.length > 0
+          ? await fileUploader.uploadProductMedia(
+              mediaData,
+              user,
+              productData._id
+            )
+          : productData.media || [];
 
-      logger.info("Creating product in database");
       const newProduct = await productService.createProduct(
-        initialProductData,
+        { ...productData, mainImage, media },
         user
       );
-      logger.info(`Product created with ID: ${newProduct._id}`);
-
-      let media = [];
-      if (mediaData.length > 0) {
-        logger.info(`Uploading ${mediaData.length} media files`);
-        media = await fileUploader.uploadProductMedia(
-          mediaData,
-          user,
-          newProduct._id
-        );
-        logger.info(`Media uploaded: ${JSON.stringify(media)}`);
-
-        logger.info("Updating product with media");
-        const updatedProduct = await productService.updateProduct(
-          newProduct._id,
-          { media },
-          user
-        );
-        logger.info("Product updated with media");
-
-        await notificationService.createAndSendNotification(
-          request.server,
-          user.id,
-          NOTIFICATION_TYPES.ADD_PRODUCT,
-          `New product added: ${newProduct.name}`,
-          {
-            productId: newProduct._id.toString(),
-            name: newProduct.name,
-            description: newProduct.description,
-            price: newProduct.price,
-            categoryId: newProduct.categoryId.toString(),
-            timestamp: new Date().toISOString(),
-          }
-        );
-
-        logger.info(`Product created by user: ${user.email}`);
-        return reply
-          .status(201)
-          .send(formatResponse(updatedProduct, false, null, 201));
-      }
 
       await notificationService.createAndSendNotification(
         request.server,
@@ -232,6 +175,10 @@ const productController = {
         perPage: perPageNum,
       });
 
+      // دریافت اتریبیوت‌های SEO برای لیست محصولات
+      const seoAttributes = await seoService.getListSeo("product");
+
+      // Log user ID only if user is authenticated
       if (request.user) {
         logger.info(`Product list retrieved by user: ${request.user.id}`);
       } else {
@@ -240,7 +187,9 @@ const productController = {
 
       return reply
         .status(200)
-        .send(formatResponse(products, false, null, 200, pagination));
+        .send(
+          formatResponse(products, false, null, 200, pagination, seoAttributes)
+        );
     } catch (error) {
       logger.error(`Error fetching products: ${error.message}`);
       return reply
@@ -311,11 +260,10 @@ const productController = {
 
   getProduct: async (request, reply) => {
     try {
-      const user = request.user;
       const { identifier } = request.params;
-      const product = await productService.getProduct(identifier, user);
-      await product.incrementViews();
-      logger.info(`Product ${identifier} retrieved by ${user.email}`);
+      // حذف user از فراخوانی productService.getProduct
+      const product = await productService.getProduct(identifier);
+      logger.info(`Product ${identifier}`);
       return reply.status(200).send(formatResponse(product, false, null, 200));
     } catch (error) {
       logger.error(`Error fetching product: ${error.message}`);
@@ -381,7 +329,6 @@ const productController = {
         }
       }
 
-      // آپلود تصویر اصلی در صورت وجود
       if (mainImageData) {
         updateData.mainImage = await fileUploader.uploadProductMainImage(
           mainImageData,
@@ -389,18 +336,13 @@ const productController = {
         );
       }
 
-      // آپلود فایل‌های رسانه‌ای جدید و ادغام با رسانه‌های موجود
       if (mediaData.length > 0) {
         const uploadedMedia = await fileUploader.uploadProductMedia(
           mediaData,
           user,
           productId
         );
-        const existingProduct = await productService.getProduct(
-          productId,
-          user
-        );
-        updateData.media = [...(existingProduct.media || []), ...uploadedMedia];
+        updateData.media = uploadedMedia; // Only set media if new media is uploaded
       }
 
       const product = await productService.updateProduct(
@@ -409,6 +351,7 @@ const productController = {
         user
       );
 
+      // Notification for product update
       const notificationType = updateData.price
         ? NOTIFICATION_TYPES.UPDATE_PRICE
         : NOTIFICATION_TYPES.UPDATE_PRODUCT_SPEC;
@@ -446,6 +389,7 @@ const productController = {
       const product = await productService.getProduct(productId, user);
       await productService.deleteProduct(productId, user);
 
+      // نوتیفیکیشن برای حذف محصول
       await notificationService.createAndSendNotification(
         request.server,
         user.id,
@@ -491,6 +435,7 @@ const productController = {
         user
       );
 
+      // نوتیفیکیشن برای افزودن نظر
       await notificationService.createAndSendNotification(
         request.server,
         user.id,

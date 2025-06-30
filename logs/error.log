@@ -814,3 +814,93 @@ Require stack:
 ❗ [ERROR] 05/31/2025, 03:12:32 AM | Error creating product: Expected property name or '}' in JSON at position 1 (line 1 column 2)
 ❗ [ERROR] 05/31/2025, 04:56:16 AM | Error: Server startup error: Cannot read properties of undefined (reading 'isFluentSchema') | Location: at generateFluentSchema (/Users/devrct/Developer/server/node_modules/fastify/lib/schemas.js:126:33)
 ❗ [ERROR] 06/01/2025, 05:31:49 PM | Error verifying code: Invalid or expired verification code
+❗ [ERROR] 06/05/2025, 04:18:40 PM | Error creating category: Parent category not found
+❗ [ERROR] 06/05/2025, 04:18:40 PM | Error creating category: Parent category not found
+❗ [ERROR] 06/05/2025, 04:18:42 PM | Error creating category: Parent category not found
+❗ [ERROR] 06/05/2025, 04:18:42 PM | Error creating category: Parent category not found
+❗ [ERROR] 06/05/2025, 04:19:38 PM | Error creating category: E11000 duplicate key error collection: shop-server.categories index: slug_1 dup key: { slug: "gwshy-aayfwn" }
+❗ [ERROR] 06/05/2025, 04:19:38 PM | Error creating category: E11000 duplicate key error collection: shop-server.categories index: slug_1 dup key: { slug: "gwshy-aayfwn" }
+❗ [ERROR] 06/05/2025, 04:39:23 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:23 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:24 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:24 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:25 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:25 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:26 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:26 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:28 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:28 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:32 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 04:39:32 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:11:29 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:11:29 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:11:30 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:11:30 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:20 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:20 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:22 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:22 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:23 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:23 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:24 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:24 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:26 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:26 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:30 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 05:12:30 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 09:36:28 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 09:36:28 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 09:36:29 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 09:36:29 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:00 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:00 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:01 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:01 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:04 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:04 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:08 PM | Error fetching product: Product not found
+❗ [ERROR] 06/05/2025, 10:09:08 PM | Error fetching product: Product not found
+❗ [ERROR] 06/06/2025, 03:39:22 PM | Error: Server startup error: Method 'POST' already declared for route '/api/site-status' | Location: at Object.addNewRoute (/Users/devrct/Developer/Online_Shop/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 06/06/2025, 03:39:23 PM | Error: Server startup error: Method 'POST' already declared for route '/api/site-status' | Location: at Object.addNewRoute (/Users/devrct/Developer/Online_Shop/server/node_modules/fastify/lib/route.js:343:19)
+❗ [ERROR] 06/06/2025, 03:39:55 PM | Error: Server startup error: seoRoutes is not defined | Location: at setupRoutes (/Users/devrct/Developer/Online_Shop/server/src/modules/index.js:32:20)
+❗ [ERROR] 06/06/2025, 04:05:11 PM | Error fetching categories: seoService is not defined
+❗ [ERROR] 06/06/2025, 04:05:11 PM | Error fetching categories: seoService is not defined
+❗ [ERROR] 06/06/2025, 04:05:50 PM | Error fetching categories: buildSeoAttributes is not defined
+❗ [ERROR] 06/06/2025, 04:05:50 PM | Error fetching categories: buildSeoAttributes is not defined
+❗ [ERROR] 06/06/2025, 04:06:18 PM | Error fetching categories: seoService is not defined
+❗ [ERROR] 06/06/2025, 04:06:41 PM | Error fetching categories: seoService is not defined
+❗ [ERROR] 06/06/2025, 04:07:14 PM | Error fetching categories: seoService is not defined
+❗ [ERROR] 06/06/2025, 04:07:15 PM | Error fetching categories: seoService is not defined
+❗ [ERROR] 06/06/2025, 04:12:18 PM | Error fetching product: Product not found
+❗ [ERROR] 06/06/2025, 04:12:18 PM | Error fetching product: Product not found
+❗ [ERROR] 06/06/2025, 04:12:28 PM | Error fetching products: seoService is not defined
+❗ [ERROR] 06/06/2025, 04:51:39 PM | Error fetching product: Product not found
+❗ [ERROR] 06/06/2025, 04:51:39 PM | Error fetching product: Product not found
+❗ [ERROR] 06/06/2025, 04:52:18 PM | Error fetching product: Product not found
+❗ [ERROR] 06/06/2025, 04:52:18 PM | Error fetching product: Product not found
+❗ [ERROR] 06/06/2025, 10:34:22 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:23 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:25 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:30 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:31 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:32 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:34 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:38 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:45 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:52 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:52 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:53 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:55 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:34:59 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:10 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:11 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:13 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:17 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:18 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:20 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:22 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:25 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:26 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:27 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:29 PM | Error fetching categories: categoryService.getCategories is not a function
+❗ [ERROR] 06/06/2025, 10:35:33 PM | Error fetching categories: categoryService.getCategories is not a function

@@ -18,7 +18,7 @@ const categoryRoutes = async (fastify, options) => {
 
   // Get categories
   fastify.get(
-    "/",
+    "/all",
     categoryController.getCategories
   );
 

@@ -1,6 +1,14 @@
 const mongoose = require("mongoose");
+const { seoService } = require("../../SEO/service/seo.service");
 const Schema = mongoose.Schema;
-const slugify = require("slugify"); // اضافه کردن این خط
+
+function slugifyPersian(str) {
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/[\s]+/g, "-")
+    .replace(/[^\w\u0600-\u06FF\u0660-\u0669\u06F0-\u06F9-]+/g, "");
+}
 
 const CategorySchema = new Schema({
   name: {
@@ -56,30 +64,43 @@ CategorySchema.pre("save", async function (next) {
     return next(new Error("نام دسته‌بندی برای تولید اسلاگ الزامی است"));
   }
 
+  // تولید slug از نام فارسی
   if (!this.slug) {
-    const rawSlug = slugify(this.name, {
-      lower: true,
-      strict: true,
-      locale: "fa", // برای نگه‌داشتن حروف فارسی
-      remove: /[*+~.()'"!:@،؛؟]/g, // حذف کاراکترهای خاص فارسی و انگلیسی
-    });
+    const baseSlug = slugifyPersian(this.name);
 
-    if (!rawSlug) {
+    if (!baseSlug) {
       return next(new Error("تولید اسلاگ معتبر از نام امکان‌پذیر نیست"));
     }
 
-    this.slug = rawSlug;
+    let finalSlug = baseSlug;
+    let counter = 1;
+
+    while (
+      await mongoose.model("Category").findOne({
+        slug: finalSlug,
+        _id: { $ne: this._id },
+      })
+    ) {
+      finalSlug = `${baseSlug}-${counter}`;
+      counter++;
+    }
+
+    this.slug = finalSlug;
   }
 
-  if (!this.metaTitle) {
-    this.metaTitle = this.name.substring(0, 70);
-  }
+  // ذخیره یا به‌روزرسانی اطلاعات SEO
+  const seoData = {
+    name: this.name,
+    description: this.description,
+    image: this.image,
+    slug: this.slug,
+    metaTitle: this.metaTitle,
+    metaDescription: this.metaDescription,
+  };
 
-  if (!this.metaDescription && this.description) {
-    this.metaDescription = this.description.substring(0, 160);
-  }
+  await seoService.updateSeo(this._id, "category", seoData);
 
-  // جلوگیری از حلقه در سلسله‌مراتب
+  // بررسی ارجاع حلقوی در parentId
   if (this.parentId) {
     const parents = new Set();
     let current = await mongoose.model("Category").findById(this.parentId);
@@ -94,6 +115,12 @@ CategorySchema.pre("save", async function (next) {
     }
   }
 
+  next();
+});
+
+CategorySchema.pre("remove", async function (next) {
+  // حذف اطلاعات SEO مرتبط
+  await seoService.deleteSeo(this._id, "category");
   next();
 });
 
